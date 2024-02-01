@@ -1,8 +1,4 @@
-import {
-  GetPriceListCategoriesQuery,
-  useGetPriceListCategoriesQuery,
-  useGetPriceListQuery,
-} from "@app/core/types";
+import { GetPriceListCategoriesQuery } from "@app/core/types";
 import { FC, useEffect } from "react";
 import Select, { ActionMeta } from "react-select";
 import { priceListCurrent } from "../../store/price-list-state";

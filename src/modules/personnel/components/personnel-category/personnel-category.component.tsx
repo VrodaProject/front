@@ -1,4 +1,3 @@
-import { Personnel_Categories } from "@app/core/types";
 import { FC } from "react";
 import { PersonnelList } from "../personnel-list/personnel-list.component";
 

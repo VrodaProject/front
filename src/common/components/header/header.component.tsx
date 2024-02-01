@@ -100,11 +100,21 @@ export const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden mt-5">
           <div className="flex flex-col space-y-3">
-            <LinkHeader url="/personnel">Персонал</LinkHeader>
-            <LinkHeader url="/price-list">Прайс лист</LinkHeader>
-            <LinkHeader url="/services">Послуги</LinkHeader>
-            <LinkHeader url="/products">Товари</LinkHeader>
-            <LinkHeader url="/checkout">Корзина</LinkHeader>
+            <button onClick={toggleMobileMenu}>
+              <LinkHeader url="/personnel">Персонал</LinkHeader>
+            </button>
+            <button onClick={toggleMobileMenu}>
+              <LinkHeader url="/price-list">Прайс лист</LinkHeader>
+            </button>
+            <button onClick={toggleMobileMenu}>
+              <LinkHeader url="/services">Послуги</LinkHeader>
+            </button>
+            <button onClick={toggleMobileMenu}>
+              <LinkHeader url="/products">Товари</LinkHeader>
+            </button>
+            <button onClick={toggleMobileMenu}>
+              <LinkHeader url="/checkout">Корзина</LinkHeader>
+            </button>
           </div>
 
           <div className="flex flex-row-reverse items-center space-x-5 mt-4">

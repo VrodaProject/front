@@ -1,6 +1,5 @@
 import { ReactComponent as UserSolidIcon } from "@app/assets/icons/user-solid.svg";
 import { FC, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { useOnClickOutside } from "@app/common/hooks/use-on-click-outside.hook";
 import { UserDropdownLink } from "../user-dropdown-link/user-dropdown-link.component";
 import { isLoggedInReactive } from "../../store/reactive-vars";

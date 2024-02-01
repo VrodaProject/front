@@ -1,9 +1,6 @@
 import { CategpryLinkGroupPersonnel } from "@app/common/components/link-groupt-personnel/link-group-personnel.component";
 import { ShowInfo } from "@app/common/components/show-info/show-info.component";
-import {
-  useGetPersonnelCategoriesQuery,
-  useGetPersonnelQuery,
-} from "@app/core/types";
+import { useGetPersonnelQuery } from "@app/core/types";
 import { ProductListLoading } from "@app/modules/product/components/product-item-list-loading/product-item-list-loading.component";
 
 import { FC } from "react";

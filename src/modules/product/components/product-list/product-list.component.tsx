@@ -1,6 +1,5 @@
 import { ProductItem } from "../product-item/product-item.component";
 import { FC } from "react";
-import { Prodact } from "./types/pizza";
 import { Products } from "@app/core/types";
 
 interface ProductListProps {

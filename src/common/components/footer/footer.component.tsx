@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as Logotype } from "@app/assets/images/logo.svg";
 import { ReactComponent as AccessTimeIcon } from "@app/assets/icons/access_time.svg";
 import { ReactComponent as SmartPhoneIcon } from "@app/assets/icons/smartphone.svg";
@@ -6,7 +5,6 @@ import { ReactComponent as LocalPhoneIcon } from "@app/assets/icons/local_phone.
 import { ReactComponent as InstagramIcon } from "@app/assets/icons/instagram.svg";
 import { ReactComponent as FacebookIcon } from "@app/assets/icons/facebook.svg";
 import { ReactComponent as TelegramIcon } from "@app/assets/icons/telegram.svg";
-import { FooterLink } from "../footer-link-item/footer-link-item.component";
 
 export const Footer = () => {
   return (

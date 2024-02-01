@@ -1,11 +1,6 @@
 import { Skeleton } from "@app/common/components/skeleton/skeleton.component";
 import { Orders } from "@app/core/types";
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { FC } from "react";
 
 interface UserOrdersTabelLoadingProps {}

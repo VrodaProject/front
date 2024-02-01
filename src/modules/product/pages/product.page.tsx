@@ -1,5 +1,4 @@
-import { useGetCategoriesQuery, useGetProductQuery } from "@app/core/types";
-import { ProductList } from "../components/product-list/product-list.component";
+import { useGetProductQuery } from "@app/core/types";
 import { ShowInfo } from "@app/common/components/show-info/show-info.component";
 import { ProductListLoading } from "../components/product-item-list-loading/product-item-list-loading.component";
 import { Helmet } from "react-helmet";

@@ -1,9 +1,4 @@
-import {
-  GetCategoriesQuery,
-  Products_Categories,
-  useGetCategoriesQuery,
-} from "@app/core/types";
-import { FC } from "react";
+import { useGetCategoriesQuery } from "@app/core/types";
 import { CategpryLinkItem } from "../link-item/link-item.component";
 
 export const CategpryLinkGroup = () => {

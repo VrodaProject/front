@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FC, PropsWithChildren, ReactNode } from "react";
+import { FC, PropsWithChildren } from "react";
 
 interface ActionPaperProps {
   title: string;

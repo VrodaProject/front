@@ -4,7 +4,6 @@ import { FC } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {
-  CheckoutFormProps,
   CheckoutFormValues,
   UseCheckoutFormOptions,
 } from "./checkout-form.types";

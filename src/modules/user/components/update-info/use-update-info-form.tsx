@@ -3,8 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { UpdateInfoFormValues, min3Symbols } from "./upadate-info.types";
 import * as yup from "yup";
-import { Customers } from "@app/core/types";
-
 import { FrontCustomer } from "../../types/user";
 import { toast } from "react-toastify";
 

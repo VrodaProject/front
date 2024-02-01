@@ -4,7 +4,6 @@ import { FC, useEffect } from "react";
 import { CartList } from "@app/modules/cart/components/cart-list/cart-list.component";
 import { useReactiveVar } from "@apollo/client";
 import { cartState, cleanCart } from "@app/modules/cart/store/cart-state";
-import { toast } from "react-toastify";
 import { useGetMeDataQuery } from "@app/modules/auth/hooks/use-get-customer-data-query";
 import { CheckoutForm } from "../checkout-form/checkout-form.component";
 import { CheckoutFormValues } from "../checkout-form/checkout-form.types";

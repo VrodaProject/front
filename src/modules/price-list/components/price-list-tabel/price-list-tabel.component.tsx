@@ -3,7 +3,6 @@ import { FC, useEffect, useState } from "react";
 import { priceListCurrent } from "../../store/price-list-state";
 import {
   GetPriceListCategoryByIdQuery,
-  GetPriceListQuery,
   useGetPriceListQuery,
 } from "@app/core/types";
 import {
@@ -12,7 +11,6 @@ import {
   createColumnHelper,
   flexRender,
 } from "@tanstack/react-table";
-import { DateTime } from "luxon";
 
 interface PriceListTabelProps {}
 

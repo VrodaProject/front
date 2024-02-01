@@ -1,7 +1,5 @@
 import { Footer } from "./common/components/footer/footer.component";
 import { Header } from "./common/components/header/header.component";
-import { ProductList } from "./modules/product/components/product-list/product-list.component";
-import productMenu from "@app/mocks/pizza.json";
 import { ProductPage } from "./modules/product/pages/product.page";
 import { Routes, Route } from "react-router-dom";
 import { LoginPage } from "./modules/auth/pages/login.page";

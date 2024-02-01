@@ -7,7 +7,6 @@ import clsx from "clsx";
 import { useOnClickOutside } from "@app/common/hooks/use-on-click-outside.hook";
 import { cartOpenedState, closeCart } from "../../store/cart-opened-state";
 import { Link } from "react-router-dom";
-import { element } from "prop-types";
 import { cartState } from "../../store/cart-state";
 import { CartList } from "../cart-list/cart-list.component";
 

@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { error } from "console";
 import { InputNumberSize } from "./input-number.type";
 
 export const useInputNumberClasses = (

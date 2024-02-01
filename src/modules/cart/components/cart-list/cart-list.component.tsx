@@ -1,11 +1,6 @@
-import { useReactiveVar } from "@apollo/client";
-import { cartState } from "../../store/cart-state";
-
 import { CartitemListLoading } from "../cart-item-list-loading/cart-item-list-loading.component";
 import { CartItem } from "../cart-item/cart-item.component";
-import { Button } from "@app/common/components/button/button.component";
-import { Link } from "react-router-dom";
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import clsx from "clsx";
 import { useCartItems } from "@app/modules/checkout/hooks/use-cart-items";
 

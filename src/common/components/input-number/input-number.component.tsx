@@ -1,5 +1,4 @@
-import clsx from "clsx";
-import { ComponentProps, FC, forwardRef, useId, useState } from "react";
+import {  forwardRef, useId, useState } from "react";
 import { ReactComponent as ExclamationCircleSolid } from "@app/assets/icons/exclamation-circle-solid.svg";
 import { ReactComponent as MinusIcon } from "@app/assets/icons/minus-circle.svg";
 import { ReactComponent as PlusIcon } from "@app/assets/icons/plus-circle.svg";

@@ -1,4 +1,3 @@
-import { useGetAdvantagesQuery } from "@app/core/types";
 import { FC } from "react";
 
 interface AdvantageItemProps {

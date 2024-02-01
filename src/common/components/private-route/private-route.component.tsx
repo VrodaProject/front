@@ -1,4 +1,3 @@
-import { useGetMeDataQuery } from "@app/modules/auth/hooks/use-get-customer-data-query";
 import { FC, PropsWithChildren, ReactElement } from "react";
 import { Navigate } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import { Personnel, Services } from "@app/core/types";
+import { Services } from "@app/core/types";
 import { FC } from "react";
 import { ServicesItem } from "../services-item/services-item.component";
 

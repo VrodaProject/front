@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { ReactComponent as ProductItemImage } from "../../../assets/images/product_item_image.svg";
 import { AdvancedImage } from "@cloudinary/react";
 import { useCloudinaryImage } from "@app/common/hooks/use-cloudinary-image.hook";
 import clsx from "clsx";

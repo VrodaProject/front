@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ComponentProps, FC, forwardRef, useId } from "react";
+import { ComponentProps, forwardRef, useId } from "react";
 import { ReactComponent as ExclamationCircleSolid } from "@app/assets/icons/exclamation-circle-solid.svg";
 
 interface InputProps {
