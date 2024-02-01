@@ -1,0 +1,16 @@
+query GetPersonnel {
+  personnel_categories {
+    slug
+    title
+    id
+    personnel_items {
+      name
+      image
+      id
+      description
+      personnel_category {
+        title
+      }
+    }
+  }
+}

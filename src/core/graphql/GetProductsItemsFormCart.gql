@@ -1,0 +1,8 @@
+query GetProductsItemsFormCart($productsIds: [uuid!]!) {
+  products(where: { id: { _in: $productsIds } }) {
+    image
+    title
+    price
+    id
+  }
+}

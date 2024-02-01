@@ -1,0 +1,16 @@
+query GetProduct {
+  products_categories {
+    slug
+    title
+    id
+    products_items {
+      image
+      id
+      description
+      price
+      title
+      products_category_id
+      weight
+    }
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "image": "product_item_image.svg",
+    "weight": 50,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 212
+  },
+  {
+    "id": 2,
+    "image": "product_item_image.png",
+    "weight": 50,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 213
+  },
+  {
+    "id": 3,
+    "image": "product_item_image.png",
+    "weight": 50,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 219
+  },
+  {
+    "id": 4,
+    "image": "product_item_image.png",
+    "weight": 550,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 260
+  },
+  {
+    "id": 5,
+    "image": "product_item_image.png",
+    "weight": 560,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 250
+  },
+  {
+    "id": 6,
+    "image": "product_item_image.png",
+    "weight": 552,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 260
+  },
+  {
+    "id": 7,
+    "image": "product_item_image.png",
+    "weight": 552,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 255
+  },
+  {
+    "id": 8,
+    "image": "product_item_image.png",
+    "weight": 569,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 250
+  },
+  {
+    "id": 9,
+    "image": "product_item_image.png",
+    "weight": 540,
+    "title": "Крем для обличчя",
+    "description": "Зволожує, освіжає та підтримує природну красу шкіри.",
+    "price": 250
+  }
+]

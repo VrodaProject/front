@@ -1,0 +1,7 @@
+query GetPersonnelCategories {
+  personnel_categories {
+    slug
+    title
+    id
+  }
+}

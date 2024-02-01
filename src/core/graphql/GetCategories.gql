@@ -1,0 +1,7 @@
+query GetCategories {
+  products_categories {
+    id
+    slug
+    title
+  }
+}
