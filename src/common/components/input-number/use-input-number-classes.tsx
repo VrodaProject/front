@@ -14,9 +14,9 @@ export const useInputNumberClasses = (
       "border-gray-300": !error,
       "border-red-300 focus:border-red-500 text-red-900": error,
       "w-full": fullWidth,
-      "py-2 px-15 ": size == InputNumberSize.base,
+      "py-2 px-15 ": size === InputNumberSize.base,
       "pr-20": InputNumberSize.base && !hideErrorMassage,
-      "py-0.5 px-9 ": size == InputNumberSize.sm,
+      "py-0.5 px-9 ": size === InputNumberSize.sm,
       "pr-14": InputNumberSize.sm && !hideErrorMassage,
     }
   );
@@ -29,8 +29,8 @@ export const useInputNumberClasses = (
     "border-gray-300": !error,
     "border-red-300": error && !isFocused,
     "border-red-500": error && isFocused,
-    "h-9 w-9": size == InputNumberSize.base,
-    "h-6 w-6": size == InputNumberSize.sm,
+    "h-9 w-9": size === InputNumberSize.base,
+    "h-6 w-6": size === InputNumberSize.sm,
   };
 
   const buttonsPlusClasses = clsx("border-l right-0", commonButtonClasses);
@@ -40,13 +40,13 @@ export const useInputNumberClasses = (
     "stroke-gray-400": !error,
     "stroke-red-300": error && !isFocused,
     "stroke-red-500": error && isFocused,
-    "w-4 h-4": size == InputNumberSize.sm,
-    "w-5 h-5": size == InputNumberSize.base,
+    "w-4 h-4": size === InputNumberSize.sm,
+    "w-5 h-5": size === InputNumberSize.base,
   });
 
   const errorMarkClasses = clsx("h-4 w-4 absolute fill-red-500", {
-    "top-2.75 right-12 ": size == InputNumberSize.base,
-    "top-1.25 right-8": size == InputNumberSize.sm,
+    "top-2.75 right-12 ": size === InputNumberSize.base,
+    "top-1.25 right-8": size === InputNumberSize.sm,
   });
 
   return {

@@ -4,7 +4,7 @@ import { RadionGroup } from "@app/common/components/radio-group/radio-group.comp
 import { TextArea } from "@app/common/components/textarea/text-area.component";
 import { FC, useEffect } from "react";
 import { Controller } from "react-hook-form";
-import { CheckoutFormProps, CheckoutFormValues } from "./checkout-form.types";
+import { CheckoutFormProps } from "./checkout-form.types";
 import { useCheckoutForm } from "./use-checkout-form";
 import { Payment_Types_Enum } from "@app/core/types";
 

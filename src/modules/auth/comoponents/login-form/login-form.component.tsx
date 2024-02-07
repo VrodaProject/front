@@ -53,7 +53,7 @@ export const LoginForm: FC<LoginFormProps> = ({
               />
             )}
           />
-          {step == LoginFormStep.second && (
+          {step === LoginFormStep.second && (
             <Controller
               name="code"
               control={control}
