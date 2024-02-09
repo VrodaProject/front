@@ -5,6 +5,7 @@ import { ReactComponent as LocalPhoneIcon } from "@app/assets/icons/local_phone.
 import { ReactComponent as InstagramIcon } from "@app/assets/icons/instagram.svg";
 import { ReactComponent as FacebookIcon } from "@app/assets/icons/facebook.svg";
 import { ReactComponent as TelegramIcon } from "@app/assets/icons/telegram.svg";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -13,17 +14,29 @@ export const Footer = () => {
 
       <div className="text-white text-xl font-normal flex flex-col gap-8 sm:flex-row md:gap-36 flex-wrap ">
         <ul className="flex flex-col gap-3">
-          <li className="hover:text-gray-300">Головна</li>
-          <li className="hover:text-gray-300">Послуги</li>
-          <li className="hover:text-gray-300">Обладнання</li>
-          <li className="hover:text-gray-300">Товари</li>
+          <li className="hover:text-gray-300">
+            <Link to="/">Головна</Link>
+          </li>
+          <li className="hover:text-gray-300">
+            <Link to="/services">Послуги</Link>
+          </li>
+          <li className="hover:text-gray-300">
+            <Link to="/products">Товари</Link>
+          </li>
         </ul>
 
         <ul className="flex flex-col gap-3">
-          <li className="hover:text-gray-300">Переваги</li>
-          <li className="hover:text-gray-300">Сертифікати</li>
-          <li className="hover:text-gray-300">Персонал</li>
-          <li className="hover:text-gray-300">Про нас</li>
+          <li className="hover:text-gray-300">
+            <Link to="/login">Вхід</Link>
+          </li>
+          <li className="hover:text-gray-300">
+            {" "}
+            <Link to="/personnel">Персонал</Link>
+          </li>
+          <li className="hover:text-gray-300">
+            {" "}
+            <Link to="/price-list">Прайс лист</Link>{" "}
+          </li>
         </ul>
 
         <ul className="flex flex-col gap-8 md:gap-3">

@@ -38,7 +38,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <>
+    <div className="mt-6">
       <Helmet>
         <title>Вхід</title>
       </Helmet>
@@ -51,6 +51,6 @@ export const LoginPage = () => {
           onSecondStepCallback={onSecondStepCallback}
         />
       </div>
-    </>
+    </div>
   );
 };

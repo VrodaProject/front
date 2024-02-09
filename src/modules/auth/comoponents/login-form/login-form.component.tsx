@@ -36,7 +36,7 @@ export const LoginForm: FC<LoginFormProps> = ({
   };
 
   return (
-    <div className="w-112 mx-auto py-8 px-10 bg-white rounded-lg shadow">
+    <div className="sm:w-112 w-full mx-auto py-8 px-10 bg-white rounded-lg shadow ">
       <form onSubmit={onSubmit}>
         <div className="flex flex-col gap-2">
           <Controller
