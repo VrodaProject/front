@@ -10,6 +10,7 @@ import {
   LoginFormStepkeys,
 } from "./login-form.types";
 import { useLoginForm } from "./use-login-form";
+import { Link } from "react-router-dom";
 
 export const LoginForm: FC<LoginFormProps> = ({ onFirstStepCallback }) => {
   const [step] = useState<LoginFormStepkeys>(LoginFormStep.first);
@@ -51,10 +52,13 @@ export const LoginForm: FC<LoginFormProps> = ({ onFirstStepCallback }) => {
               />
             )}
           />
-          <div className="text-center">
+          <div className=" flex flex-col items-center gap-4">
             <Button type="submit" disbled={isSubmitting}>
               Ввійти
             </Button>
+            <h1 className="text-l hover:text-darkTea font-normal underline underline-offset-2 hover:no-underline">
+              <Link to="/register">Зареєструйтуватись</Link>
+            </h1>
           </div>
         </div>
       </form>

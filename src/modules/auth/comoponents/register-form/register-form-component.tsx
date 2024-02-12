@@ -9,6 +9,7 @@ import {
   RegisterFormStepkeys,
   RegisterFormStep,
 } from "./register-form.types";
+import { Link } from "react-router-dom";
 
 export const RegisterForm: FC<RegisterFormProps> = ({
   onFirstStepCallback,
@@ -24,12 +25,12 @@ export const RegisterForm: FC<RegisterFormProps> = ({
       <form onSubmit={onSubmit}>
         <div className="flex flex-col gap-2">
           <Controller
-            name="phoneNumber"
+            name="name"
             control={control}
             render={({ field, fieldState }) => (
               <Input
-                lable="Телефон"
-                placeholder="+380976597611"
+                lable="Ім'я"
+                placeholder="Введіть своє ім'я"
                 fullWidth
                 error={fieldState.error?.message}
                 type="text"
@@ -53,6 +54,21 @@ export const RegisterForm: FC<RegisterFormProps> = ({
             )}
           />
           <Controller
+            name="phoneNumber"
+            control={control}
+            render={({ field, fieldState }) => (
+              <Input
+                lable="Телефон"
+                placeholder="+380976597611"
+                fullWidth
+                error={fieldState.error?.message}
+                type="text"
+                {...field}
+              />
+            )}
+          />
+
+          <Controller
             name="address"
             control={control}
             render={({ field, fieldState }) => (
@@ -66,24 +82,14 @@ export const RegisterForm: FC<RegisterFormProps> = ({
               />
             )}
           />
-          <Controller
-            name="name"
-            control={control}
-            render={({ field, fieldState }) => (
-              <Input
-                lable="Ім'я"
-                placeholder="Введіть своє ім'я"
-                fullWidth
-                error={fieldState.error?.message}
-                type="text"
-                {...field}
-              />
-            )}
-          />
-          <div className="text-center">
+
+          <div className="flex flex-col items-center gap-4  ">
             <Button type="submit" disbled={isSubmitting}>
               Зареєструвати
             </Button>
+            <h1 className="text-l hover:text-darkTea font-normal underline underline-offset-2 hover:no-underline">
+              <Link to="/login">Вже є акаунт</Link>
+            </h1>
           </div>
         </div>
       </form>

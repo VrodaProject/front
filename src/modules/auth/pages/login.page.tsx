@@ -32,12 +32,11 @@ export const LoginPage = () => {
       <Helmet>
         <title>Вхід</title>
       </Helmet>
-      <div>
+      <div className="my-12">
         <h1 className="text-3xl  text-center mb-12">
           Увійти до вашого кабінету Vroda
         </h1>
         <LoginForm onFirstStepCallback={onFirstStepCallback} />
-        <Link to="/register">Зареєструйтуватись</Link>
       </div>
     </>
   );

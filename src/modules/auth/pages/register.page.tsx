@@ -10,7 +10,6 @@ import {
 } from "./../../../core/types";
 import { RegisterForm } from "../comoponents/register-form/register-form-component";
 
-
 export const RegisterPage = () => {
   const navigate = useNavigate();
   const [sendPhoneNumber] = useCustomerRegisterMutation({
@@ -43,7 +42,7 @@ export const RegisterPage = () => {
       <Helmet>
         <title>Вхід</title>
       </Helmet>
-      <div>
+      <div className="my-12">
         <h1 className="text-3xl  text-center mb-12">
           Зареєструйте ваш кабінет Vroda
         </h1>
