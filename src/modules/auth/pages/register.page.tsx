@@ -42,7 +42,7 @@ export const RegisterPage = () => {
       <Helmet>
         <title>Вхід</title>
       </Helmet>
-      <div className="my-12">
+      <div className="my-12 ">
         <h1 className="text-3xl  text-center mb-12">
           Зареєструйте ваш кабінет Vroda
         </h1>

@@ -21,7 +21,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({
   );
 
   return (
-    <div className="w-112 mx-auto py-8 px-10 bg-white rounded-lg shadow">
+    <div className="w-full sm:w-112 mx-auto py-8 px-10 bg-white rounded-lg shadow">
       <form onSubmit={onSubmit}>
         <div className="flex flex-col gap-2">
           <Controller
