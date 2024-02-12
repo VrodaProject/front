@@ -1,5 +1,5 @@
-query CustomerLogin($phoneNumber: String!) {
-  customerLogin(input: { phoneNumber: $phoneNumber }) {
-    status
+query CustomerLogin($phone: String!, $password: String!) {
+  customerLoginPassword(customer: { password: $password, phone: $phone }) {
+    accessToken
   }
 }

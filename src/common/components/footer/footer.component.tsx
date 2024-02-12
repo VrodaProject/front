@@ -35,7 +35,8 @@ export const Footer = () => {
           </li>
           <li className="hover:text-gray-300">
             {" "}
-            <Link to="/price-list">Прайс лист</Link>{" "}
+            <Link to="/price-list
+            3">Прайс лист</Link>{" "}
           </li>
         </ul>
 

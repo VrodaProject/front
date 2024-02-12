@@ -442,6 +442,28 @@ export enum Cursor_Ordering {
   Desc = 'DESC'
 }
 
+export type CustomerLoginPasswordInput = {
+  password: Scalars['String']['input'];
+  phone: Scalars['String']['input'];
+};
+
+export type CustomerLoginPasswordOutput = {
+  __typename?: 'customerLoginPasswordOutput';
+  accessToken: Scalars['String']['output'];
+};
+
+export type CustomerRegisterInput = {
+  address: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  phone: Scalars['String']['input'];
+};
+
+export type CustomerRegisterOutput = {
+  __typename?: 'customerRegisterOutput';
+  accessToken: Scalars['String']['output'];
+};
+
 export type CustomerVerifyCodeInput = {
   code: Scalars['String']['input'];
   phoneNumber: Scalars['String']['input'];
@@ -462,6 +484,7 @@ export type Customers = {
   orders: Array<Orders>;
   /** An aggregate relationship */
   orders_aggregate: Orders_Aggregate;
+  password?: Maybe<Scalars['String']['output']>;
   phone: Scalars['String']['output'];
   twilioVerificationSid?: Maybe<Scalars['String']['output']>;
 };
@@ -518,6 +541,7 @@ export type Customers_Bool_Exp = {
   name?: InputMaybe<String_Comparison_Exp>;
   orders?: InputMaybe<Orders_Bool_Exp>;
   orders_aggregate?: InputMaybe<Orders_Aggregate_Bool_Exp>;
+  password?: InputMaybe<String_Comparison_Exp>;
   phone?: InputMaybe<String_Comparison_Exp>;
   twilioVerificationSid?: InputMaybe<String_Comparison_Exp>;
 };
@@ -536,6 +560,7 @@ export type Customers_Insert_Input = {
   id?: InputMaybe<Scalars['uuid']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   orders?: InputMaybe<Orders_Arr_Rel_Insert_Input>;
+  password?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   twilioVerificationSid?: InputMaybe<Scalars['String']['input']>;
 };
@@ -546,6 +571,7 @@ export type Customers_Max_Fields = {
   address?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   name?: Maybe<Scalars['String']['output']>;
+  password?: Maybe<Scalars['String']['output']>;
   phone?: Maybe<Scalars['String']['output']>;
   twilioVerificationSid?: Maybe<Scalars['String']['output']>;
 };
@@ -556,6 +582,7 @@ export type Customers_Min_Fields = {
   address?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   name?: Maybe<Scalars['String']['output']>;
+  password?: Maybe<Scalars['String']['output']>;
   phone?: Maybe<Scalars['String']['output']>;
   twilioVerificationSid?: Maybe<Scalars['String']['output']>;
 };
@@ -589,6 +616,7 @@ export type Customers_Order_By = {
   id?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
   orders_aggregate?: InputMaybe<Orders_Aggregate_Order_By>;
+  password?: InputMaybe<Order_By>;
   phone?: InputMaybe<Order_By>;
   twilioVerificationSid?: InputMaybe<Order_By>;
 };
@@ -607,6 +635,8 @@ export enum Customers_Select_Column {
   /** column name */
   Name = 'name',
   /** column name */
+  Password = 'password',
+  /** column name */
   Phone = 'phone',
   /** column name */
   TwilioVerificationSid = 'twilioVerificationSid'
@@ -617,6 +647,7 @@ export type Customers_Set_Input = {
   address?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   twilioVerificationSid?: InputMaybe<Scalars['String']['input']>;
 };
@@ -634,6 +665,7 @@ export type Customers_Stream_Cursor_Value_Input = {
   address?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
+  password?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   twilioVerificationSid?: InputMaybe<Scalars['String']['input']>;
 };
@@ -646,6 +678,8 @@ export enum Customers_Update_Column {
   Id = 'id',
   /** column name */
   Name = 'name',
+  /** column name */
+  Password = 'password',
   /** column name */
   Phone = 'phone',
   /** column name */
@@ -830,6 +864,7 @@ export type Mutation_Root = {
   /** Admin registration */
   adminRegister?: Maybe<AdminRegisterOutput>;
   createOrder?: Maybe<CreateOrderOutput>;
+  customerRegister?: Maybe<CustomerRegisterOutput>;
   /** delete data from the table: "admin" */
   delete_admin?: Maybe<Admin_Mutation_Response>;
   /** delete single row from the table: "admin" */
@@ -1052,6 +1087,12 @@ export type Mutation_RootAdminRegisterArgs = {
 /** mutation root */
 export type Mutation_RootCreateOrderArgs = {
   order: CreateOrderInput;
+};
+
+
+/** mutation root */
+export type Mutation_RootCustomerRegisterArgs = {
+  customer: CustomerRegisterInput;
 };
 
 
@@ -4498,6 +4539,7 @@ export type Query_Root = {
   cloudinarySignature?: Maybe<CloudinarySignatureOutput>;
   /** Customer login */
   customerLogin?: Maybe<CustomerLoginOutput>;
+  customerLoginPassword?: Maybe<CustomerLoginPasswordOutput>;
   /** Customer verify code */
   customerVerifyCode?: Maybe<CustomerVerifyCodeOutput>;
   /** fetch data from the table: "customers" */
@@ -4638,6 +4680,11 @@ export type Query_RootAdvantages_By_PkArgs = {
 
 export type Query_RootCustomerLoginArgs = {
   input: CustomerLoginInput;
+};
+
+
+export type Query_RootCustomerLoginPasswordArgs = {
+  customer: CustomerLoginPasswordInput;
 };
 
 
@@ -4965,7 +5012,7 @@ export type Query_RootServices_By_PkArgs = {
 /** columns and relationships of "services" */
 export type Services = {
   __typename?: 'services';
-  category: Scalars['String']['output'];
+  category?: Maybe<Scalars['String']['output']>;
   description: Scalars['String']['output'];
   id: Scalars['uuid']['output'];
   image: Scalars['String']['output'];
@@ -5776,11 +5823,22 @@ export type CreateOrderMutationVariables = Exact<{
 export type CreateOrderMutation = { __typename?: 'mutation_root', createOrder?: { __typename?: 'createOrderOutput', id: string, checkout_url?: string | null } | null };
 
 export type CustomerLoginQueryVariables = Exact<{
-  phoneNumber: Scalars['String']['input'];
+  phone: Scalars['String']['input'];
+  password: Scalars['String']['input'];
 }>;
 
 
-export type CustomerLoginQuery = { __typename?: 'query_root', customerLogin?: { __typename?: 'CustomerLoginOutput', status: string } | null };
+export type CustomerLoginQuery = { __typename?: 'query_root', customerLoginPassword?: { __typename?: 'customerLoginPasswordOutput', accessToken: string } | null };
+
+export type CustomerRegisterMutationVariables = Exact<{
+  address: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  phone: Scalars['String']['input'];
+}>;
+
+
+export type CustomerRegisterMutation = { __typename?: 'mutation_root', customerRegister?: { __typename?: 'customerRegisterOutput', accessToken: string } | null };
 
 export type CustomerVerifyCodeQueryVariables = Exact<{
   code: Scalars['String']['input'];
@@ -5850,7 +5908,7 @@ export type GetProductsItemsFormCartQuery = { __typename?: 'query_root', product
 export type GetServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetServicesQuery = { __typename?: 'query_root', services: Array<{ __typename?: 'services', id: any, image: string, name: string, category: string, description: string }> };
+export type GetServicesQuery = { __typename?: 'query_root', services: Array<{ __typename?: 'services', id: any, image: string, name: string, category?: string | null, description: string }> };
 
 export type UpdateCustomerDataMutationVariables = Exact<{
   id: Scalars['uuid']['input'];
@@ -5905,9 +5963,9 @@ export type CreateOrderMutationHookResult = ReturnType<typeof useCreateOrderMuta
 export type CreateOrderMutationResult = Apollo.MutationResult<CreateOrderMutation>;
 export type CreateOrderMutationOptions = Apollo.BaseMutationOptions<CreateOrderMutation, CreateOrderMutationVariables>;
 export const CustomerLoginDocument = gql`
-    query CustomerLogin($phoneNumber: String!) {
-  customerLogin(input: {phoneNumber: $phoneNumber}) {
-    status
+    query CustomerLogin($phone: String!, $password: String!) {
+  customerLoginPassword(customer: {password: $password, phone: $phone}) {
+    accessToken
   }
 }
     `;
@@ -5924,7 +5982,8 @@ export const CustomerLoginDocument = gql`
  * @example
  * const { data, loading, error } = useCustomerLoginQuery({
  *   variables: {
- *      phoneNumber: // value for 'phoneNumber'
+ *      phone: // value for 'phone'
+ *      password: // value for 'password'
  *   },
  * });
  */
@@ -5944,6 +6003,44 @@ export type CustomerLoginQueryHookResult = ReturnType<typeof useCustomerLoginQue
 export type CustomerLoginLazyQueryHookResult = ReturnType<typeof useCustomerLoginLazyQuery>;
 export type CustomerLoginSuspenseQueryHookResult = ReturnType<typeof useCustomerLoginSuspenseQuery>;
 export type CustomerLoginQueryResult = Apollo.QueryResult<CustomerLoginQuery, CustomerLoginQueryVariables>;
+export const CustomerRegisterDocument = gql`
+    mutation CustomerRegister($address: String!, $name: String!, $password: String!, $phone: String!) {
+  customerRegister(
+    customer: {address: $address, name: $name, password: $password, phone: $phone}
+  ) {
+    accessToken
+  }
+}
+    `;
+export type CustomerRegisterMutationFn = Apollo.MutationFunction<CustomerRegisterMutation, CustomerRegisterMutationVariables>;
+
+/**
+ * __useCustomerRegisterMutation__
+ *
+ * To run a mutation, you first call `useCustomerRegisterMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCustomerRegisterMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [customerRegisterMutation, { data, loading, error }] = useCustomerRegisterMutation({
+ *   variables: {
+ *      address: // value for 'address'
+ *      name: // value for 'name'
+ *      password: // value for 'password'
+ *      phone: // value for 'phone'
+ *   },
+ * });
+ */
+export function useCustomerRegisterMutation(baseOptions?: Apollo.MutationHookOptions<CustomerRegisterMutation, CustomerRegisterMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CustomerRegisterMutation, CustomerRegisterMutationVariables>(CustomerRegisterDocument, options);
+      }
+export type CustomerRegisterMutationHookResult = ReturnType<typeof useCustomerRegisterMutation>;
+export type CustomerRegisterMutationResult = Apollo.MutationResult<CustomerRegisterMutation>;
+export type CustomerRegisterMutationOptions = Apollo.BaseMutationOptions<CustomerRegisterMutation, CustomerRegisterMutationVariables>;
 export const CustomerVerifyCodeDocument = gql`
     query CustomerVerifyCode($code: String!, $phoneNumber: String!) {
   customerVerifyCode(input: {code: $code, phoneNumber: $phoneNumber}) {

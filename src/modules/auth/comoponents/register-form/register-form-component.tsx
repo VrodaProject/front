@@ -2,18 +2,19 @@ import { Button } from "@app/common/components/button/button.component";
 import { Input } from "@app/common/components/input/input.component";
 import { FC, useState } from "react";
 import { Controller } from "react-hook-form";
-import { Counter } from "@app/common/components/counter/counter.component";
-import { toast } from "react-toastify";
-import {
-  LoginFormProps,
-  LoginFormStep,
-  LoginFormStepkeys,
-} from "./login-form.types";
-import { useLoginForm } from "./use-login-form";
 
-export const LoginForm: FC<LoginFormProps> = ({ onFirstStepCallback }) => {
-  const [step] = useState<LoginFormStepkeys>(LoginFormStep.first);
-  const { onSubmit, control, isSubmitting } = useLoginForm(
+import { useRegisterForm } from "./use-register-form";
+import {
+  RegisterFormProps,
+  RegisterFormStepkeys,
+  RegisterFormStep,
+} from "./register-form.types";
+
+export const RegisterForm: FC<RegisterFormProps> = ({
+  onFirstStepCallback,
+}) => {
+  const [step] = useState<RegisterFormStepkeys>(RegisterFormStep.first);
+  const { onSubmit, control, isSubmitting } = useRegisterForm(
     step,
     onFirstStepCallback
   );
@@ -51,9 +52,37 @@ export const LoginForm: FC<LoginFormProps> = ({ onFirstStepCallback }) => {
               />
             )}
           />
+          <Controller
+            name="address"
+            control={control}
+            render={({ field, fieldState }) => (
+              <Input
+                lable="Адресса"
+                placeholder="Введіть свою адрессу"
+                fullWidth
+                error={fieldState.error?.message}
+                type="text"
+                {...field}
+              />
+            )}
+          />
+          <Controller
+            name="name"
+            control={control}
+            render={({ field, fieldState }) => (
+              <Input
+                lable="Ім'я"
+                placeholder="Введіть своє ім'я"
+                fullWidth
+                error={fieldState.error?.message}
+                type="text"
+                {...field}
+              />
+            )}
+          />
           <div className="text-center">
             <Button type="submit" disbled={isSubmitting}>
-              Ввійти
+              Зареєструвати
             </Button>
           </div>
         </div>

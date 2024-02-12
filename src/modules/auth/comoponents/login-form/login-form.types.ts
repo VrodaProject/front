@@ -1,16 +1,14 @@
 export interface LoginFormProps {
-  onFirstStepCallback?: (phoneNumber: string) => Promise<void>;
-  onSecondStepCallback?: (phoneNumber: string, code: string) => Promise<void>;
+  onFirstStepCallback?: (phone: string, password: string) => Promise<void>;
 }
 
 export interface LoginFormValues {
   phoneNumber: string;
-  code?: string;
+  password: string;
 }
 
 export enum LoginFormStep {
   first = "first",
-  second = "second",
 }
 
 export type LoginFormStepkeys = keyof typeof LoginFormStep;

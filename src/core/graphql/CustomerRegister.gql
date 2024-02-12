@@ -1,0 +1,17 @@
+mutation CustomerRegister(
+  $address: String!
+  $name: String!
+  $password: String!
+  $phone: String!
+) {
+  customerRegister(
+    customer: {
+      address: $address
+      name: $name
+      password: $password
+      phone: $phone
+    }
+  ) {
+    accessToken
+  }
+}

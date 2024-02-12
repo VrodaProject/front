@@ -11,6 +11,7 @@ interface InputProps {
   lable: string;
   placeholder: string;
   error?: string;
+  type?: ComponentProps<"input">["type"];
   fullWidth?: boolean;
 }
 
