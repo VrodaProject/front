@@ -14,6 +14,7 @@ import { MainPage } from "./modules/main/pages/main.page";
 import { PersonnelPage } from "./modules/personnel/pages/pesonnel.page";
 import { PriceListPage } from "./modules/price-list/pages/price-list.page";
 import { ServiceslPage } from "./modules/services/pages/services.page";
+import { RegisterPage } from "./modules/auth/pages/register.page";
 
 export const App = () => {
   useEffect(() => {
@@ -29,6 +30,7 @@ export const App = () => {
         <Routes>
           <Route path="/products" element={<ProductPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route
             path="/profile"
             element={
