@@ -16,7 +16,7 @@ export const SerivcesList: FC<ServicesListProps> = ({ items, title }) => {
           <ServicesItem
             image={`${image}`}
             description={description}
-            category={category}
+            category={category!}
             {...services}
             key={`services-${services.id}`}
           />
