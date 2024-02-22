@@ -13,7 +13,7 @@ export interface CheckoutFormValues {
   paymentType:
     | Payment_Types_Enum.Card
     | Payment_Types_Enum.Cash
-    | Payment_Types_Enum.Online;
+
   comment?: string | undefined;
 }
 

@@ -11,7 +11,6 @@ import { Payment_Types_Enum } from "@app/core/types";
 const options = [
   { label: "Готівка", value: Payment_Types_Enum.Cash },
   { label: "Картка", value: Payment_Types_Enum.Card },
-  { label: "Онлайн", value: Payment_Types_Enum.Online },
 ];
 
 export const CheckoutForm: FC<CheckoutFormProps> = ({

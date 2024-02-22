@@ -23,7 +23,7 @@ const validation = yup.object({
     .oneOf([
       Payment_Types_Enum.Card,
       Payment_Types_Enum.Cash,
-      Payment_Types_Enum.Online,
+    
     ])
     .required("Оберіть спосіб оплати"),
   comment: yup.string().notRequired().nonNullable(),
