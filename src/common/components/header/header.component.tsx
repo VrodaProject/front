@@ -41,6 +41,7 @@ export const Header = () => {
             <LinkHeader url="/price-list">Прайс лист</LinkHeader>
             <LinkHeader url="/services">Послуги</LinkHeader>
             <LinkHeader url="/products">Товари</LinkHeader>
+            <LinkHeader url="#contact">Контакти</LinkHeader>
           </div>
 
           <div className="flex items-center space-x-5 ml-auto gap-2 ">
@@ -86,6 +87,9 @@ export const Header = () => {
             </button>
             <button onClick={toggleMobileMenu}>
               <LinkHeader url="/checkout">Корзина</LinkHeader>
+            </button>
+            <button onClick={toggleMobileMenu}>
+              <LinkHeader url="#contact">Контакти</LinkHeader>
             </button>
           </div>
 

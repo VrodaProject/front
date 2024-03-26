@@ -9,7 +9,10 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <div className="bg-darkTea px-5 py-10 flex flex-col items-center mt-12 md:px-1">
+    <div
+      id="contact"
+      className="bg-darkTea px-5 py-10 flex flex-col items-center mt-12 md:px-1"
+    >
       <Logotype width={216} hanging={71} className="mb-5" />
 
       <div className="text-white text-xl font-normal flex flex-col gap-8 sm:flex-row md:gap-36 flex-wrap ">
@@ -52,7 +55,7 @@ export const Footer = () => {
           </li>
           <li className="flex gap-2 hover:text-gray-300 items-center">
             <SmartPhoneIcon width={31} hanging={31} />
-            +380961212120
+            <a href="tel:+380961212120">+380961212120</a>
           </li>
           <li className="flex gap-2 hover:text-gray-300 items-center">
             <LocationIcon width={31} hanging={31} />
