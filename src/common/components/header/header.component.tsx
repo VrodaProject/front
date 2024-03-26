@@ -21,6 +21,14 @@ export const Header = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="bg-darkTea p-5 z-10">
       <div className="container mx-auto flex justify-around items-center md:flex-col lg:flex-row  ">
@@ -41,7 +49,9 @@ export const Header = () => {
             <LinkHeader url="/price-list">Прайс лист</LinkHeader>
             <LinkHeader url="/services">Послуги</LinkHeader>
             <LinkHeader url="/products">Товари</LinkHeader>
-            <LinkHeader url="#contact">Контакти</LinkHeader>
+            <LinkHeader url="#contact">
+              <button onClick={scrollToContact}>Контакти</button>
+            </LinkHeader>
           </div>
 
           <div className="flex items-center space-x-5 ml-auto gap-2 ">
@@ -89,7 +99,9 @@ export const Header = () => {
               <LinkHeader url="/checkout">Корзина</LinkHeader>
             </button>
             <button onClick={toggleMobileMenu}>
-              <LinkHeader url="#contact">Контакти</LinkHeader>
+              <LinkHeader url="#contact">
+                <button onClick={scrollToContact}>Контакти</button>
+              </LinkHeader>
             </button>
           </div>
 
