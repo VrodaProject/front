@@ -49,7 +49,7 @@ export const Header = () => {
             <LinkHeader url="/price-list">Прайс лист</LinkHeader>
             <LinkHeader url="/services">Послуги</LinkHeader>
             <LinkHeader url="/products">Товари</LinkHeader>
-            <LinkHeader url="#contact">
+            <LinkHeader url="">
               <button onClick={scrollToContact}>Контакти</button>
             </LinkHeader>
           </div>
@@ -99,7 +99,7 @@ export const Header = () => {
               <LinkHeader url="/checkout">Корзина</LinkHeader>
             </button>
             <button onClick={toggleMobileMenu}>
-              <LinkHeader url="#contact">
+              <LinkHeader url="">
                 <button onClick={scrollToContact}>Контакти</button>
               </LinkHeader>
             </button>
