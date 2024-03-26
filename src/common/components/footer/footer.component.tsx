@@ -34,17 +34,10 @@ export const Footer = () => {
             <Link to="/login">Вхід</Link>
           </li>
           <li className="hover:text-gray-300">
-            {" "}
             <Link to="/personnel">Персонал</Link>
           </li>
           <li className="hover:text-gray-300">
-            {" "}
-            <Link
-              to="/price-list
-            3"
-            >
-              Прайс лист
-            </Link>{" "}
+            <Link to="/price-list">Прайс лист</Link>
           </li>
         </ul>
 
@@ -71,7 +64,9 @@ export const Footer = () => {
           </a>
         </li>
         <li>
-          <FacebookIcon />
+          <a href="https://www.facebook.com/vroda.club.estetic/">
+            <FacebookIcon />
+          </a>
         </li>
         <li>
           <a href="https://t.me/+380961212120">
