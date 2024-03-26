@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { priceListCurrent } from "../../store/price-list-state";
 import {
   GetPriceListCategoryByIdQuery,
+  GetPriceListQuery,
   useGetPriceListQuery,
 } from "@app/core/types";
 import {
@@ -12,13 +13,16 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 
-interface PriceListTabelProps {}
+interface PriceListTabelProps {
+  data: GetPriceListQuery;
+}
 
 const columnHelper =
   createColumnHelper<GetPriceListCategoryByIdQuery["price_list"][0]>();
 
-export const PriceListTabel: FC<PriceListTabelProps> = ({}) => {
-  const { data: DataPriceList, loading } = useGetPriceListQuery();
+export const PriceListTabel: FC<PriceListTabelProps> = ({
+  data: DataPriceList,
+}) => {
   const selection = useReactiveVar(priceListCurrent);
   const [foundObject, setFoundObject] = useState(
     DataPriceList?.price_list_categories[0]?.price_list_items || []
@@ -53,7 +57,7 @@ export const PriceListTabel: FC<PriceListTabelProps> = ({}) => {
 
   return (
     <div>
-      {foundObject.length !== 0 || loading ? (
+      {foundObject.length !== 0 ? (
         <table className="w-full ">
           <thead className="bg-gray-50 border-t border-b border-gray-200 h-11 text-gray-900 ">
             {table.getHeaderGroups().map((headerGroup) => (
