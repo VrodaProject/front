@@ -15,51 +15,23 @@ export const Header = () => {
   const isCheckoutPage = location.pathname === "/checkout";
   const isLoggedIn = useReactiveVar(isLoggedInReactive);
   const isLoginPage = location.pathname === "/login";
+  const isMainPage = location.pathname === "/";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
   return (
-    // <div className="h-36 bg-darkTea px-28 py-9	mb-12 flex justify-center items-center gap-28">
-    //   <div>
-    //     <Link to="/">
-    //       <Logotype />
-    //     </Link>
-    //   </div>
-    //   <div className="flex gap-15 ">
-    //     <LinkHeader url="/personnel">Персонал</LinkHeader>
-    //     <LinkHeader url="/price-list">Прайс лист</LinkHeader>
-    //     <LinkHeader url="/equipment">Обладнання</LinkHeader>
-    //     <LinkHeader url="/products">Товари</LinkHeader>
-    //   </div>
-
-    //   <div className="flex items-centerv gap-3">
-    //     {!isCheckoutPage && (
-    //       <div>
-    //         <button onClick={toggleCart} id="shopping-cart-item">
-    //           <ShoppingCartSolidIcon className="w-6 h-6 fill-white" />
-    //         </button>
-    //       </div>
-    //     )}
-
-    //     {isLoggedIn ? (
-    //       <UserDropdown />
-    //     ) : (
-    //       !isLoginPage && (
-    //         <Link to="/login">
-    //           <Button size="sm">Ввійти</Button>
-    //         </Link>
-    //       )
-    //     )}
-    //   </div>
-    // </div>
     <div className="bg-darkTea p-5 z-10">
       <div className="container mx-auto flex justify-around items-center md:flex-col lg:flex-row  ">
         <div>
-          <Link to="/">
+          {isMainPage ? (
             <Logotype />
-          </Link>
+          ) : (
+            <Link to="/">
+              <Logotype />
+            </Link>
+          )}
         </div>
 
         {/* Відображаємо різницю між мобільним та десктопним видами */}

@@ -1,7 +1,7 @@
 import { ReactComponent as Logotype } from "@app/assets/images/logo.svg";
 import { ReactComponent as AccessTimeIcon } from "@app/assets/icons/access_time.svg";
 import { ReactComponent as SmartPhoneIcon } from "@app/assets/icons/smartphone.svg";
-import { ReactComponent as LocalPhoneIcon } from "@app/assets/icons/local_phone.svg";
+import { ReactComponent as LocationIcon } from "@app/assets/icons/location.svg";
 import { ReactComponent as InstagramIcon } from "@app/assets/icons/instagram.svg";
 import { ReactComponent as FacebookIcon } from "@app/assets/icons/facebook.svg";
 import { ReactComponent as TelegramIcon } from "@app/assets/icons/telegram.svg";
@@ -17,6 +17,7 @@ export const Footer = () => {
           <li className="hover:text-gray-300">
             <Link to="/">Головна</Link>
           </li>
+
           <li className="hover:text-gray-300">
             <Link to="/services">Послуги</Link>
           </li>
@@ -35,8 +36,12 @@ export const Footer = () => {
           </li>
           <li className="hover:text-gray-300">
             {" "}
-            <Link to="/price-list
-            3">Прайс лист</Link>{" "}
+            <Link
+              to="/price-list
+            3"
+            >
+              Прайс лист
+            </Link>{" "}
           </li>
         </ul>
 
@@ -48,6 +53,10 @@ export const Footer = () => {
           <li className="flex gap-2 hover:text-gray-300 items-center">
             <SmartPhoneIcon width={31} hanging={31} />
             +380961212120
+          </li>
+          <li className="flex gap-2 hover:text-gray-300 items-center">
+            <LocationIcon width={31} hanging={31} />
+            Шевченка 120
           </li>
         </ul>
       </div>
