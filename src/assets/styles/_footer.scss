@@ -1,0 +1,109 @@
+.footer {
+    background: $colorPrimary;
+    padding: 120px 0 50px 0;
+    &__content {
+        &_top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        &_bottom {
+            padding-top: 35px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        &_container {
+            display: flex;
+            align-items: center;
+            gap: 100px;
+        }
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        &_link {
+            color: $colorSecondary;
+            font-weight: 400;
+            font-size: 18px;
+            font-family: "Geologica";
+            background: none;
+            box-shadow: none;
+            border: none;
+            cursor: pointer;
+            &:hover {
+                font-weight: 500;
+            }
+        }
+    }
+    &__review {
+        p {
+            font-family: "Lora";
+            font-weight: 500;
+            font-size: clamp(20px, 2.5vw, 32px);
+            text-transform: uppercase;
+            color: $colorSecondary;
+        }
+        a {
+            margin-top: 35px;
+            font-family: "Geologica";
+            font-weight: 500;
+            font-size: clamp(16px, 2vw, 20px);
+            text-transform: uppercase;
+            color: $colorPrimary;
+            background: $colorSecondary;
+            border-radius: 2px;
+            max-width: 260px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            transition: all .3s;
+            border:2px solid $colorPrimary;
+            &:hover {
+                color: $colorSecondary;
+                background: $colorPrimary;
+                border-color: $colorSecondary;
+                transition: all .3s;
+            }
+        }
+    }
+    &__link {
+        color: $colorSecondary;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: "Geologica";
+        &:hover {
+            font-weight: 500;
+        }
+        &:nth-child(2) {
+            margin-left: 25px;
+        }
+    }
+    &__social {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &_wrap {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+     
+        }
+        &_text {
+            font-weight: 400;
+            font-family: "Geologica";
+            max-width: 230px;
+            color: $colorSecondary;
+            font-size: 18px;
+        }
+    }
+    &__copyright {
+        font-family: "Geologica";
+        font-weight: 400;
+        font-size: clamp(14px, 1.2vw, 18px);
+        color: $colorSecondary;
+    }
+}

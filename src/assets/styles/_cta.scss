@@ -1,0 +1,278 @@
+.cta {
+    position: relative;
+    padding: 0 150px;
+    &::after {
+        content: "";
+        background: url("../images/cta/after.svg");
+        background-size: cover;
+        width: 400px;
+        height: 300px;
+        position: absolute;
+        right: 0;
+        top: -80px;    
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        background: #F2F7F7;
+    }
+    &__preview {
+        height: 600px;
+        width: 30%;
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__title {
+        font-family: "Lora";
+        font-weight: 500;
+        font-size: clamp(24px, 2.5vw, 48px);
+        line-height: 100%;
+        text-transform: uppercase;
+        color: $colorPrimary;
+        padding-bottom: 30px;
+        span {
+            font-family: "AnastasiaScript";
+            font-weight: 400;
+            font-size: clamp(64px, 10vw, 128px);
+
+        }
+    }
+    &__subtitle {
+        font-family: "Geologica";
+        font-weight: 500;
+        font-size: clamp(16px, 2vw, 24px);
+        line-height: 100%;
+        color: $colorText;
+        padding-bottom: 30px;
+    }
+    &__form {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-bottom: 50px;
+        &_wrap {
+            padding: 50px 0 50px 0;
+            width:70%;
+            margin: 0 50px;
+        }
+        &_container {
+            width: calc(50% - 10px);
+        }
+        &_field {
+            box-shadow: 0px 2px 8px 0px #364A431A;
+            width: 100%;
+            height: 60px;
+            background: $colorSecondary;
+            border: none;
+            border-radius: 2px;
+            padding: 0 30px;
+            font-family: "Geologica";
+            font-weight: 500;
+            font-size: clamp(14px, 1.5vw, 20px);
+
+            text-transform: uppercase;
+            color: $colorText;
+            &::placeholder {
+                font-family: "Geologica";
+                font-weight: 500;
+                font-size: clamp(14px, 1.5vw, 20px);
+
+                text-transform: uppercase;
+                color: $colorText;
+            }
+        }
+        &_button {
+            width: 100%;
+            height: 60px;
+            background: $colorPrimary;
+            color: $colorSecondary;
+            border: none;
+            border-radius: 2px;
+            font-family: "Geologica";
+            font-weight: 500;
+            font-size: clamp(16px, 2vw, 20px);
+            text-transform: uppercase;
+            cursor: pointer;
+
+        }
+        &_discount {
+            font-family: "Geologica";
+            font-weight: 400;
+            font-size: clamp(14px, 1.5vw, 20px);
+            line-height: 100%;
+            color: $colorText;
+        }
+    }
+}
+
+.cta__form_container select.cta__form_field {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.cta__form_container:has(select) {
+    position: relative;
+}
+
+.cta__form_container:has(select)::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-image: url("../images/cta/chevron-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.cta__form_select {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+   
+    &.active {
+      .cta__form_select-selected {
+        background: $colorPrimary;
+        color: $colorSecondary;
+        svg {
+            transform: rotateX(180deg);
+            path {
+                stroke: $colorSecondary
+            }
+        }
+      }
+    }
+  }
+  
+  .cta__form_select-selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $colorSecondary;
+    height: 60px;
+    box-shadow: 0px 2px 8px 0px rgba(54, 74, 67, 0.1019607843);
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    padding: 0 30px;
+    font-family: "Geologica";
+    font-weight: 500;
+    font-size: clamp(14px, 1.5vw, 20px);
+    text-transform: uppercase;
+    color: #364A43;
+    
+  }
+  
+  .cta__form_select-options {
+    background: $colorPrimary;
+    color: $colorSecondary;
+    padding: 0 30px;
+    font-family: "Geologica";
+    font-weight: 500;
+    font-size: clamp(14px, 1.5vw, 20px);
+    text-transform: uppercase;
+    color: $colorSecondary;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    border-top: none;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding: 25px 30px 0 25px;
+  }
+  
+  .cta__form_select-option {
+
+    padding-bottom: 20px;
+  }
+
+  .cta__thank-you-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .cta__thank-you-content {
+    background-color: #F2F7F7;
+    max-width: 1620px;
+    max-height: 615px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:40px;
+  }
+  
+  .cta__thank-you-title {
+    text-transform: uppercase;
+    font-family: "Lora";
+    font-weight: 500;
+    font-size: clamp(24px, 4vw, 48px);
+    color: $colorPrimary;
+    span {
+        font-family: "AnastasiaScript";
+        font-weight: 400;
+        font-size: clamp(64px, 8vw, 128px);
+        line-height: 100%;
+    }
+  }
+  
+  .cta__thank-you-text {
+    font-family: "Geologica";
+    font-weight: 500;
+    font-size: clamp(16px, 4vw, 24px);
+    color: $colorPrimary;
+    
+  }
+  
+  .cta__thank-you-button {
+    background-color: $colorPrimary;
+    max-width: 500px;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Geologica";
+    font-weight: 500;
+    font-size: clamp(16px, 2vw, 20px);
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: none;
+    transition:all 0.3s ease;
+    color: $colorSecondary;
+    cursor: pointer;
+    border: 2px solid $colorPrimary;
+  }
+  
+  .cta__thank-you-button:hover {
+    background: $colorSecondary;
+    color: $colorPrimary;
+  }

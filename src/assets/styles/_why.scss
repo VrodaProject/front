@@ -1,0 +1,106 @@
+.why {
+    margin-top: 100px;
+    &__top {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+    &__wrap {
+        display: flex;
+        gap: 20px;
+        align-items: start;
+    }
+    &__title {
+        font-family: "Lora";
+        font-weight: 500;
+        font-size: clamp(20px, 2.5vw, 40px);
+        text-transform: uppercase;
+        color: $colorPrimary;
+        line-height: 100%;
+        span {
+            font-family: "AnastasiaScript";
+            font-weight: 400;
+            font-size: clamp(48px, 10vw, 128px);
+        }
+    }
+    &__description {
+        max-width: 500px;
+        p {
+            font-family: "Geologica";
+            font-weight: 400;
+            font-size: clamp(15px, 1.5vw, 20px);
+            color: #364A43;
+            padding-bottom: 20px;
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+    &__list {
+        max-width: 500px;
+        padding: 0 0 20px 0;
+        p {
+            font-family: "Geologica";
+            font-weight: 500;
+            font-size: clamp(15px, 1.5vw, 20px);
+            line-height: 100%;   
+            color: $colorPrimary;            
+        }
+        ul {
+            padding: 10px 0 0 0;
+            li {
+                font-family: "Geologica";
+                font-weight: 500;
+                font-size: clamp(15px, 1.5vw, 20px);
+                line-height: 100%;
+                color: $colorPrimary;    
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap:5px;
+                &::before {
+                    content: url("../images/why/check-pc.svg");
+                }            
+            }
+        }
+    }
+
+    &__slider {
+        &_btn {
+            padding: 30px 150px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            justify-content:flex-end;
+            .why__slider_prev, .why__slider_next{
+                cursor: pointer;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+              
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0px 2px 8px 0px #364A431A;
+                background: #F2F7F733;
+                border: none;
+                &:hover {
+                    background: $colorPrimary;
+                    svg {
+                        path {
+                            stroke:$colorSecondary;
+                        }
+                    }
+                }
+            }
+        }
+       
+    }
+}
+
+.why__slider_wrapper .swiper .swiper-wrapper .swiper-slide {
+    img {
+        width: 100%;
+        height: 700px;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,72 @@
+.case {
+    border-bottom: 1px solid $colorPrimary;
+    &__content {
+        display: flex;
+    }
+    &__column {
+        border-right: 1px solid $colorPrimary;
+        padding: 150px 10px 145px 10px;
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        gap: 10px;
+        &:nth-child(4) {
+            border: none;
+        }
+    }
+    &__link {
+        margin-top: 40px;
+        border: 1px solid $colorPrimary;
+        color: $colorPrimary;
+        font-family: "Geologica";
+        font-weight: 500;
+        font-size: clamp(16px, 2vw, 20px);
+
+        line-height: 100%;
+        text-transform: uppercase;
+        max-width: 200px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        transition: all .3s;
+        &:hover {
+            color: $colorSecondary;
+            background: $colorPrimary;
+            transition: all .3s;
+        }
+    }
+    &__title {
+        font-family: "Lora";
+        font-weight: 500;
+        font-size: clamp(20px, 2.5vw, 32px);
+
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+        color: $colorPrimary;        
+    }
+    &__text {
+        font-family: "Geologica";
+        font-weight: 400;
+        font-size: clamp(16px, 2vw, 20px);
+
+        color: $colorText;
+        line-height: 100%;
+    }
+    &__image {
+        img {
+            max-width: 100%;
+        }
+    }
+    &__list {
+        &_item {
+            font-family: "Geologica";
+            font-weight: 400;
+            font-size: clamp(16px, 2vw, 20px);
+            color: $colorPrimary;
+            line-height: 100%;
+        }
+    }
+}

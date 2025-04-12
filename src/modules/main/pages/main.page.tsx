@@ -1,16 +1,24 @@
 import { FC } from "react";
-import { Slide } from "../components/slide/slide.component";
-import { AdvantagesGroup } from "../components/advantages/advantages-group/advantages-group.component";
-import { AboutUs } from "../components/about-us/about-us.component";
+import Hero from "../components/hero/hero.component";
+import Services from "../components/services/services.component";
+import Case from "../components/case/case.component";
+import Certificate from "../components/certificate/certificate.component";
+import Review from "../components/review/review.component";
+import Cta from "../components/cta/cta.component";
+import Why from "../components/whywe/why.component";
 
 interface MainPageProps {}
 
 export const MainPage: FC<MainPageProps> = ({}) => {
   return (
     <div className="">
-      <Slide />
-      <AdvantagesGroup />
-      <AboutUs />
+        <Hero />
+        <Services />
+        <Case />
+        <Certificate />
+        <Review />
+        <Cta />
+        <Why /> 
     </div>
   );
 };

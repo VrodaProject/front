@@ -7,8 +7,8 @@ import { PrivateRoute } from "./common/components/private-route/private-route.co
 import { ProfilePage } from "./modules/user/pages/profile.page";
 import { useEffect } from "react";
 import { isLoggedInReactive } from "./modules/auth/store/reactive-vars";
-import { CartSidebar } from "./modules/cart/components/cart-sidebar/cart-sidebar.component";
-import { CheckoutPage } from "./modules/checkout/pages/checkout.page";
+/* import { CartSidebar } from "./modules/cart/components/cart-sidebar/cart-sidebar.component";
+ */import { CheckoutPage } from "./modules/checkout/pages/checkout.page";
 import { ThankYouPage } from "./modules/checkout/pages/thank-you.page";
 import { MainPage } from "./modules/main/pages/main.page";
 import { PersonnelPage } from "./modules/personnel/pages/pesonnel.page";
@@ -25,10 +25,9 @@ export const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <CartSidebar />
-      <div className="flex-grow">
+       <div>
         <Routes>
-          <Route path="/products" element={<ProductPage />} />
+         {/*  <Route path="/products" element={<ProductPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route
@@ -38,13 +37,13 @@ export const App = () => {
                 <ProfilePage />
               </PrivateRoute>
             }
-          />
-          <Route path="/checkout" element={<CheckoutPage />} />
+          /> */}
+  {/*         <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/personnel" element={<PersonnelPage />} />
-          <Route path="/price-list" element={<PriceListPage />} />
+          <Route path="/price-list" element={<PriceListPage />} /> */}
           <Route path="/" element={<MainPage />} />
-          <Route path="/services" element={<ServiceslPage />} />
-          <Route path="/checkout/thank-you" element={<ThankYouPage />} />
+       {/*    <Route path="/services" element={<ServiceslPage />} />
+          <Route path="/checkout/thank-you" element={<ThankYouPage />} /> */}
         </Routes>
       </div>
       <Footer />
