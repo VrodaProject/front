@@ -1,5 +1,5 @@
 import React from "react";
-import heroVideo from "../../../../assets/images/hero/hero-video.webm";
+import heroVideo from "../../../../assets/video/hero-video.mp4";
 
 const Hero: React.FC = () => {
   return (

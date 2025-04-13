@@ -15,6 +15,8 @@ import { PersonnelPage } from "./modules/personnel/pages/pesonnel.page";
 import { PriceListPage } from "./modules/price-list/pages/price-list.page";
 import { ServiceslPage } from "./modules/services/pages/services.page";
 import { RegisterPage } from "./modules/auth/pages/register.page";
+import Privacy from "./modules/privacy/pages/privacy.page";
+import Ddpp from "./modules/dpp/pages/dpp.page";
 
 export const App = () => {
   useEffect(() => {
@@ -42,8 +44,10 @@ export const App = () => {
           <Route path="/personnel" element={<PersonnelPage />} />
           <Route path="/price-list" element={<PriceListPage />} /> */}
           <Route path="/" element={<MainPage />} />
-       {/*    <Route path="/services" element={<ServiceslPage />} />
-          <Route path="/checkout/thank-you" element={<ThankYouPage />} /> */}
+          <Route path="/privacy-policy" element={<Privacy />} />
+          <Route path="/data-processing-procedure" element={<Ddpp />} />
+        {/*   Route path="/services" element={<ServiceslPage />} />
+        <  <Route path="/checkout/thank-you" element={<ThankYouPage />} /> */}
         </Routes>
       </div>
       <Footer />

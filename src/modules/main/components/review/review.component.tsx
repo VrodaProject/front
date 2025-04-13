@@ -5,13 +5,14 @@ import type { Swiper as SwiperCore } from 'swiper/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import heartIcon from "../../../../assets/images/review/heart.svg";
-import video1 from "../../../../assets/images/review/storys/1.webm";
-import video2 from "../../../../assets/images/review/storys/2.webm";
-import video3 from "../../../../assets/images/review/storys/3.webm";
-import video4 from "../../../../assets/images/review/storys/4.webm";
-import video5 from "../../../../assets/images/review/storys/5.webm";
+import video1 from "../../../../assets/images/review/storys/1.mov";
+import video2 from "../../../../assets/images/review/storys/2.mov";
+import video3 from "../../../../assets/images/review/storys/3.mov";
+import video4 from "../../../../assets/images/review/storys/4.mov";
+import video5 from "../../../../assets/images/review/storys/5.mov";
+import video6 from "../../../../assets/images/review/storys/6.mov";
 
-const reviewVideos = [video1, video2, video3, video4, video5];
+const reviewVideos = [video1, video2, video3, video4, video5, video6];
 
 export default function Review() {
   const [realVideoIndex, setRealVideoIndex] = useState(0);
@@ -180,7 +181,7 @@ export default function Review() {
                           ref={el => videoRefs.current[index] = el}
                           aria-label={`Відгук ${index + 1}`}
                         >
-                          <source src={video} type="video/webm" />
+                          <source src={video} type="video/mov" />
                         </video>
                       </div>
                     </div>

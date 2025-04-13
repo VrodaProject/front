@@ -272,6 +272,7 @@
 
         &__slider {
             &_btn {
+                top: 18%;
                 left: 50%;
                 transform: translateX(-50%);
                 right: auto;
@@ -625,7 +626,18 @@
             border: none;
             position: relative;
             padding: 20px 0;
-
+            .case__image {
+                order: 1;
+            }
+            .case__title {
+                order: 2;
+            }
+            .case__text {
+                order: 3;
+            }
+            .case__list {
+                order: 4;
+            }
             &::after {
                 content: "";
                 width: 100vw;
@@ -758,6 +770,9 @@
 
 @media(max-width:530px) {
 
+    .services__slide {
+        width: min(90vw, 375px);
+      }
 
     .footer {
         &__logo {

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import formVideo from "../../../../assets/video/form-video.webm";
+import formVideo from "../../../../assets/video/form-video.mp4";
 
 interface Option {
   value: string;
@@ -12,7 +12,7 @@ export default function Cta() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [showThankYou, setShowThankYou] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Состояние для блокировки кнопки
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
   const options: Option[] = [
@@ -44,18 +44,15 @@ export default function Cta() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (isSubmitting) return; // Если форма уже отправляется, ничего не делаем
+    if (isSubmitting) return;
 
-    // Устанавливаем флаг блокировки кнопки
     setIsSubmitting(true);
     
-    // Получаем текущую дату и форматируем её
     const currentDate = new Date();
     const formattedDate = `${currentDate.getDate().toString().padStart(2, '0')}.${(currentDate.getMonth() + 1).toString().padStart(2, '0')}.${currentDate.getFullYear()} ${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}`;
     
-    // Создаем объект данных, исключая поле id
     const formData = {
-      date: formattedDate,  // форматированная дата
+      date: formattedDate,  
       name,
       phone,
       service: selectedOption
@@ -63,14 +60,13 @@ export default function Cta() {
     
     console.log('Form Data:', formData);
 
-    // Отправляем запрос на новый endpoint для записи в таблицу
     try {
-      const response = await fetch('https://sheetdb.io/api/v1/krv3mxtgdru6g', {
+      const response = await fetch('https://sheetdb.io/api/v1/o10gbhewn7206', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify([formData]) // Передаем массив данных
+        body: JSON.stringify([formData]) 
       });
 
       const result = await response.json();
@@ -85,7 +81,6 @@ export default function Cta() {
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
-      // Разблокируем кнопку после успешной отправки или ошибки
       setIsSubmitting(false);
     }
   };
@@ -198,7 +193,7 @@ export default function Cta() {
                 aria-label="Записатись на прийом" 
                 title="Записатись на прийом" 
                 type="submit"
-                disabled={isSubmitting} // Блокируем кнопку, пока идет отправка
+                disabled={isSubmitting}
               >
                 Записатись
               </button>

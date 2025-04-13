@@ -5,14 +5,13 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Swiper as SwiperType } from 'swiper';
 
-import slideImg1 from '../../../../assets/images/services/img-1.webp';
-import slideImg2 from '../../../../assets/images/services/img-2.webp';
+import slideImg1 from '../../../../assets/images/services/1.gif';
+import slideImg2 from '../../../../assets/images/services/2.gif';
 import slideImg3 from '../../../../assets/images/services/img-3.webp';
 import slideImg4 from '../../../../assets/images/services/img-4.webp';
 import slideImg5 from '../../../../assets/images/services/img-5.webp';
-import slideImg6 from '../../../../assets/images/services/img-6.webp';
+import slideImg6 from '../../../../assets/images/services/6.gif';
 import slideImg7 from '../../../../assets/images/services/img-7.webp';
-
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +19,7 @@ export default function Services() {
   const swiperRef = useRef<SwiperType | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 1130);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
 
   const handleResize = useCallback(() => {
     setIsMobile(window.innerWidth < 1130);
@@ -112,10 +112,15 @@ export default function Services() {
     setup();
     window.addEventListener('resize', setup);
 
+    swiper.on('slideChange', () => {
+      setShowLeftArrow(!swiper.isBeginning);
+    });
+
     return () => {
       window.removeEventListener('resize', setup);
       ScrollTrigger.getAll().forEach(t => t.kill());
       if (container) container.style.marginBottom = '';
+      swiper.off('slideChange');
     };
   }, [isMobile]);
 
@@ -180,7 +185,12 @@ export default function Services() {
             }}
             allowTouchMove={isMobile}
             breakpoints={{
-              1024: { slidesPerView: 'auto', spaceBetween: 20 },
+              320: { 
+                slidesPerView: 'auto', 
+                spaceBetween: 20,
+                centeredSlides: true
+              },
+              1024: { slidesPerView: 'auto', spaceBetween: 30 },
             }}
           >
             {slidesData.map((slide, index) => [
@@ -207,19 +217,27 @@ export default function Services() {
               className="services__btns-prev"
               onClick={() => swiperRef.current?.slidePrev()}
               aria-label="Попередній слайд"
+              style={{ 
+                opacity: showLeftArrow ? 1 : 0,
+                pointerEvents: showLeftArrow ? 'auto' : 'none',
+                transition: 'opacity 0.3s ease'
+              }}
             >
-                <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 1L2 7L8 13" stroke="#006A60" strokeWidth="2"/>
-                </svg>
+              </svg>
             </button>
             <button
               className="services__btns-next"
-              onClick={() => swiperRef.current?.slideNext()}
+              onClick={() => {
+                swiperRef.current?.slideNext();
+                setShowLeftArrow(true);
+              }}
               aria-label="Наступний слайд"
             >
               <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L7 7L1 13" stroke="#006A60" strokeWidth="2"/>
-                </svg>
+              </svg>
             </button>
           </div>
           <div className="services__link">

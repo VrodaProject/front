@@ -1,14 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImage from "../../../assets/images/footer-logo.svg";
 import instIcon from "../../../assets/images/footer-inst.svg";
 import facebookIcon from "../../../assets/images/footer-facebook.svg";
 import Map from "@app/modules/main/components/map/map.component";
 
 export const Footer = () => {
+  const navigate = useNavigate();
+
   const handleScrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // Якщо ми вже на головній сторінці
+    if (window.location.pathname === "/") {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Якщо на іншій сторінці - перенаправляємо на головну з хешем
+      navigate(`/#${id}`);
+      
+      // Після навігації прокручуємо до елементу
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Невелика затримка для завантаження сторінки
     }
   };
 
@@ -63,7 +79,7 @@ export const Footer = () => {
                 <a
                   href="https://search.google.com/local/writereview?placeid=ChIJ_RI2IwBB00ARAUJhqiEAn_8"
                   target="_blank"
-                   rel="noopener noreferrer"
+                  rel="noopener noreferrer"
                   aria-label="Залишити відгук"
                 >
                   залишити відгук
@@ -73,19 +89,18 @@ export const Footer = () => {
             <div className="footer__content_bottom">
               <div className="footer__column">
                 <div className="footer__link_wrap">
-                  <Link className="footer__link" to="">
+                  <Link className="footer__link" to="/privacy-policy">
                     Політика конфіденційності
                   </Link>
-                  <Link className="footer__link" to="">
+                  <Link className="footer__link" to="/data-processing-procedure">
                     Порядок обробки даних
                   </Link>
                 </div>
               </div>
-
               <div className="footer__column">
                 <div className="footer__social">
                   <div className="footer__social_wrap">
-                  <a
+                    <a
                       href="https://www.instagram.com/vroda_club_estetic"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -101,10 +116,9 @@ export const Footer = () => {
                     >
                       <img src={facebookIcon} alt="Врода Facebook" />
                     </a>
-
                   </div>
                   <p className="footer__social_text">
-                    Підписуйтесь, щоб бути в курсі усіх новинок!
+                    Підписуйтесь, щоб бути курсі усіх новинок!
                   </p>
                 </div>
               </div>
