@@ -116,7 +116,19 @@
         }
     }
 }
+.cta__form_spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 .cta__form_container select.cta__form_field {
     appearance: none;
     -webkit-appearance: none;
@@ -222,9 +234,11 @@
     align-items: center;
     z-index: 1000;
     padding: 0 20px;
+  
   }
   
   .cta__thank-you-content {
+    position: relative;
     background-color: #F2F7F7;
     max-width: 1620px;
     max-height: 615px;
@@ -237,6 +251,16 @@
     gap:40px;
     text-align: center;
     padding: 0 20px;
+    &::after {
+      content: "";
+      background: url("../images/cta/after.svg");
+      background-size: cover;
+      width: 800px;
+      height: 400px;
+      position: absolute;
+      right: 0;
+      top: 0px;
+    }
   }
   
   .cta__thank-you-title {
@@ -261,7 +285,9 @@
     font-weight: 500;
     font-size: clamp(16px, 4vw, 24px);
     color: $colorPrimary;
-    
+    br {
+      display: none;
+    }
   }
   
   .cta__thank-you-button {

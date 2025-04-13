@@ -758,13 +758,29 @@
     .cta__thank-you-content {
         max-height: 360px;
     }
+    .cta__thank-you-text {
+        br {
+            display: block;
+        }
+    }
     .cta::after {
         content: "";
         width: 400px;
         height: 150px;
-        top: 35px;
-        z-index: 9999;
+        top: 0;
+        z-index: 999;
+        
     }
+
+    .cta__thank-you-content {
+        &::after {
+          content: "";
+          width: 300px;
+          height: 150px;
+          top: 0px;
+        }
+      }
+
     .why {
         margin-top: 80px;
         &__wrap {

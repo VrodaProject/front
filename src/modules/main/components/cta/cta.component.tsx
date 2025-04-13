@@ -190,15 +190,19 @@ export default function Cta() {
             </div>
 
             <div className="cta__form_container">
-              <button 
-                className="cta__form_button" 
-                aria-label="Записатись на прийом" 
-                title="Записатись на прийом" 
-                type="submit"
-                disabled={isSubmitting}
-              >
-                Записатись
-              </button>
+            <button 
+            className="cta__form_button" 
+            aria-label="Записатись на прийом" 
+            title="Записатись на прийом" 
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <span className="cta__form_spinner"></span>
+            ) : (
+              "Записатись"
+            )}
+          </button>
             </div>
           </form>
 
@@ -216,7 +220,7 @@ export default function Cta() {
         <div className="cta__thank-you-popup">
           <div className="cta__thank-you-content">
             <h3 className="cta__thank-you-title"><span>Д</span> якуємо! заявка прийнята!</h3>
-            <p className="cta__thank-you-text">Менеджер зв’яжеться з вами у робочий час (щодня з 9:00 до 20:00)!</p>
+            <p className="cta__thank-you-text">Менеджер зв’яжеться з вами у робочий час<br/> (щодня з 9:00 до 20:00)!</p>
             <button 
               className="cta__thank-you-button" 
               onClick={closeThankYou}
