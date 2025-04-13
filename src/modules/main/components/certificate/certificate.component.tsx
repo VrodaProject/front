@@ -3,7 +3,7 @@ import heartIcon from "../../../../assets/images/certificate/heart.svg";
 import playIcon from "../../../../assets/images/certificate/play.svg";
 import photo from "../../../../assets/images/certificate/photo.webp";
 import preview from "../../../../assets/images/certificate/preview.webp";
-import video from "../../../../assets/video/spa.webm";
+import video from "../../../../assets/video/spa.mov";
 
 export default function Certificate() {
   const videoRef = useRef<HTMLVideoElement | null>(null);

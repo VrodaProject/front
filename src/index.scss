@@ -60,6 +60,56 @@ input[type="number"]::-webkit-outer-spin-button {
 .pt50 {
   padding-top: 50px;
 }
+.privacy {
+  max-width: 1110px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 150px 20px 0px 20px;
+  &__title {
+    font-family: "Lora";
+    font-weight: 500;
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $colorPrimary;
+    padding-bottom: 30px;
+  }
+  &__container {
+    padding-bottom: 20px;
+    &_title {
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 400;
+      color: #000;
+      line-height: 100%;
+      font-family: "Lora";
+      padding-bottom: 20px;
+    }
+    &_text {
+      font-size: clamp(15px, 1.5vw, 18px);
+      font-weight: 400;
+      color: #364A43;
+      font-family: "Geologica";
+      a {
+        color: $colorPrimary;
+      }
+    }
+    ul {
+      li {
+        font-size: clamp(15px, 1.5vw, 18px);
+        font-weight: 400;
+        color: #364A43;
+        font-family: "Geologica";
+        padding: 5px 0;
+        a {
+          color: $colorPrimary;
+        }
+      }
+    }
+    a {
+      color: $colorPrimary;
+    }
+  }
+}
 @media(max-width:1580px) {
   .container {
       padding: 0 20px;
@@ -74,5 +124,8 @@ input[type="number"]::-webkit-outer-spin-button {
       &__slider {
         padding-left: 0px;
       }
+  }
+  .privacy {
+    padding: 80px 20px 80px 20px;
   }
 }

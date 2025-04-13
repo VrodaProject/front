@@ -5,13 +5,14 @@ import type { Swiper as SwiperCore } from 'swiper/types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import heartIcon from "../../../../assets/images/review/heart.svg";
-import video1 from "../../../../assets/images/review/storys/1.webm";
-import video2 from "../../../../assets/images/review/storys/2.webm";
-import video3 from "../../../../assets/images/review/storys/3.webm";
-import video4 from "../../../../assets/images/review/storys/4.webm";
-import video5 from "../../../../assets/images/review/storys/5.webm";
+import video1 from "../../../../assets/images/review/storys/1.mov";
+import video2 from "../../../../assets/images/review/storys/2.mov";
+import video3 from "../../../../assets/images/review/storys/3.mov";
+import video4 from "../../../../assets/images/review/storys/4.mov";
+import video5 from "../../../../assets/images/review/storys/5.mov";
+import video6 from "../../../../assets/images/review/storys/6.mov";
 
-const reviewVideos = [video1, video2, video3, video4, video5];
+const reviewVideos = [video1, video2, video3, video4, video5, video6];
 
 export default function Review() {
   const [realVideoIndex, setRealVideoIndex] = useState(0);
@@ -22,6 +23,7 @@ export default function Review() {
   const swiperRef = useRef<SwiperCore>();
   const containerRef = useRef<HTMLDivElement>(null);
   const isPlayingRef = useRef(false);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -116,11 +118,13 @@ export default function Review() {
   const handleSlideChange = (swiper: SwiperCore) => {
     setRealVideoIndex(swiper.realIndex);
     setProgress(0);
+    setShowLeftArrow(!swiper.isBeginning);
   };
 
   const onSwiperInit = (swiper: SwiperCore) => {
     swiperRef.current = swiper;
     setRealVideoIndex(swiper.realIndex);
+    setShowLeftArrow(!swiper.isBeginning);
   };
 
   return (
@@ -180,7 +184,7 @@ export default function Review() {
                           ref={el => videoRefs.current[index] = el}
                           aria-label={`Відгук ${index + 1}`}
                         >
-                          <source src={video} type="video/webm" />
+                          <source src={video} type="video/mp4" />
                         </video>
                       </div>
                     </div>
@@ -189,15 +193,27 @@ export default function Review() {
               </Swiper>
 
               <div className="review__slider_btn">
-                <button className="review__slider_prev" aria-label="Previous video">
-                <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 1L2 7L8 13" stroke="#006A60" strokeWidth="2"/>
-                </svg>
+                <button 
+                  className="review__slider_prev" 
+                  aria-label="Previous video"
+                  style={{ 
+                    opacity: showLeftArrow ? 1 : 0,
+                    pointerEvents: showLeftArrow ? 'auto' : 'none',
+                    transition: 'opacity 0.3s ease'
+                  }}
+                >
+                  <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 1L2 7L8 13" stroke="#006A60" strokeWidth="2"/>
+                  </svg>
                 </button>
-                <button className="review__slider_next" aria-label="Next video">
-                <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L7 7L1 13" stroke="#006A60" strokeWidth="2"/>
-                </svg>
+                <button 
+                  className="review__slider_next" 
+                  aria-label="Next video"
+                  onClick={() => setShowLeftArrow(true)}
+                >
+                  <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L7 7L1 13" stroke="#006A60" strokeWidth="2"/>
+                  </svg>
                 </button>
               </div>
             </div>

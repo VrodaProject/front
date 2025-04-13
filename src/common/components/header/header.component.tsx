@@ -1,19 +1,40 @@
 import { useState, useEffect } from "react";
 import { ReactComponent as Logotype } from "../../../assets/images/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsMenuOpen(false);
+  };
+
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string): void => {
     e.preventDefault();
+    
+    // Если мы не на главной странице, сначала переходим на главную
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+      return;
+    }
+
+    // Если уже на главной - выполняем прокрутку
+    scrollToSection(id);
+    setIsMenuOpen(false);
+  };
+
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     const headerOffset = 100;
+    
     if (element) {
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
@@ -22,10 +43,19 @@ export const Header = () => {
         top: offsetPosition,
         behavior: "smooth",
       });
-
-      setIsMenuOpen(false);
     }
   };
+
+  // Эффект для обработки прокрутки после перехода с другой страницы
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      setTimeout(() => {
+        scrollToSection(location.state.scrollTo);
+        // Очищаем state после прокрутки
+        navigate(location.pathname, { replace: true, state: {} });
+      }, 100);
+    }
+  }, [location.state, location.pathname, navigate]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +72,12 @@ export const Header = () => {
     <header className={`header ${isSticky ? "header__sticky" : ""}`}>
       <div className="container">
         <div className="header__content">
-        <Link to="/" className="header__logo" aria-label="Перейти на головну">
+          <Link 
+            to="/" 
+            className="header__logo" 
+            aria-label="Перейти на головну"
+            onClick={handleLogoClick}
+          >
             <Logotype />
           </Link>
 
