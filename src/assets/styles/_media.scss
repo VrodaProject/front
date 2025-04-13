@@ -303,7 +303,17 @@
                 display: none !important;
             }
         }
-
+        &__slide {
+            &_name {
+                word-break: break-word;
+                white-space: normal;
+            }
+        }
+        .services__slider .swiper-wrapper .swiper-slide {
+            width: auto !important;
+            flex-shrink: 0 !important;
+        }
+        
 
         &__btns {
             display: flex;
