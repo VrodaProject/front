@@ -1,0 +1,104 @@
+.certificate {
+    position: relative;
+    overflow: hidden;
+    &::before {
+        content: url("../images/certificate/before.svg");
+        position: absolute;
+        top: -140px;
+        left:0;
+    }
+    &__content {
+        padding-top: 150px;
+    }
+    &__top {
+        display: flex;
+        align-items: center;
+        &_column {
+            &:nth-child(1) {
+                width: 70%;
+            }
+            &:nth-child(2) {
+                width: 30%;
+            }
+        }
+    }
+    &__title {
+        font-family: "Lora";
+        font-weight: 500;
+        font-size: clamp(20px, 2.5vw, 40px);
+        line-height: 135%;
+        text-transform: uppercase;
+        color: $colorPrimary;
+        text-indent: -80px;
+        br {
+            display: none;
+        }
+        span {
+            font-family: "AnastasiaScript";
+            font-weight: 400;
+            font-size: clamp(48px, 10vw, 128px);
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        &_container {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        &_text {
+            color: $colorPrimary;
+            font-family: "Geologica";
+            font-weight: 500;
+            font-size: clamp(15px, 1.5vw, 20px);
+            line-height: 100%;
+            text-transform: uppercase;
+        }
+    }
+    &__bottom {
+        padding-top: 20px;
+        display: flex;
+        gap: 20px;
+        max-height: 700px;
+    }
+    &__image {
+        width: 25%;
+
+    }
+    &__video {
+        position: relative;
+        width: 75%;
+        &.mobile {
+            display: none;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+    }
+    &__play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+    
+        img {
+          width: 60px;
+          height: 60px;
+        }
+    
+        &:hover {
+          opacity: 1;
+        }
+    }
+}
+
+  

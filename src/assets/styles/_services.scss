@@ -1,0 +1,102 @@
+.services {
+    margin-top: 20px !important;
+    padding: 120px 0 150px 0 !important;
+    background: $colorPrimary;
+    overflow: hidden;
+    &__title {
+        text-transform: uppercase;
+        color: $colorSecondary;
+        font-weight: 500;
+        font-size: clamp(20px, 2.5vw, 40px);
+        font-family: "Lora";
+        span {
+            font-family: "AnastasiaScript";
+            font-weight: 400;
+            font-size: clamp(48px, 10vw, 128px);
+        }
+    }
+    &__slider {
+        display: flex;
+        padding-top: 40px;
+        align-items: flex-start;
+        gap: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none; 
+        &::-webkit-scrollbar {
+          display: none; 
+        }
+      }
+    &__slide {
+        display: flex;
+        flex-direction: column;
+        width: 375px;
+        
+        &_img {
+            width: 100%;
+        }
+        &_info {
+            display: flex;
+            flex-direction: column;
+            padding-top: 15px;
+        }
+        &_name {
+            text-transform: uppercase;
+            color: $colorSecondary;
+            font-weight: 500;
+            font-size: clamp(20px, 2.5vw, 32px);
+            font-family: "Lora";
+            text-wrap: auto;
+            line-height: 100%;
+        }
+        &_price {
+            text-transform: uppercase;
+            color: $colorSecondary;
+            font-weight: 500;
+            font-size: clamp(16px, 2vw, 20px);
+            font-family: "Geologica";
+            padding-top: 20px;
+        }
+        &_link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(16px, 2vw, 20px);
+            font-family: "Geologica";
+            color: $colorPrimary;
+            text-transform: uppercase;
+            font-weight: 500;
+            height: 375px;
+            position: relative;
+            background: $colorSecondary;
+            border: 2px solid $colorSecondary;
+            border-radius: 2px;
+            &::before {
+                content: url("../images/services//btn.png");
+                position: absolute;
+            }
+            &:hover {
+                background: $colorPrimary;
+                color: $colorSecondary;
+                &::before {
+                    content: url("../images/services//btn-hover.png");
+                    position: absolute;
+                    
+                }
+            }
+        }
+    }
+    &__btns {
+        display: none;
+    }
+    &__link {
+        display: none;
+    }
+}
+.services__slider .swiper-wrapper .swiper-slide {
+    width: 100% !important;
+    flex-shrink: initial!important;
+
+}

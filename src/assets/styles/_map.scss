@@ -1,0 +1,77 @@
+.map {
+    height: 500px;
+    position: relative;
+    padding: 60px 0;
+    margin-top: 150px;
+    &__info {
+        position: relative;
+        z-index: 10;
+        background: #F2F7F7;
+        padding: 30px;
+        max-width: 670px;
+        width: 100%;
+        border-radius: 2px;
+        box-shadow: 0px 2px 8px 0px #0000001A;
+        display: flex;
+        flex-direction: column;
+        &_title {
+            font-family: "Lora";
+            font-weight: 500;
+            font-size: clamp(20px, 3vw, 32px);
+            text-transform: uppercase;
+            color: $colorPrimary;
+            line-height: 100%;
+        }
+        &_worktime {
+            padding-top: 30px;
+            font-family: "Geologica";
+            font-weight: 500;
+            font-size: clamp(15px, 1.5vw, 20px);
+            color: $colorPrimary;
+        }
+        &_address {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding-top: 30px;
+            font-family: "Geologica";
+            font-weight: 500;
+            font-size: clamp(14px, 1.5vw, 20px);
+            color: $colorPrimary;
+        }
+        &_call {
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            padding-top: 30px;
+            a {
+                font-family: "Geologica";
+                font-weight: 500;
+                font-size: clamp(14px, 1.5vw, 20px);
+                color: $colorPrimary;
+            }
+        }
+        &_link {
+            margin-top: 30px;
+            font-family: "Geologica";
+            font-weight: 500;
+            font-size: clamp(16px, 2vw, 20px);
+            border: 1px solid $colorPrimary;
+            color: $colorPrimary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            max-width: 300px;
+            height: 50px;
+            width: 100%;
+            text-transform: uppercase;
+            transition: all .3s;
+            &:hover {
+                transition: all .3s;
+                color: $colorSecondary;
+                background: $colorPrimary;
+            }
+        }
+    }
+}

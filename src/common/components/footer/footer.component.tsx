@@ -1,79 +1,122 @@
-import { ReactComponent as Logotype } from "@app/assets/images/logo.svg";
-import { ReactComponent as AccessTimeIcon } from "@app/assets/icons/access_time.svg";
-import { ReactComponent as SmartPhoneIcon } from "@app/assets/icons/smartphone.svg";
-import { ReactComponent as LocationIcon } from "@app/assets/icons/location.svg";
-import { ReactComponent as InstagramIcon } from "@app/assets/icons/instagram.svg";
-import { ReactComponent as FacebookIcon } from "@app/assets/icons/facebook.svg";
-import { ReactComponent as TelegramIcon } from "@app/assets/icons/telegram.svg";
 import { Link } from "react-router-dom";
+import logoImage from "../../../assets/images/footer-logo.svg";
+import instIcon from "../../../assets/images/footer-inst.svg";
+import facebookIcon from "../../../assets/images/footer-facebook.svg";
+import Map from "@app/modules/main/components/map/map.component";
 
 export const Footer = () => {
+  const handleScrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div
-      id="contact"
-      className="bg-darkTea px-5 py-10 flex flex-col items-center mt-12 md:px-1"
-    >
-      <Logotype width={216} hanging={71} className="mb-5" />
+    <>
+      <Map />
+      <div className="footer">
+        <div className="container">
+          <div className="footer__content">
+            <div className="footer__content_top">
+              <div className="footer__content_container">
+                <Link className="footer__logo" to="/" aria-label="На головну сторінку">
+                  <img src={logoImage} alt="Салон краси Врода логотип" />
+                </Link>
+                <ul className="footer__menu">
+                  <li className="footer__menu_item">
+                    <button
+                      className="footer__menu_link"
+                      onClick={() => handleScrollTo("services")}
+                    >
+                      Послуги
+                    </button>
+                  </li>
+                  <li className="footer__menu_item">
+                    <button
+                      className="footer__menu_link"
+                      onClick={() => handleScrollTo("cases")}
+                    >
+                      Кейси
+                    </button>
+                  </li>
+                  <li className="footer__menu_item">
+                    <button
+                      className="footer__menu_link"
+                      onClick={() => handleScrollTo("review")}
+                    >
+                      Відгуки
+                    </button>
+                  </li>
+                  <li className="footer__menu_item">
+                    <button
+                      className="footer__menu_link"
+                      onClick={() => handleScrollTo("contact")}
+                    >
+                      Контакти
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div className="footer__review">
+                <p>Ваш відгук важливий для нас</p>
+                <a
+                  href="https://search.google.com/local/writereview?placeid=ChIJ_RI2IwBB00ARAUJhqiEAn_8"
+                  target="_blank"
+                   rel="noopener noreferrer"
+                  aria-label="Залишити відгук"
+                >
+                  залишити відгук
+                </a>
+              </div>
+            </div>
+            <div className="footer__content_bottom">
+              <div className="footer__column">
+                <div className="footer__link_wrap">
+                  <Link className="footer__link" to="">
+                    Політика конфіденційності
+                  </Link>
+                  <Link className="footer__link" to="">
+                    Порядок обробки даних
+                  </Link>
+                </div>
+              </div>
 
-      <div className="text-white text-xl font-normal flex flex-col gap-8 sm:flex-row md:gap-36 flex-wrap ">
-        <ul className="flex flex-col gap-3">
-          <li className="hover:text-gray-300">
-            <Link to="/">Головна</Link>
-          </li>
+              <div className="footer__column">
+                <div className="footer__social">
+                  <div className="footer__social_wrap">
+                  <a
+                      href="https://www.instagram.com/vroda_club_estetic"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Слідкуйте за нами в Instagram"
+                    >
+                      <img src={instIcon} alt="Врода Instagram" />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/vroda.club.estetic"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Слідкуйте за нами в Facebook"
+                    >
+                      <img src={facebookIcon} alt="Врода Facebook" />
+                    </a>
 
-          <li className="hover:text-gray-300">
-            <Link to="/services">Послуги</Link>
-          </li>
-          <li className="hover:text-gray-300">
-            <Link to="/products">Товари</Link>
-          </li>
-        </ul>
-
-        <ul className="flex flex-col gap-3">
-          <li className="hover:text-gray-300">
-            <Link to="/login">Вхід</Link>
-          </li>
-          <li className="hover:text-gray-300">
-            <Link to="/personnel">Персонал</Link>
-          </li>
-          <li className="hover:text-gray-300">
-            <Link to="/price-list">Прайс лист</Link>
-          </li>
-        </ul>
-
-        <ul className="flex flex-col gap-8 md:gap-3">
-          <li className="flex gap-2 hover:text-gray-300 items-center">
-            <AccessTimeIcon width={31} hanging={31} />
-            ПН-НД: 9:00-20:00
-          </li>
-          <li className="flex gap-2 hover:text-gray-300 items-center">
-            <SmartPhoneIcon width={31} hanging={31} />
-            <a href="tel:+380961212120">+380961212120</a>
-          </li>
-          <li className="flex gap-2 hover:text-gray-300 items-center">
-            <LocationIcon width={31} hanging={31} />
-            Шевченка 120
-          </li>
-        </ul>
+                  </div>
+                  <p className="footer__social_text">
+                    Підписуйтесь, щоб бути в курсі усіх новинок!
+                  </p>
+                </div>
+              </div>
+              <div className="footer__column">
+                <p className="footer__copyright">
+                  © 2025 VRODA. Всі права захищені.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <ul className="flex gap-6 justify-center md:justify-end mt-8">
-        <li>
-          <a href="https://www.instagram.com/vroda_club_estetic/">
-            <InstagramIcon />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/vroda.club.estetic/">
-            <FacebookIcon />
-          </a>
-        </li>
-        <li>
-          <a href="https://t.me/+380961212120">
-            <TelegramIcon />
-          </a>
-        </li>
-      </ul>
-    </div>
+    </>
   );
 };
