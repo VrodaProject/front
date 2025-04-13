@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
                   />
                 </svg>
               </div>
-              <video aria-label="Клуб краси VRODA — місце вашої сили та релаксу" src={heroVideo}  autoPlay loop muted />
+              <video aria-label="Клуб краси VRODA — місце вашої сили та релаксу" src={heroVideo}  autoPlay loop muted playsInline />
 
            </div>
           </div>

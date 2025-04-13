@@ -630,7 +630,11 @@
         &__content {
             flex-direction: column;
         }
-
+        &__list {
+            &_item {
+                padding-top: 5px;
+            }
+        }
         &__column {
             width: 100%;
             border: none;
@@ -680,7 +684,7 @@
             line-height: 120%;
             text-align: center;
             text-indent: -35px;
-            max-width: 335px;
+            max-width: 530px;
             margin: 0 auto;
             padding-bottom: 30px;
 
@@ -731,6 +735,12 @@
         &__subtitle {
             padding-bottom: 20px;
         }
+        &__preview {
+            &_logo {
+                top: 20px;
+                left: 20px;
+            }
+        }
 
         &__form {
             padding-bottom: 20px;
@@ -745,7 +755,16 @@
             }
         }
     }
-
+    .cta__thank-you-content {
+        max-height: 360px;
+    }
+    .cta::after {
+        content: "";
+        width: 400px;
+        height: 150px;
+        top: 35px;
+        z-index: 9999;
+    }
     .why {
         margin-top: 80px;
         &__wrap {

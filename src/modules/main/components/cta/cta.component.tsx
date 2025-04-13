@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import formVideo from "../../../../assets/video/form-video.mp4";
+import logo from "../../../../assets/images/cta/logo.svg";
 
 interface Option {
   value: string;
@@ -100,7 +101,8 @@ export default function Cta() {
     <section id="cta" className="cta" aria-labelledby="cta-title">
       <div className="cta__content">
         <div className="cta__preview">
-          <video aria-label="Клуб краси VRODA — місце вашої сили та релаксу" src={formVideo} autoPlay loop muted />
+          <video aria-label="Клуб краси VRODA — місце вашої сили та релаксу" src={formVideo} autoPlay loop muted playsInline />
+          <img className="cta__preview_logo" src={logo} alt="Логотип салону краси Врода" />
         </div>
         <div className="cta__form_wrap">
           <div className="cta__title" id="cta-title"><span>З</span>апрошуємо у наше місце сили та релаксу</div>

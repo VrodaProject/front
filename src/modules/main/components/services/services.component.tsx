@@ -5,13 +5,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Swiper as SwiperType } from 'swiper';
 
-import slideImg1 from '../../../../assets/images/services/1.gif';
-import slideImg2 from '../../../../assets/images/services/2.gif';
 import slideImg3 from '../../../../assets/images/services/img-3.webp';
 import slideImg4 from '../../../../assets/images/services/img-4.webp';
 import slideImg5 from '../../../../assets/images/services/img-5.webp';
-import slideImg6 from '../../../../assets/images/services/6.gif';
 import slideImg7 from '../../../../assets/images/services/img-7.webp';
+
+import slideVideo1 from "../../../../assets/video/services-1.mp4";
+import slideVideo2 from "../../../../assets/video/services-2.mp4";
+import slideVideo3 from "../../../../assets/video/services-3.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,37 +127,44 @@ export default function Services() {
 
   const slidesData = [
     {
-      img: slideImg1,
+      media: slideVideo1,
+      isVideo: true,
       name: "Апаратна та доглядова косметологія",
       price: "Від 500 грн"
     },
     {
-      img: slideImg2,
+      media: slideVideo2,
+      isVideo: true,
       name: "SPA програми",
       price: "Від 2000 грн"
     },
     {
-      img: slideImg3,
+      media: slideImg3,
+      isVideo: false,
       name: "Ін'єкційна косметологія",
       price: "Від 1250 грн"
     },
     {
-      img: slideImg4,
+      media: slideImg4,
+      isVideo: false,
       name: "Турбота про тіло (масаж, обгортання)",
       price: "Від 500 грн"
     },
     {
-      img: slideImg5,
+      media: slideImg5,
+      isVideo: false,
       name: "Лазерна ELOS епіляція, лікування акне, омолодження",
       price: "Від 250 грн"
     },
     {
-      img: slideImg6,
+      media: slideVideo3,
+      isVideo: true,
       name: "Антицелюлітна програма",
       price: "Від 500 грн"
     },
     {
-      img: slideImg7,
+      media: slideImg7,
+      isVideo: false,
       name: "Б'юті послуги",
       price: "Від 250 грн"
     }
@@ -195,7 +203,13 @@ export default function Services() {
           >
             {slidesData.map((slide, index) => [
               <SwiperSlide key={`slide-${index}`}>
-                <Slide image={slide.img} name={slide.name} price={slide.price} onClick={handleSmoothScroll} />
+                <Slide 
+                  media={slide.media} 
+                  isVideo={slide.isVideo} 
+                  name={slide.name} 
+                  price={slide.price} 
+                  onClick={handleSmoothScroll} 
+                />
               </SwiperSlide>,
               index === 1 && (
                 <SwiperSlide key="all-services">
@@ -255,8 +269,9 @@ export default function Services() {
   );
 }
 
-function Slide({ image, name, price, onClick }: { 
-  image: string; 
+function Slide({ media, isVideo, name, price, onClick }: { 
+  media: string; 
+  isVideo: boolean;
   name: string; 
   price: string;
   onClick: (e: React.MouseEvent) => void;
@@ -268,7 +283,19 @@ function Slide({ image, name, price, onClick }: {
       aria-label={`Послуга: ${name}, Ціна: ${price}`}
       onClick={onClick}
     >
-      <img className="services__slide_img" src={image} alt={name} />
+      {isVideo ? (
+        <video 
+          className="services__slide_img" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src={media} type="video/mp4" />
+        </video>
+      ) : (
+        <img className="services__slide_img" src={media} alt={name} />
+      )}
       <div className="services__slide_info">
         <div className="services__slide_name">{name}</div>
         <div className="services__slide_price">{price}</div>
