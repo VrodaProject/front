@@ -7,7 +7,7 @@ import { Swiper as SwiperType } from 'swiper';
 
 import slideImg3 from '../../../../assets/images/services/img-3.webp';
 import slideImg4 from '../../../../assets/images/services/img-4.webp';
-import slideImg5 from '../../../../assets/images/services/img-5.webp';
+import slideImg5 from '../../../../assets/images/services/img-5.png';
 import slideImg7 from '../../../../assets/images/services/img-7.webp';
 
 import slideVideo1 from "../../../../assets/video/services-1.mp4";

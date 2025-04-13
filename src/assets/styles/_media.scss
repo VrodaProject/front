@@ -640,6 +640,17 @@
             border: none;
             position: relative;
             padding: 20px 0;
+            &:nth-child(1) {
+                .title {
+                    order: 1;
+                }
+                .case__text {
+                    order: 2;
+                }
+                .case__link {
+                    order: 3;
+                }
+            }
             .case__image {
                 order: 1;
             }
@@ -668,7 +679,11 @@
             margin-top: 20px;
         }
     }
-
+    .case__title {
+        br {
+            display: none;
+        }
+    }
     .services {
         &__title {
             text-align: center;
@@ -739,6 +754,8 @@
             &_logo {
                 top: 20px;
                 left: 20px;
+                width: 85px;
+                height: 30px;
             }
         }
 
@@ -807,6 +824,21 @@
     }
     .map {
         margin-top: -3px;
+        &__info {
+            padding: 20px;
+            &_worktime {
+                padding-top: 15px;
+            }
+            &_address {
+                padding-top: 15px;
+            }
+            &_call {
+                padding-top: 15px;
+            }
+            &_link {
+                margin-top: 15px;
+            }
+        }
     }
     .pt50 {
         padding-top: 30px !important;
