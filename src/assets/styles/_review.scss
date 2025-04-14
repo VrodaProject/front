@@ -28,7 +28,7 @@
         flex-direction: column;
         background: url("../images/review/bg.webp") no-repeat;
         background-size: cover;
-        min-height: 700px;
+        min-height: 684px;
         width: 45%;
         position: relative;
         &::before {
@@ -76,10 +76,14 @@
       &_btn {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 360px;
+        padding-left: 20px;    
         gap: 30px;
         position: absolute;
-        bottom: 80px;
-        right: 180px;
+        left: 0;
+        top: 50%;
         z-index: 11;
         button {
           cursor: pointer;
@@ -109,10 +113,10 @@
       display: block;
       opacity: 0.5;
       transition: opacity 0.3s ease;
-      object-fit: none;
+   
       &.active {
         opacity: 1;
-        min-height: 700px;
+        min-height: 680px;
         width: 385px;
     
         border: 1px solid $colorPrimary;

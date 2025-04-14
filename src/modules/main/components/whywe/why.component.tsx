@@ -5,10 +5,10 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import slide1 from "../../../../assets/images/why/slide-1.webp";
-import slide2 from "../../../../assets/images/why/slide-2.webp";
-import slide3 from "../../../../assets/images/why/slide-3.webp";
-import slide4 from "../../../../assets/images/why/slide-4.webp";
+import slide1 from "../../../../assets/images/why/slide-1.jpg";
+import slide2 from "../../../../assets/images/why/slide-2.png";
+import slide3 from "../../../../assets/images/why/slide-3.png";
+import slide4 from "../../../../assets/images/why/slide-4.png";
 import slide5 from "../../../../assets/images/why/slide-5.webp";
 import slide6 from "../../../../assets/images/why/slide-6.webp";
 

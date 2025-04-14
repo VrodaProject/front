@@ -3,20 +3,33 @@ import heartIcon from "../../../../assets/images/certificate/heart.svg";
 import playIcon from "../../../../assets/images/certificate/play.svg";
 import photo from "../../../../assets/images/certificate/photo.webp";
 import preview from "../../../../assets/images/certificate/preview.webp";
-import video from "../../../../assets/video/spa.mov";
+import video from "../../../../assets/video/spa.mp4";
 
 export default function Certificate() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const desktopVideoRef = useRef<HTMLVideoElement | null>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement | null>(null);
+  const [isDesktopPlaying, setIsDesktopPlaying] = useState(false);
+  const [isMobilePlaying, setIsMobilePlaying] = useState(false);
 
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
+  const handleDesktopPlayPause = () => {
+    if (desktopVideoRef.current) {
+      if (isDesktopPlaying) {
+        desktopVideoRef.current.pause();
       } else {
-        videoRef.current.play();
+        desktopVideoRef.current.play();
       }
-      setIsPlaying(!isPlaying);
+      setIsDesktopPlaying(!isDesktopPlaying);
+    }
+  };
+
+  const handleMobilePlayPause = () => {
+    if (mobileVideoRef.current) {
+      if (isMobilePlaying) {
+        mobileVideoRef.current.pause();
+      } else {
+        mobileVideoRef.current.play();
+      }
+      setIsMobilePlaying(!isMobilePlaying);
     }
   };
 
@@ -27,7 +40,7 @@ export default function Certificate() {
           <div className="certificate__top">
             <div className="certificate__top_column">
               <h4 className="certificate__title">
-                <span>Щ</span>о придбати<br/> щоб приємно здивувати? — Подарунковий сертифікат до
+                <span>Щ</span>о придбати<br/> щоб приєнно здивувати? — Подарунковий сертифікат до
                 клубу краси VRODA на SPA послуги або косметологію!
               </h4>
             </div>
@@ -54,17 +67,17 @@ export default function Certificate() {
             <img className="certificate__image" src={photo} alt="Фото сертифікату VRODA" />
             <div className="certificate__video desktop">
               <video
-                ref={videoRef}
+                ref={desktopVideoRef}
                 src={video}
                 muted
                 poster={preview}
-                onClick={handlePlayPause}
+                onClick={handleDesktopPlayPause}
                 aria-label="Видео о сертификатах на SPA услуги"
               />
-              {!isPlaying && (
+              {!isDesktopPlaying && (
                 <button
                   className="certificate__play"
-                  onClick={handlePlayPause}
+                  onClick={handleDesktopPlayPause}
                   aria-label="Play video"
                 >
                   <img src={playIcon} alt="Play" />
@@ -76,17 +89,17 @@ export default function Certificate() {
       </div>
       <div className="certificate__video mobile">
         <video
-          ref={videoRef}
+          ref={mobileVideoRef}
           src={video}
           muted
           poster={preview}
-          onClick={handlePlayPause}
+          onClick={handleMobilePlayPause}
           aria-label="Видео о сертификатах на SPA услуги"
         />
-        {!isPlaying && (
+        {!isMobilePlaying && (
           <button
             className="certificate__play"
-            onClick={handlePlayPause}
+            onClick={handleMobilePlayPause}
             aria-label="Play video"
           >
             <img src={playIcon} alt="Play" />

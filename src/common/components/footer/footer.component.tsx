@@ -8,23 +8,20 @@ export const Footer = () => {
   const navigate = useNavigate();
 
   const handleScrollTo = (id: string) => {
-    // Якщо ми вже на головній сторінці
     if (window.location.pathname === "/") {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // Якщо на іншій сторінці - перенаправляємо на головну з хешем
       navigate(`/#${id}`);
       
-      // Після навігації прокручуємо до елементу
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100); // Невелика затримка для завантаження сторінки
+      }, 100);
     }
   };
 
@@ -118,7 +115,7 @@ export const Footer = () => {
                     </a>
                   </div>
                   <p className="footer__social_text">
-                    Підписуйтесь, щоб бути курсі усіх новинок!
+                  Підписуйтесь, щоб бути в курсі усіх новинок!
                   </p>
                 </div>
               </div>

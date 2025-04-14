@@ -66,12 +66,21 @@
     }
 
     &__slider {
+        &_wrapper {
+            position: relative;
+        }
         &_btn {
-            padding: 30px 150px 0 0;
+            z-index: 1;
             display: flex;
             align-items: center;
             gap: 30px;
-            justify-content:flex-end;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 1000px;
+            width: 100%;
             .why__slider_prev, .why__slider_next{
                 cursor: pointer;
                 width: 48px;

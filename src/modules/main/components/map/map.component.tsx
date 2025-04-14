@@ -38,22 +38,18 @@ export default function Map() {
       }
 
       try {
-        const { Map } = (await google.maps.importLibrary(
-          "maps"
-        )) as google.maps.MapsLibrary;
-        const { AdvancedMarkerElement } = (await google.maps.importLibrary(
-          "marker"
-        )) as google.maps.MarkerLibrary;
+        const { Map } = (await google.maps.importLibrary("maps")) as google.maps.MapsLibrary;
+        const { AdvancedMarkerElement } = (await google.maps.importLibrary("marker")) as google.maps.MarkerLibrary;
 
         const map = new Map(mapRef.current, {
-          center: { lat: 49.786097, lng: 30.127641 },
+          center: { lat: 49.78580890422755, lng: 30.128934070178616 },
           zoom: 17,
           disableDefaultUI: true,
           mapId: "3e262c37b4454cda"
         });
 
         new AdvancedMarkerElement({
-          position: { lat: 49.786097, lng: 30.127641 },
+          position: { lat: 49.78580890422755, lng: 30.128934070178616 },
           map: map,
           title: "Клуб краси VRODA"
         });
@@ -65,9 +61,7 @@ export default function Map() {
     }
 
     return () => {
-      const scriptElement = document.querySelector(
-        `script[src*="maps.googleapis.com"]`
-      );
+      const scriptElement = document.querySelector(`script[src*="maps.googleapis.com"]`);
       if (scriptElement) {
         document.head.removeChild(scriptElement);
       }
@@ -107,7 +101,7 @@ export default function Map() {
           </div>
           <div className="map__info_address">
             <img src={iconPoint} alt="Адреса клубу краси VRODA" />
-            <p>Біла Церква, вул. Шевченка 120</p>
+            <p>вулиця Шевченка, 120, Біла Церква, Київська область, Україна, 09100</p>
           </div>
           <div className="map__info_call">
             <img src={iconPhone} alt="Контактний телефон клубу краси VRODA" />
@@ -115,7 +109,7 @@ export default function Map() {
           </div>
           <a
             className="map__info_link"
-            href="https://www.google.com/maps/dir/?api=1&destination=49.786097,30.127641"
+            href="https://www.google.com/maps/dir/?api=1&destination=49.78580890422755,30.128934070178616"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Прокласти маршрут до салону краси Врода"

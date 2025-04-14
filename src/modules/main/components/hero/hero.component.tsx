@@ -1,6 +1,7 @@
 import React from "react";
 import heroVideo from "../../../../assets/video/hero-video.mp4";
 
+
 const Hero: React.FC = () => {
   return (
     <section className="hero__wrapper">
