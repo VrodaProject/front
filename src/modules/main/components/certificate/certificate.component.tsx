@@ -40,7 +40,7 @@ export default function Certificate() {
           <div className="certificate__top">
             <div className="certificate__top_column">
               <h4 className="certificate__title">
-                <span>Щ</span>о придбати<br/> щоб приєнно здивувати? — Подарунковий сертифікат до
+                <span>Щ</span>о придбати<br/> щоб приємно здивувати? — Подарунковий сертифікат до
                 клубу краси VRODA на SPA послуги або косметологію!
               </h4>
             </div>
