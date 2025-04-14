@@ -57,6 +57,7 @@ const Hero: React.FC = () => {
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   poster={videoPreview}
                 />
            </div>
