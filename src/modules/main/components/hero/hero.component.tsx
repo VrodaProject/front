@@ -1,6 +1,6 @@
 import React from "react";
 import heroVideo from "../../../../assets/video/hero-video.mp4";
-
+import videoPreview from "../../../../assets/images/hero/hero-preview.png";
 
 const Hero: React.FC = () => {
   return (
@@ -50,8 +50,15 @@ const Hero: React.FC = () => {
                   />
                 </svg>
               </div>
-              <video aria-label="Клуб краси VRODA — місце вашої сили та релаксу" src={heroVideo}  autoPlay loop muted playsInline />
-
+              <video
+                  aria-label="Клуб краси VRODA — місце вашої сили та релаксу"
+                  src={heroVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster={videoPreview}
+                />
            </div>
           </div>
         </div>
