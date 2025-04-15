@@ -1,0 +1,8 @@
+query GetMainServices {
+  main_services {
+    id
+    media
+    name
+    price
+  }
+}

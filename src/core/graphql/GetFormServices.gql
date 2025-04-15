@@ -1,0 +1,6 @@
+query GetFormServices {
+  form_services {
+    id
+    form_service_name
+  }
+}

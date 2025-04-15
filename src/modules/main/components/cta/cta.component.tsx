@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useGetFormServicesQuery } from "@app/core/types";
 import formVideo from "../../../../assets/video/form-video.mp4";
 import logo from "../../../../assets/images/cta/logo.svg";
 
@@ -16,16 +17,12 @@ export default function Cta() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
-  const options: Option[] = [
-    { value: 'Косметологія апаратна', label: 'Косметологія апаратна' },
-    { value: 'Косметологія ін\'єкційна', label: 'Косметологія ін\'єкційна' },
-    { value: 'SPA програми', label: 'SPA програми' },
-    { value: 'Турбота про тіло', label: 'Турбота про тіло' },
-    { value: 'Антицелюлітна програма', label: 'Антицелюлітна програма' },
-    { value: 'Б\'юті послуги (Брови, макіяж)', label: 'Б\'юті послуги (Брови, макіяж)' },
-    { value: 'Епіляція / депіляція', label: 'Епіляція / депіляція' },
-    { value: 'подарункові Сертифікати', label: 'подарункові Сертифікати' }
-  ];
+  const { data, loading, error } = useGetFormServicesQuery();
+
+  const options: Option[] = data?.form_services.map(({ id, form_service_name }) => ({
+    value: id,
+    label: form_service_name,
+  })) || [];
 
   const handleSelectClick = () => {
     setIsSelectOpen(!isSelectOpen);
@@ -48,18 +45,17 @@ export default function Cta() {
     if (isSubmitting) return;
 
     setIsSubmitting(true);
-    
+
     const currentDate = new Date();
     const formattedDate = `="${currentDate.getDate().toString().padStart(2, '0')}.${(currentDate.getMonth() + 1).toString().padStart(2, '0')}.${currentDate.getFullYear()} ${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}"`;
-    
+
     const formData = {
       date: formattedDate,
       name,
       phone,
       service: selectedOption
     };
-    
-    
+
     console.log('Form Data:', formData);
 
     try {
@@ -68,7 +64,7 @@ export default function Cta() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify([formData]) 
+        body: JSON.stringify([formData])
       });
 
       const result = await response.json();
@@ -97,6 +93,16 @@ export default function Cta() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  if (loading) {
+    return <div>Завантаження...</div>;
+  }
+
+  if (error) {
+    return (
+      <div>Помилка завантаження послуг. Спробуйте пізніше.</div>
+    );
+  }
 
   return (
     <section id="cta" className="cta" aria-labelledby="cta-title">
@@ -191,19 +197,19 @@ export default function Cta() {
             </div>
 
             <div className="cta__form_container">
-            <button 
-            className="cta__form_button" 
-            aria-label="Записатись на прийом" 
-            title="Записатись на прийом" 
-            type="submit"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <span className="cta__form_spinner"></span>
-            ) : (
-              "Записатись"
-            )}
-          </button>
+              <button 
+                className="cta__form_button" 
+                aria-label="Записатись на прийом" 
+                title="Записатись на прийом" 
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <span className="cta__form_spinner"></span>
+                ) : (
+                  "Записатись"
+                )}
+              </button>
             </div>
           </form>
 
@@ -220,8 +226,8 @@ export default function Cta() {
       {showThankYou && (
         <div className="cta__thank-you-popup">
           <div className="cta__thank-you-content">
-            <h3 className="cta__thank-you-title"><span>Д</span> якуємо! заявка прийнята!</h3>
-            <p className="cta__thank-you-text">Менеджер зв’яжеться з вами у робочий час<br/> (щодня з 9:00 до 20:00)!</p>
+            <h3 className="cta__thank-you-title"><span>Д</span> якуємо! заявка прийнята!</h3>
+            <p className="cta__thank-you-text">Менеджер зв’яжеться з вами у робочий час<br/> (щодня з 9:00 до 20:00)!</p>
             <button 
               className="cta__thank-you-button" 
               onClick={closeThankYou}
@@ -233,5 +239,5 @@ export default function Cta() {
         </div>
       )}
     </section>
-  )
+  );
 }
