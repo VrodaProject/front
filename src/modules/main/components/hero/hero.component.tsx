@@ -52,12 +52,11 @@ const Hero: React.FC = () => {
               </div>
               <video
                   aria-label="Клуб краси VRODA — місце вашої сили та релаксу"
-                  src={heroVideo}
+                  src="https://res.cloudinary.com/de9w91bzq/video/upload/v1744741662/products/q4t9sn5f60obkif460kb.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  preload="auto"
                   poster={videoPreview}
                 />
            </div>
