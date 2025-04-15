@@ -5,10 +5,10 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import slide1 from "../../../../assets/images/why/slide-1.jpg";
-import slide2 from "../../../../assets/images/why/slide-2.png";
-import slide3 from "../../../../assets/images/why/slide-3.png";
-import slide4 from "../../../../assets/images/why/slide-4.png";
+import slide1 from "../../../../assets/images/why/slide-1.webp";
+import slide2 from "../../../../assets/images/why/slide-2.webp";
+import slide3 from "../../../../assets/images/why/slide-3.webp";
+import slide4 from "../../../../assets/images/why/slide-4.webp";
 import slide5 from "../../../../assets/images/why/slide-5.webp";
 import slide6 from "../../../../assets/images/why/slide-6.webp";
 
@@ -84,22 +84,22 @@ export default function Why() {
           }}
         >
           <SwiperSlide>
-            <img src={slide1} alt="Beauty procedure 1" />
+            <img src={slide1} alt="Салон краси Врода" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={slide2} alt="Beauty procedure 2" />
+            <img src={slide2} alt="Салон краси Врода" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={slide3} alt="Beauty procedure 3" />
+            <img src={slide3} alt="Салон краси Врода" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={slide4} alt="Beauty procedure 4" />
+            <img src={slide4} alt="Салон краси Врода" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={slide5} alt="Beauty procedure 5" />
+            <img src={slide5} alt="Салон краси Врода" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={slide6} alt="Beauty procedure 6" />
+            <img src={slide6} alt="Салон краси Врода" />
           </SwiperSlide>
         </Swiper>
 
