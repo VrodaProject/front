@@ -1,18 +1,12 @@
-import { useState, useRef, useEffect, useCallback, useLayoutEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useLayoutEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Swiper as SwiperType } from 'swiper';
-
-import slideImg3 from '../../../../assets/images/services/img-3.webp';
-import slideImg4 from '../../../../assets/images/services/img-4.webp';
-import slideImg5 from '../../../../assets/images/services/img-5.png';
-import slideImg7 from '../../../../assets/images/services/img-7.webp';
-
-import slideVideo1 from "../../../../assets/video/services-1.mp4";
-import slideVideo2 from "../../../../assets/video/services-2.mp4";
-import slideVideo3 from "../../../../assets/video/services-3.mp4";
+import { useGetMainServicesQuery } from '@app/core/types';
+import { AdvancedImage } from '@cloudinary/react';
+import { useCloudinaryImage } from '@app/common/hooks/use-cloudinary-image.hook';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +15,8 @@ export default function Services() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 1130);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
+
+  const { data, loading, error } = useGetMainServicesQuery();
 
   const handleResize = useCallback(() => {
     setIsMobile(window.innerWidth < 1130);
@@ -123,52 +119,32 @@ export default function Services() {
       if (container) container.style.marginBottom = '';
       swiper.off('slideChange');
     };
-  }, [isMobile]);
+  }, [isMobile, data]);
 
-  const slidesData = [
-    {
-      media: slideVideo1,
-      isVideo: true,
-      name: "Апаратна та доглядова косметологія",
-      price: "Від 500 грн"
-    },
-    {
-      media: slideVideo2,
-      isVideo: true,
-      name: "SPA програми",
-      price: "Від 2000 грн"
-    },
-    {
-      media: slideImg3,
-      isVideo: false,
-      name: "Ін'єкційна косметологія",
-      price: "Від 1250 грн"
-    },
-    {
-      media: slideImg4,
-      isVideo: false,
-      name: "Турбота про тіло (масаж, обгортання)",
-      price: "Від 500 грн"
-    },
-    {
-      media: slideImg5,
-      isVideo: false,
-      name: "Лазерна ELOS епіляція, лікування акне, омолодження",
-      price: "Від 250 грн"
-    },
-    {
-      media: slideVideo3,
-      isVideo: true,
-      name: "Антицелюлітна програма",
-      price: "Від 500 грн"
-    },
-    {
-      media: slideImg7,
-      isVideo: false,
-      name: "Б'юті послуги",
-      price: "Від 250 грн"
+  useEffect(() => {
+    if (!loading && data) {
+      ScrollTrigger.refresh();
     }
-  ];
+  }, [loading, data]);
+
+  if (loading) return <div>Завантаження послуг...</div>;
+  if (error) return <div>Помилка завантаження послуг. Спробуйте пізніше.</div>;
+
+  const slidesData = data?.main_services.map(s => {
+    let mediaObj: { public_id: string; resource_type: string };
+    try {
+      mediaObj = JSON.parse(s.media as string);
+    } catch {
+      mediaObj = { public_id: '', resource_type: 'image' };
+    }
+    return {
+      id: s.id,
+      publicId: mediaObj.public_id,
+      resourceType: mediaObj.resource_type,
+      name: s.name,
+      price: s.price,
+    };
+  }).filter(slide => slide.publicId) || [];
 
   return (
     <section
@@ -192,6 +168,8 @@ export default function Services() {
               sw.allowTouchMove = isMobile;
             }}
             allowTouchMove={isMobile}
+            observer={true}
+            observeParents={true}
             breakpoints={{
               320: { 
                 slidesPerView: 'auto', 
@@ -202,10 +180,10 @@ export default function Services() {
             }}
           >
             {slidesData.map((slide, index) => [
-              <SwiperSlide key={`slide-${index}`}>
+              <SwiperSlide key={slide.id}>
                 <Slide 
-                  media={slide.media} 
-                  isVideo={slide.isVideo} 
+                  publicId={slide.publicId}
+                  resourceType={slide.resourceType}
                   name={slide.name} 
                   price={slide.price} 
                   onClick={handleSmoothScroll} 
@@ -269,32 +247,49 @@ export default function Services() {
   );
 }
 
-function Slide({ media, isVideo, name, price, onClick }: { 
-  media: string; 
-  isVideo: boolean;
+interface SlideProps { 
+  publicId: string; 
+  resourceType: string; 
   name: string; 
   price: string;
   onClick: (e: React.MouseEvent) => void;
-}) {
+}
+
+function Slide({ publicId, resourceType, name, price, onClick }: SlideProps) {
+  const transformations = ['w_384', 'h_240', resourceType === 'image' ? 'c_fill' : 'c_limit'];
+  const imageCld = useCloudinaryImage(publicId, transformations);
+  const imageUrl = imageCld.toURL();
+  const cloudName = 'de9w91bzq';
+  const transStr = transformations.join(',');
+  const videoUrl = `https://res.cloudinary.com/${cloudName}/video/upload/${transStr}/${publicId}.mp4`;
+
   return (
     <a 
       href="#cta" 
       className="services__slide" 
       aria-label={`Послуга: ${name}, Ціна: ${price}`}
       onClick={onClick}
+      style={{ width: '384px' }}
     >
-      {isVideo ? (
-        <video 
-          className="services__slide_img" 
-          autoPlay 
-          loop 
-          muted 
+      {resourceType === 'video' ? (
+        <video
+          src={videoUrl}
+          autoPlay
+          loop
+          muted
           playsInline
-        >
-          <source src={media} type="video/mp4" />
-        </video>
+          className="services__slide_img"
+          width={384}
+          height={240}
+        />
       ) : (
-        <img className="services__slide_img" src={media} alt={name} />
+        <img 
+          src={imageUrl} 
+          alt={name} 
+          className="services__slide_img" 
+          width={384}
+          height={240}
+        />
       )}
       <div className="services__slide_info">
         <div className="services__slide_name">{name}</div>
