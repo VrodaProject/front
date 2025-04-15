@@ -256,7 +256,7 @@ interface SlideProps {
 }
 
 function Slide({ publicId, resourceType, name, price, onClick }: SlideProps) {
-  const transformations = ['w_384', 'h_240', resourceType === 'image' ? 'c_fill' : 'c_limit'];
+  const transformations = ['w_1200', 'h_800', 'f_auto', 'q_auto', resourceType === 'image' ? 'c_fill' : 'c_limit'];
   const imageCld = useCloudinaryImage(publicId, transformations);
   const imageUrl = imageCld.toURL();
   const cloudName = 'de9w91bzq';
