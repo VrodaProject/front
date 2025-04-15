@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
               </div>
               <video
                   aria-label="Клуб краси VRODA — місце вашої сили та релаксу"
-                  src="https://res.cloudinary.com/de9w91bzq/video/upload/ac_none,q_100,vc_h264/v1744743852/products/kpulgks5dlmoiv8i6hko.mp4"
+                  src="https://res.cloudinary.com/de9w91bzq/video/upload/ac_none/v1744743852/products/kpulgks5dlmoiv8i6hko.mp4"
                   autoPlay
                   loop
                   muted
