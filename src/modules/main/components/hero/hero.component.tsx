@@ -1,6 +1,5 @@
 import React from "react";
-import heroVideo from "../../../../assets/video/hero-video.mp4";
-import videoPreview from "../../../../assets/images/hero/hero-preview.png";
+import videoPreview from "../../../../assets/images/hero/hero-preview.webp";
 
 const Hero: React.FC = () => {
   return (
@@ -52,7 +51,7 @@ const Hero: React.FC = () => {
               </div>
               <video
                   aria-label="Клуб краси VRODA — місце вашої сили та релаксу"
-                  src="https://res.cloudinary.com/de9w91bzq/video/upload/ac_none,q_50/v1744743852/products/kpulgks5dlmoiv8i6hko.mp4"
+                  src="https://res.cloudinary.com/de9w91bzq/video/upload/ac_none,q_60/v1744743852/products/kpulgks5dlmoiv8i6hko.mp4"
                   autoPlay
                   loop
                   muted

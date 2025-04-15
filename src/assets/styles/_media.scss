@@ -114,8 +114,9 @@
 @media(max-width:1290px) {
     .hero {
         &__title {
+  
             max-width: 335px;
-            padding-bottom: 20px;
+            padding: 20px 0;
 
         }
 

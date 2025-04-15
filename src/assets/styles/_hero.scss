@@ -42,14 +42,15 @@
         }
     }
     &__title {
+
         color: $colorPrimary;
         font-size: clamp(24px, 4vw, 48px);
         text-transform: uppercase;
         line-height: 100%;
         font-weight: 500;
-        max-width: 600px;
-        padding-bottom: 30px;
        font-family: "Lora";
+       padding: 30px 0;
+       max-width: 600px;
         span {
            font-family: "AnastasiaScript";
             font-weight: 400;

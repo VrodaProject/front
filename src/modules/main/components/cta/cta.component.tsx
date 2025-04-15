@@ -107,7 +107,7 @@ export default function Cta() {
     <section id="cta" className="cta" aria-labelledby="cta-title">
       <div className="cta__content">
         <div className="cta__preview">
-          <video aria-label="Клуб краси VRODA — місце вашої сили та релаксу" src="https://res.cloudinary.com/de9w91bzq/video/upload/ac_none,q_50/v1744749317/skmiggkrnds0n49myva5.mp4" autoPlay loop muted playsInline />
+          <video aria-label="Клуб краси VRODA — місце вашої сили та релаксу" src="https://res.cloudinary.com/de9w91bzq/video/upload/ac_none,q_40/v1744749317/skmiggkrnds0n49myva5.mp4" autoPlay loop muted playsInline />
           <img className="cta__preview_logo" src={logo} alt="Логотип салону краси Врода" />
         </div>
         <div className="cta__form_wrap">
