@@ -1,7 +1,7 @@
 import { Footer } from "./common/components/footer/footer.component";
 import { Header } from "./common/components/header/header.component";
 import { ProductPage } from "./modules/product/pages/product.page";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { LoginPage } from "./modules/auth/pages/login.page";
 import { PrivateRoute } from "./common/components/private-route/private-route.component";
 import { ProfilePage } from "./modules/user/pages/profile.page";
@@ -48,6 +48,7 @@ export const App = () => {
           <Route path="/data-processing-procedure" element={<Ddpp />} />
         {/*   Route path="/services" element={<ServiceslPage />} />
         <  <Route path="/checkout/thank-you" element={<ThankYouPage />} /> */}
+         <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
       <Footer />

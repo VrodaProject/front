@@ -1,5 +1,11 @@
-/personnel    /index.html  200
-/services     /index.html  200
-/products     /index.html  200
-/checkout     /index.html  200
-/*            /index.html  200
+/price-list             /     301
+/personnel              /     301
+/products               /     301
+/login                  /     301
+/register               /     301
+/profile                /     301
+/checkout               /     301
+/services               /     301
+/checkout/thank-you     /     301
+
+ /*                     /     302
