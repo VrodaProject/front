@@ -109,15 +109,19 @@ export default function Services() {
     setup();
     window.addEventListener('resize', setup);
 
-    swiper.on('slideChange', () => {
+    const handleSlideChange = () => {
       setShowLeftArrow(!swiper.isBeginning);
-    });
+    };
+
+    swiper.on('slideChange', handleSlideChange);
+    swiper.on('slideChangeTransitionEnd', handleSlideChange);
 
     return () => {
       window.removeEventListener('resize', setup);
       ScrollTrigger.getAll().forEach(t => t.kill());
       if (container) container.style.marginBottom = '';
-      swiper.off('slideChange');
+      swiper.off('slideChange', handleSlideChange);
+      swiper.off('slideChangeTransitionEnd', handleSlideChange);
     };
   }, [isMobile, data]);
 
@@ -166,6 +170,10 @@ export default function Services() {
             onSwiper={(sw: SwiperType) => {
               swiperRef.current = sw;
               sw.allowTouchMove = isMobile;
+              setShowLeftArrow(!sw.isBeginning);
+            }}
+            onSlideChange={(sw: SwiperType) => {
+              setShowLeftArrow(!sw.isBeginning);
             }}
             allowTouchMove={isMobile}
             observer={true}
