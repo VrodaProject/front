@@ -856,9 +856,11 @@
 @media(max-width:530px) {
 
     .services__slide {
-        width: min(90vw, 375px);
+        width: min(90vw, 375px) !important;
       }
-
+      .services__slide_info {
+        padding-left: 5px;
+      }
     .footer {
         &__logo {
             img {
