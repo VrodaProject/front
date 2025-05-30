@@ -13,7 +13,7 @@ import { ThankYouPage } from "./modules/checkout/pages/thank-you.page";
 import { MainPage } from "./modules/main/pages/main.page";
 import { PersonnelPage } from "./modules/personnel/pages/pesonnel.page";
 import { PriceListPage } from "./modules/price-list/pages/price-list.page";
-import { ServiceslPage } from "./modules/services/pages/services.page";
+import { ServicesPage } from "./modules/services/pages/services.page";
 import { RegisterPage } from "./modules/auth/pages/register.page";
 import Privacy from "./modules/privacy/pages/privacy.page";
 import Ddpp from "./modules/dpp/pages/dpp.page";
@@ -46,8 +46,8 @@ export const App = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/data-processing-procedure" element={<Ddpp />} />
-        {/*   Route path="/services" element={<ServiceslPage />} />
-        <  <Route path="/checkout/thank-you" element={<ThankYouPage />} /> */}
+          <Route path="/services" element={<ServicesPage />} />
+         {/* <Route path="/checkout/thank-you" element={<ThankYouPage />} /> */}
          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

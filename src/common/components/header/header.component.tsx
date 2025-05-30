@@ -17,16 +17,17 @@ export const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string): void => {
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ): void => {
     e.preventDefault();
-    
-    // Если мы не на главной странице, сначала переходим на главную
+
     if (location.pathname !== "/") {
       navigate("/", { state: { scrollTo: id } });
       return;
     }
 
-    // Если уже на главной - выполняем прокрутку
     scrollToSection(id);
     setIsMenuOpen(false);
   };
@@ -34,7 +35,7 @@ export const Header = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     const headerOffset = 100;
-    
+
     if (element) {
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
@@ -46,12 +47,10 @@ export const Header = () => {
     }
   };
 
-  // Эффект для обработки прокрутки после перехода с другой страницы
   useEffect(() => {
     if (location.state?.scrollTo) {
       setTimeout(() => {
         scrollToSection(location.state.scrollTo);
-        // Очищаем state после прокрутки
         navigate(location.pathname, { replace: true, state: {} });
       }, 100);
     }
@@ -68,8 +67,15 @@ export const Header = () => {
     };
   }, []);
 
+  const isNotHomePage = location.pathname !== "/";
+  const headerClassNames = [
+    "header",
+    isSticky ? "header__sticky" : "",
+    isNotHomePage ? "header-green" : ""
+  ].join(" ").trim();
+
   return (
-    <header className={`header ${isSticky ? "header__sticky" : ""}`}>
+    <header className={headerClassNames}>
       <div className="container">
         <div className="header__content">
           <Link 
@@ -84,13 +90,13 @@ export const Header = () => {
           <nav className="header__menu" aria-label="Головна навігація">
             <ul className="header__menu_list">
               <li className="header__menu_item">
-                <a
+                <Link
                   className="header__menu_link"
-                  href="#services"
-                  onClick={(e) => handleAnchorClick(e, "services")}
+                  to="/services"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   Послуги
-                </a>
+                </Link>
               </li>
               <li className="header__menu_item">
                 <a
@@ -172,13 +178,13 @@ export const Header = () => {
           <nav className="header__menu">
             <ul className="header__menu_list">
               <li className="header__menu_item">
-                <a
+                <Link
                   className="header__menu_link"
-                  href="#services"
-                  onClick={(e) => handleAnchorClick(e, "services")}
+                  to="/services"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   Послуги
-                </a>
+                </Link>
               </li>
               <li className="header__menu_item">
                 <a

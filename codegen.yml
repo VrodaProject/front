@@ -1,8 +1,8 @@
 overwrite: true
 schema:
-  - http://localhost:8081/v1/graphql:
+  - https://hasura.vroda.club/v1/graphql:
       headers:
-        x-hasura-admin-secret: mydminsecretkeyvroda
+        x-hasura-admin-secret: xDH1zqXQj6n1MKGyCXQa8sOsKr10vgPz
 documents: src/core/graphql/*.gql
 generates:
   src/core/types.ts:

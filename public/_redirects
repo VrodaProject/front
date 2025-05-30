@@ -5,7 +5,6 @@
 /register               /     301
 /profile                /     301
 /checkout               /     301
-/services               /     301
 /checkout/thank-you     /     301
 
  /*                     /     302

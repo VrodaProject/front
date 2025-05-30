@@ -1,0 +1,17 @@
+query GetServiceSectionsFull {
+  service_sections {
+    id
+    title
+    service_categories {
+      id
+      title
+      preview
+      service_subcategories {
+        id
+        title
+        price
+        description
+      }
+    }
+  }
+}

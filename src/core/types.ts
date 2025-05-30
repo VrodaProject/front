@@ -1084,6 +1084,18 @@ export type Mutation_Root = {
   delete_products_categories?: Maybe<Products_Categories_Mutation_Response>;
   /** delete single row from the table: "products_categories" */
   delete_products_categories_by_pk?: Maybe<Products_Categories>;
+  /** delete data from the table: "service_categories" */
+  delete_service_categories?: Maybe<Service_Categories_Mutation_Response>;
+  /** delete single row from the table: "service_categories" */
+  delete_service_categories_by_pk?: Maybe<Service_Categories>;
+  /** delete data from the table: "service_sections" */
+  delete_service_sections?: Maybe<Service_Sections_Mutation_Response>;
+  /** delete single row from the table: "service_sections" */
+  delete_service_sections_by_pk?: Maybe<Service_Sections>;
+  /** delete data from the table: "service_subcategories" */
+  delete_service_subcategories?: Maybe<Service_Subcategories_Mutation_Response>;
+  /** delete single row from the table: "service_subcategories" */
+  delete_service_subcategories_by_pk?: Maybe<Service_Subcategories>;
   /** delete data from the table: "services" */
   delete_services?: Maybe<Services_Mutation_Response>;
   /** delete single row from the table: "services" */
@@ -1152,6 +1164,18 @@ export type Mutation_Root = {
   insert_products_categories_one?: Maybe<Products_Categories>;
   /** insert a single row into the table: "products" */
   insert_products_one?: Maybe<Products>;
+  /** insert data into the table: "service_categories" */
+  insert_service_categories?: Maybe<Service_Categories_Mutation_Response>;
+  /** insert a single row into the table: "service_categories" */
+  insert_service_categories_one?: Maybe<Service_Categories>;
+  /** insert data into the table: "service_sections" */
+  insert_service_sections?: Maybe<Service_Sections_Mutation_Response>;
+  /** insert a single row into the table: "service_sections" */
+  insert_service_sections_one?: Maybe<Service_Sections>;
+  /** insert data into the table: "service_subcategories" */
+  insert_service_subcategories?: Maybe<Service_Subcategories_Mutation_Response>;
+  /** insert a single row into the table: "service_subcategories" */
+  insert_service_subcategories_one?: Maybe<Service_Subcategories>;
   /** insert data into the table: "services" */
   insert_services?: Maybe<Services_Mutation_Response>;
   /** insert a single row into the table: "services" */
@@ -1220,6 +1244,18 @@ export type Mutation_Root = {
   update_products_categories?: Maybe<Products_Categories_Mutation_Response>;
   /** update single row of the table: "products_categories" */
   update_products_categories_by_pk?: Maybe<Products_Categories>;
+  /** update data of the table: "service_categories" */
+  update_service_categories?: Maybe<Service_Categories_Mutation_Response>;
+  /** update single row of the table: "service_categories" */
+  update_service_categories_by_pk?: Maybe<Service_Categories>;
+  /** update data of the table: "service_sections" */
+  update_service_sections?: Maybe<Service_Sections_Mutation_Response>;
+  /** update single row of the table: "service_sections" */
+  update_service_sections_by_pk?: Maybe<Service_Sections>;
+  /** update data of the table: "service_subcategories" */
+  update_service_subcategories?: Maybe<Service_Subcategories_Mutation_Response>;
+  /** update single row of the table: "service_subcategories" */
+  update_service_subcategories_by_pk?: Maybe<Service_Subcategories>;
   /** update data of the table: "services" */
   update_services?: Maybe<Services_Mutation_Response>;
   /** update single row of the table: "services" */
@@ -1433,6 +1469,42 @@ export type Mutation_RootDelete_Products_CategoriesArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Products_Categories_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Service_CategoriesArgs = {
+  where: Service_Categories_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Service_Categories_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Service_SectionsArgs = {
+  where: Service_Sections_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Service_Sections_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Service_SubcategoriesArgs = {
+  where: Service_Subcategories_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Service_Subcategories_By_PkArgs = {
   id: Scalars['uuid']['input'];
 };
 
@@ -1670,6 +1742,48 @@ export type Mutation_RootInsert_Products_Categories_OneArgs = {
 export type Mutation_RootInsert_Products_OneArgs = {
   object: Products_Insert_Input;
   on_conflict?: InputMaybe<Products_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Service_CategoriesArgs = {
+  objects: Array<Service_Categories_Insert_Input>;
+  on_conflict?: InputMaybe<Service_Categories_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Service_Categories_OneArgs = {
+  object: Service_Categories_Insert_Input;
+  on_conflict?: InputMaybe<Service_Categories_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Service_SectionsArgs = {
+  objects: Array<Service_Sections_Insert_Input>;
+  on_conflict?: InputMaybe<Service_Sections_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Service_Sections_OneArgs = {
+  object: Service_Sections_Insert_Input;
+  on_conflict?: InputMaybe<Service_Sections_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Service_SubcategoriesArgs = {
+  objects: Array<Service_Subcategories_Insert_Input>;
+  on_conflict?: InputMaybe<Service_Subcategories_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Service_Subcategories_OneArgs = {
+  object: Service_Subcategories_Insert_Input;
+  on_conflict?: InputMaybe<Service_Subcategories_On_Conflict>;
 };
 
 
@@ -1916,6 +2030,48 @@ export type Mutation_RootUpdate_Products_CategoriesArgs = {
 export type Mutation_RootUpdate_Products_Categories_By_PkArgs = {
   _set?: InputMaybe<Products_Categories_Set_Input>;
   pk_columns: Products_Categories_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Service_CategoriesArgs = {
+  _set?: InputMaybe<Service_Categories_Set_Input>;
+  where: Service_Categories_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Service_Categories_By_PkArgs = {
+  _set?: InputMaybe<Service_Categories_Set_Input>;
+  pk_columns: Service_Categories_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Service_SectionsArgs = {
+  _set?: InputMaybe<Service_Sections_Set_Input>;
+  where: Service_Sections_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Service_Sections_By_PkArgs = {
+  _set?: InputMaybe<Service_Sections_Set_Input>;
+  pk_columns: Service_Sections_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Service_SubcategoriesArgs = {
+  _set?: InputMaybe<Service_Subcategories_Set_Input>;
+  where: Service_Subcategories_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Service_Subcategories_By_PkArgs = {
+  _set?: InputMaybe<Service_Subcategories_Set_Input>;
+  pk_columns: Service_Subcategories_Pk_Columns_Input;
 };
 
 
@@ -4543,6 +4699,24 @@ export type Query_Root = {
   products_categories_aggregate: Products_Categories_Aggregate;
   /** fetch data from the table: "products_categories" using primary key columns */
   products_categories_by_pk?: Maybe<Products_Categories>;
+  /** fetch data from the table: "service_categories" */
+  service_categories: Array<Service_Categories>;
+  /** An aggregate relationship */
+  service_categories_aggregate: Service_Categories_Aggregate;
+  /** fetch data from the table: "service_categories" using primary key columns */
+  service_categories_by_pk?: Maybe<Service_Categories>;
+  /** fetch data from the table: "service_sections" */
+  service_sections: Array<Service_Sections>;
+  /** fetch aggregated fields from the table: "service_sections" */
+  service_sections_aggregate: Service_Sections_Aggregate;
+  /** fetch data from the table: "service_sections" using primary key columns */
+  service_sections_by_pk?: Maybe<Service_Sections>;
+  /** An array relationship */
+  service_subcategories: Array<Service_Subcategories>;
+  /** An aggregate relationship */
+  service_subcategories_aggregate: Service_Subcategories_Aggregate;
+  /** fetch data from the table: "service_subcategories" using primary key columns */
+  service_subcategories_by_pk?: Maybe<Service_Subcategories>;
   /** fetch data from the table: "services" */
   services: Array<Services>;
   /** fetch aggregated fields from the table: "services" */
@@ -4958,6 +5132,75 @@ export type Query_RootProducts_Categories_By_PkArgs = {
 };
 
 
+export type Query_RootService_CategoriesArgs = {
+  distinct_on?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Categories_Order_By>>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+
+export type Query_RootService_Categories_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Categories_Order_By>>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+
+export type Query_RootService_Categories_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+export type Query_RootService_SectionsArgs = {
+  distinct_on?: InputMaybe<Array<Service_Sections_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Sections_Order_By>>;
+  where?: InputMaybe<Service_Sections_Bool_Exp>;
+};
+
+
+export type Query_RootService_Sections_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Sections_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Sections_Order_By>>;
+  where?: InputMaybe<Service_Sections_Bool_Exp>;
+};
+
+
+export type Query_RootService_Sections_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+export type Query_RootService_SubcategoriesArgs = {
+  distinct_on?: InputMaybe<Array<Service_Subcategories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Subcategories_Order_By>>;
+  where?: InputMaybe<Service_Subcategories_Bool_Exp>;
+};
+
+
+export type Query_RootService_Subcategories_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Subcategories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Subcategories_Order_By>>;
+  where?: InputMaybe<Service_Subcategories_Bool_Exp>;
+};
+
+
+export type Query_RootService_Subcategories_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
 export type Query_RootServicesArgs = {
   distinct_on?: InputMaybe<Array<Services_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -4979,6 +5222,567 @@ export type Query_RootServices_AggregateArgs = {
 export type Query_RootServices_By_PkArgs = {
   id: Scalars['uuid']['input'];
 };
+
+/** columns and relationships of "service_categories" */
+export type Service_Categories = {
+  __typename?: 'service_categories';
+  id: Scalars['uuid']['output'];
+  preview: Scalars['String']['output'];
+  section_id: Scalars['uuid']['output'];
+  /** An object relationship */
+  service_section: Service_Sections;
+  /** An array relationship */
+  service_subcategories: Array<Service_Subcategories>;
+  /** An aggregate relationship */
+  service_subcategories_aggregate: Service_Subcategories_Aggregate;
+  title: Scalars['String']['output'];
+};
+
+
+/** columns and relationships of "service_categories" */
+export type Service_CategoriesService_SubcategoriesArgs = {
+  distinct_on?: InputMaybe<Array<Service_Subcategories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Subcategories_Order_By>>;
+  where?: InputMaybe<Service_Subcategories_Bool_Exp>;
+};
+
+
+/** columns and relationships of "service_categories" */
+export type Service_CategoriesService_Subcategories_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Subcategories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Subcategories_Order_By>>;
+  where?: InputMaybe<Service_Subcategories_Bool_Exp>;
+};
+
+/** aggregated selection of "service_categories" */
+export type Service_Categories_Aggregate = {
+  __typename?: 'service_categories_aggregate';
+  aggregate?: Maybe<Service_Categories_Aggregate_Fields>;
+  nodes: Array<Service_Categories>;
+};
+
+/** aggregate fields of "service_categories" */
+export type Service_Categories_Aggregate_Fields = {
+  __typename?: 'service_categories_aggregate_fields';
+  count: Scalars['Int']['output'];
+  max?: Maybe<Service_Categories_Max_Fields>;
+  min?: Maybe<Service_Categories_Min_Fields>;
+};
+
+
+/** aggregate fields of "service_categories" */
+export type Service_Categories_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** order by aggregate values of table "service_categories" */
+export type Service_Categories_Aggregate_Order_By = {
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Service_Categories_Max_Order_By>;
+  min?: InputMaybe<Service_Categories_Min_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "service_categories" */
+export type Service_Categories_Arr_Rel_Insert_Input = {
+  data: Array<Service_Categories_Insert_Input>;
+  /** on conflict condition */
+  on_conflict?: InputMaybe<Service_Categories_On_Conflict>;
+};
+
+/** Boolean expression to filter rows from the table "service_categories". All fields are combined with a logical 'AND'. */
+export type Service_Categories_Bool_Exp = {
+  _and?: InputMaybe<Array<Service_Categories_Bool_Exp>>;
+  _not?: InputMaybe<Service_Categories_Bool_Exp>;
+  _or?: InputMaybe<Array<Service_Categories_Bool_Exp>>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  preview?: InputMaybe<String_Comparison_Exp>;
+  section_id?: InputMaybe<Uuid_Comparison_Exp>;
+  service_section?: InputMaybe<Service_Sections_Bool_Exp>;
+  service_subcategories?: InputMaybe<Service_Subcategories_Bool_Exp>;
+  title?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "service_categories" */
+export enum Service_Categories_Constraint {
+  /** unique or primary key constraint */
+  ServiceCategoriesPkey = 'service_categories_pkey'
+}
+
+/** input type for inserting data into table "service_categories" */
+export type Service_Categories_Insert_Input = {
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  preview?: InputMaybe<Scalars['String']['input']>;
+  section_id?: InputMaybe<Scalars['uuid']['input']>;
+  service_section?: InputMaybe<Service_Sections_Obj_Rel_Insert_Input>;
+  service_subcategories?: InputMaybe<Service_Subcategories_Arr_Rel_Insert_Input>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** aggregate max on columns */
+export type Service_Categories_Max_Fields = {
+  __typename?: 'service_categories_max_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  preview?: Maybe<Scalars['String']['output']>;
+  section_id?: Maybe<Scalars['uuid']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+/** order by max() on columns of table "service_categories" */
+export type Service_Categories_Max_Order_By = {
+  id?: InputMaybe<Order_By>;
+  preview?: InputMaybe<Order_By>;
+  section_id?: InputMaybe<Order_By>;
+  title?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Service_Categories_Min_Fields = {
+  __typename?: 'service_categories_min_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  preview?: Maybe<Scalars['String']['output']>;
+  section_id?: Maybe<Scalars['uuid']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+/** order by min() on columns of table "service_categories" */
+export type Service_Categories_Min_Order_By = {
+  id?: InputMaybe<Order_By>;
+  preview?: InputMaybe<Order_By>;
+  section_id?: InputMaybe<Order_By>;
+  title?: InputMaybe<Order_By>;
+};
+
+/** response of any mutation on the table "service_categories" */
+export type Service_Categories_Mutation_Response = {
+  __typename?: 'service_categories_mutation_response';
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int']['output'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Service_Categories>;
+};
+
+/** input type for inserting object relation for remote table "service_categories" */
+export type Service_Categories_Obj_Rel_Insert_Input = {
+  data: Service_Categories_Insert_Input;
+  /** on conflict condition */
+  on_conflict?: InputMaybe<Service_Categories_On_Conflict>;
+};
+
+/** on conflict condition type for table "service_categories" */
+export type Service_Categories_On_Conflict = {
+  constraint: Service_Categories_Constraint;
+  update_columns?: Array<Service_Categories_Update_Column>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "service_categories". */
+export type Service_Categories_Order_By = {
+  id?: InputMaybe<Order_By>;
+  preview?: InputMaybe<Order_By>;
+  section_id?: InputMaybe<Order_By>;
+  service_section?: InputMaybe<Service_Sections_Order_By>;
+  service_subcategories_aggregate?: InputMaybe<Service_Subcategories_Aggregate_Order_By>;
+  title?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: service_categories */
+export type Service_Categories_Pk_Columns_Input = {
+  id: Scalars['uuid']['input'];
+};
+
+/** select columns of table "service_categories" */
+export enum Service_Categories_Select_Column {
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Preview = 'preview',
+  /** column name */
+  SectionId = 'section_id',
+  /** column name */
+  Title = 'title'
+}
+
+/** input type for updating data in table "service_categories" */
+export type Service_Categories_Set_Input = {
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  preview?: InputMaybe<Scalars['String']['input']>;
+  section_id?: InputMaybe<Scalars['uuid']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** update columns of table "service_categories" */
+export enum Service_Categories_Update_Column {
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Preview = 'preview',
+  /** column name */
+  SectionId = 'section_id',
+  /** column name */
+  Title = 'title'
+}
+
+/** columns and relationships of "service_sections" */
+export type Service_Sections = {
+  __typename?: 'service_sections';
+  id: Scalars['uuid']['output'];
+  /** An array relationship */
+  relationship_service_categories: Array<Service_Categories>;
+  /** An aggregate relationship */
+  relationship_service_categories_aggregate: Service_Categories_Aggregate;
+  /** fetch data from the table: "service_categories" */
+  service_categories: Array<Service_Categories>;
+  /** An aggregate relationship */
+  service_categories_aggregate: Service_Categories_Aggregate;
+  title: Scalars['String']['output'];
+};
+
+
+/** columns and relationships of "service_sections" */
+export type Service_SectionsRelationship_Service_CategoriesArgs = {
+  distinct_on?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Categories_Order_By>>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+
+/** columns and relationships of "service_sections" */
+export type Service_SectionsRelationship_Service_Categories_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Categories_Order_By>>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+
+/** columns and relationships of "service_sections" */
+export type Service_SectionsService_CategoriesArgs = {
+  distinct_on?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Categories_Order_By>>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+
+/** columns and relationships of "service_sections" */
+export type Service_SectionsService_Categories_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Categories_Order_By>>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+/** aggregated selection of "service_sections" */
+export type Service_Sections_Aggregate = {
+  __typename?: 'service_sections_aggregate';
+  aggregate?: Maybe<Service_Sections_Aggregate_Fields>;
+  nodes: Array<Service_Sections>;
+};
+
+/** aggregate fields of "service_sections" */
+export type Service_Sections_Aggregate_Fields = {
+  __typename?: 'service_sections_aggregate_fields';
+  count: Scalars['Int']['output'];
+  max?: Maybe<Service_Sections_Max_Fields>;
+  min?: Maybe<Service_Sections_Min_Fields>;
+};
+
+
+/** aggregate fields of "service_sections" */
+export type Service_Sections_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Service_Sections_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Boolean expression to filter rows from the table "service_sections". All fields are combined with a logical 'AND'. */
+export type Service_Sections_Bool_Exp = {
+  _and?: InputMaybe<Array<Service_Sections_Bool_Exp>>;
+  _not?: InputMaybe<Service_Sections_Bool_Exp>;
+  _or?: InputMaybe<Array<Service_Sections_Bool_Exp>>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  relationship_service_categories?: InputMaybe<Service_Categories_Bool_Exp>;
+  service_categories?: InputMaybe<Service_Categories_Bool_Exp>;
+  title?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "service_sections" */
+export enum Service_Sections_Constraint {
+  /** unique or primary key constraint */
+  ServiceSectionsPkey = 'service_sections_pkey'
+}
+
+/** input type for inserting data into table "service_sections" */
+export type Service_Sections_Insert_Input = {
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  relationship_service_categories?: InputMaybe<Service_Categories_Arr_Rel_Insert_Input>;
+  service_categories?: InputMaybe<Service_Categories_Arr_Rel_Insert_Input>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** aggregate max on columns */
+export type Service_Sections_Max_Fields = {
+  __typename?: 'service_sections_max_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+/** aggregate min on columns */
+export type Service_Sections_Min_Fields = {
+  __typename?: 'service_sections_min_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+/** response of any mutation on the table "service_sections" */
+export type Service_Sections_Mutation_Response = {
+  __typename?: 'service_sections_mutation_response';
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int']['output'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Service_Sections>;
+};
+
+/** input type for inserting object relation for remote table "service_sections" */
+export type Service_Sections_Obj_Rel_Insert_Input = {
+  data: Service_Sections_Insert_Input;
+  /** on conflict condition */
+  on_conflict?: InputMaybe<Service_Sections_On_Conflict>;
+};
+
+/** on conflict condition type for table "service_sections" */
+export type Service_Sections_On_Conflict = {
+  constraint: Service_Sections_Constraint;
+  update_columns?: Array<Service_Sections_Update_Column>;
+  where?: InputMaybe<Service_Sections_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "service_sections". */
+export type Service_Sections_Order_By = {
+  id?: InputMaybe<Order_By>;
+  relationship_service_categories_aggregate?: InputMaybe<Service_Categories_Aggregate_Order_By>;
+  service_categories_aggregate?: InputMaybe<Service_Categories_Aggregate_Order_By>;
+  title?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: service_sections */
+export type Service_Sections_Pk_Columns_Input = {
+  id: Scalars['uuid']['input'];
+};
+
+/** select columns of table "service_sections" */
+export enum Service_Sections_Select_Column {
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Title = 'title'
+}
+
+/** input type for updating data in table "service_sections" */
+export type Service_Sections_Set_Input = {
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** update columns of table "service_sections" */
+export enum Service_Sections_Update_Column {
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Title = 'title'
+}
+
+/** columns and relationships of "service_subcategories" */
+export type Service_Subcategories = {
+  __typename?: 'service_subcategories';
+  category_id: Scalars['uuid']['output'];
+  description: Scalars['String']['output'];
+  id: Scalars['uuid']['output'];
+  price: Scalars['String']['output'];
+  /** An object relationship */
+  service_category: Service_Categories;
+  title: Scalars['String']['output'];
+};
+
+/** aggregated selection of "service_subcategories" */
+export type Service_Subcategories_Aggregate = {
+  __typename?: 'service_subcategories_aggregate';
+  aggregate?: Maybe<Service_Subcategories_Aggregate_Fields>;
+  nodes: Array<Service_Subcategories>;
+};
+
+/** aggregate fields of "service_subcategories" */
+export type Service_Subcategories_Aggregate_Fields = {
+  __typename?: 'service_subcategories_aggregate_fields';
+  count: Scalars['Int']['output'];
+  max?: Maybe<Service_Subcategories_Max_Fields>;
+  min?: Maybe<Service_Subcategories_Min_Fields>;
+};
+
+
+/** aggregate fields of "service_subcategories" */
+export type Service_Subcategories_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Service_Subcategories_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** order by aggregate values of table "service_subcategories" */
+export type Service_Subcategories_Aggregate_Order_By = {
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Service_Subcategories_Max_Order_By>;
+  min?: InputMaybe<Service_Subcategories_Min_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "service_subcategories" */
+export type Service_Subcategories_Arr_Rel_Insert_Input = {
+  data: Array<Service_Subcategories_Insert_Input>;
+  /** on conflict condition */
+  on_conflict?: InputMaybe<Service_Subcategories_On_Conflict>;
+};
+
+/** Boolean expression to filter rows from the table "service_subcategories". All fields are combined with a logical 'AND'. */
+export type Service_Subcategories_Bool_Exp = {
+  _and?: InputMaybe<Array<Service_Subcategories_Bool_Exp>>;
+  _not?: InputMaybe<Service_Subcategories_Bool_Exp>;
+  _or?: InputMaybe<Array<Service_Subcategories_Bool_Exp>>;
+  category_id?: InputMaybe<Uuid_Comparison_Exp>;
+  description?: InputMaybe<String_Comparison_Exp>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  price?: InputMaybe<String_Comparison_Exp>;
+  service_category?: InputMaybe<Service_Categories_Bool_Exp>;
+  title?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "service_subcategories" */
+export enum Service_Subcategories_Constraint {
+  /** unique or primary key constraint */
+  ServiceSubcategoriesPkey = 'service_subcategories_pkey'
+}
+
+/** input type for inserting data into table "service_subcategories" */
+export type Service_Subcategories_Insert_Input = {
+  category_id?: InputMaybe<Scalars['uuid']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  price?: InputMaybe<Scalars['String']['input']>;
+  service_category?: InputMaybe<Service_Categories_Obj_Rel_Insert_Input>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** aggregate max on columns */
+export type Service_Subcategories_Max_Fields = {
+  __typename?: 'service_subcategories_max_fields';
+  category_id?: Maybe<Scalars['uuid']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  price?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+/** order by max() on columns of table "service_subcategories" */
+export type Service_Subcategories_Max_Order_By = {
+  category_id?: InputMaybe<Order_By>;
+  description?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  title?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Service_Subcategories_Min_Fields = {
+  __typename?: 'service_subcategories_min_fields';
+  category_id?: Maybe<Scalars['uuid']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['uuid']['output']>;
+  price?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+/** order by min() on columns of table "service_subcategories" */
+export type Service_Subcategories_Min_Order_By = {
+  category_id?: InputMaybe<Order_By>;
+  description?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  title?: InputMaybe<Order_By>;
+};
+
+/** response of any mutation on the table "service_subcategories" */
+export type Service_Subcategories_Mutation_Response = {
+  __typename?: 'service_subcategories_mutation_response';
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int']['output'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Service_Subcategories>;
+};
+
+/** on conflict condition type for table "service_subcategories" */
+export type Service_Subcategories_On_Conflict = {
+  constraint: Service_Subcategories_Constraint;
+  update_columns?: Array<Service_Subcategories_Update_Column>;
+  where?: InputMaybe<Service_Subcategories_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "service_subcategories". */
+export type Service_Subcategories_Order_By = {
+  category_id?: InputMaybe<Order_By>;
+  description?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  service_category?: InputMaybe<Service_Categories_Order_By>;
+  title?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: service_subcategories */
+export type Service_Subcategories_Pk_Columns_Input = {
+  id: Scalars['uuid']['input'];
+};
+
+/** select columns of table "service_subcategories" */
+export enum Service_Subcategories_Select_Column {
+  /** column name */
+  CategoryId = 'category_id',
+  /** column name */
+  Description = 'description',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Price = 'price',
+  /** column name */
+  Title = 'title'
+}
+
+/** input type for updating data in table "service_subcategories" */
+export type Service_Subcategories_Set_Input = {
+  category_id?: InputMaybe<Scalars['uuid']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  price?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** update columns of table "service_subcategories" */
+export enum Service_Subcategories_Update_Column {
+  /** column name */
+  CategoryId = 'category_id',
+  /** column name */
+  Description = 'description',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Price = 'price',
+  /** column name */
+  Title = 'title'
+}
 
 /** columns and relationships of "services" */
 export type Services = {
@@ -5228,6 +6032,24 @@ export type Subscription_Root = {
   products_categories_aggregate: Products_Categories_Aggregate;
   /** fetch data from the table: "products_categories" using primary key columns */
   products_categories_by_pk?: Maybe<Products_Categories>;
+  /** fetch data from the table: "service_categories" */
+  service_categories: Array<Service_Categories>;
+  /** An aggregate relationship */
+  service_categories_aggregate: Service_Categories_Aggregate;
+  /** fetch data from the table: "service_categories" using primary key columns */
+  service_categories_by_pk?: Maybe<Service_Categories>;
+  /** fetch data from the table: "service_sections" */
+  service_sections: Array<Service_Sections>;
+  /** fetch aggregated fields from the table: "service_sections" */
+  service_sections_aggregate: Service_Sections_Aggregate;
+  /** fetch data from the table: "service_sections" using primary key columns */
+  service_sections_by_pk?: Maybe<Service_Sections>;
+  /** An array relationship */
+  service_subcategories: Array<Service_Subcategories>;
+  /** An aggregate relationship */
+  service_subcategories_aggregate: Service_Subcategories_Aggregate;
+  /** fetch data from the table: "service_subcategories" using primary key columns */
+  service_subcategories_by_pk?: Maybe<Service_Subcategories>;
   /** fetch data from the table: "services" */
   services: Array<Services>;
   /** fetch aggregated fields from the table: "services" */
@@ -5623,6 +6445,75 @@ export type Subscription_RootProducts_Categories_By_PkArgs = {
 };
 
 
+export type Subscription_RootService_CategoriesArgs = {
+  distinct_on?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Categories_Order_By>>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+
+export type Subscription_RootService_Categories_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Categories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Categories_Order_By>>;
+  where?: InputMaybe<Service_Categories_Bool_Exp>;
+};
+
+
+export type Subscription_RootService_Categories_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+export type Subscription_RootService_SectionsArgs = {
+  distinct_on?: InputMaybe<Array<Service_Sections_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Sections_Order_By>>;
+  where?: InputMaybe<Service_Sections_Bool_Exp>;
+};
+
+
+export type Subscription_RootService_Sections_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Sections_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Sections_Order_By>>;
+  where?: InputMaybe<Service_Sections_Bool_Exp>;
+};
+
+
+export type Subscription_RootService_Sections_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+export type Subscription_RootService_SubcategoriesArgs = {
+  distinct_on?: InputMaybe<Array<Service_Subcategories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Subcategories_Order_By>>;
+  where?: InputMaybe<Service_Subcategories_Bool_Exp>;
+};
+
+
+export type Subscription_RootService_Subcategories_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Service_Subcategories_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Service_Subcategories_Order_By>>;
+  where?: InputMaybe<Service_Subcategories_Bool_Exp>;
+};
+
+
+export type Subscription_RootService_Subcategories_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
 export type Subscription_RootServicesArgs = {
   distinct_on?: InputMaybe<Array<Services_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -5775,6 +6666,26 @@ export type GetProductsItemsFormCartQueryVariables = Exact<{
 
 
 export type GetProductsItemsFormCartQuery = { __typename?: 'query_root', products: Array<{ __typename?: 'products', image: string, title: string, price: any, id: any }> };
+
+export type GetServiceCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetServiceCategoriesQuery = { __typename?: 'query_root', service_categories: Array<{ __typename?: 'service_categories', id: any, section_id: any, title: string, preview: string }> };
+
+export type GetServiceSectionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetServiceSectionsQuery = { __typename?: 'query_root', service_sections: Array<{ __typename?: 'service_sections', id: any, title: string }> };
+
+export type GetServiceSectionsFullQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetServiceSectionsFullQuery = { __typename?: 'query_root', service_sections: Array<{ __typename?: 'service_sections', id: any, title: string, service_categories: Array<{ __typename?: 'service_categories', id: any, title: string, preview: string, service_subcategories: Array<{ __typename?: 'service_subcategories', id: any, title: string, price: string, description: string }> }> }> };
+
+export type GetServiceSubcategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetServiceSubcategoriesQuery = { __typename?: 'query_root', service_subcategories: Array<{ __typename?: 'service_subcategories', id: any, category_id: any, title: string, price: string, description: string }> };
 
 export type GetServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -6527,6 +7438,182 @@ export type GetProductsItemsFormCartQueryHookResult = ReturnType<typeof useGetPr
 export type GetProductsItemsFormCartLazyQueryHookResult = ReturnType<typeof useGetProductsItemsFormCartLazyQuery>;
 export type GetProductsItemsFormCartSuspenseQueryHookResult = ReturnType<typeof useGetProductsItemsFormCartSuspenseQuery>;
 export type GetProductsItemsFormCartQueryResult = Apollo.QueryResult<GetProductsItemsFormCartQuery, GetProductsItemsFormCartQueryVariables>;
+export const GetServiceCategoriesDocument = gql`
+    query GetServiceCategories {
+  service_categories {
+    id
+    section_id
+    title
+    preview
+  }
+}
+    `;
+
+/**
+ * __useGetServiceCategoriesQuery__
+ *
+ * To run a query within a React component, call `useGetServiceCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetServiceCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetServiceCategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetServiceCategoriesQuery(baseOptions?: Apollo.QueryHookOptions<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>(GetServiceCategoriesDocument, options);
+      }
+export function useGetServiceCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>(GetServiceCategoriesDocument, options);
+        }
+export function useGetServiceCategoriesSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>(GetServiceCategoriesDocument, options);
+        }
+export type GetServiceCategoriesQueryHookResult = ReturnType<typeof useGetServiceCategoriesQuery>;
+export type GetServiceCategoriesLazyQueryHookResult = ReturnType<typeof useGetServiceCategoriesLazyQuery>;
+export type GetServiceCategoriesSuspenseQueryHookResult = ReturnType<typeof useGetServiceCategoriesSuspenseQuery>;
+export type GetServiceCategoriesQueryResult = Apollo.QueryResult<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>;
+export const GetServiceSectionsDocument = gql`
+    query GetServiceSections {
+  service_sections {
+    id
+    title
+  }
+}
+    `;
+
+/**
+ * __useGetServiceSectionsQuery__
+ *
+ * To run a query within a React component, call `useGetServiceSectionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetServiceSectionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetServiceSectionsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetServiceSectionsQuery(baseOptions?: Apollo.QueryHookOptions<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>(GetServiceSectionsDocument, options);
+      }
+export function useGetServiceSectionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>(GetServiceSectionsDocument, options);
+        }
+export function useGetServiceSectionsSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>(GetServiceSectionsDocument, options);
+        }
+export type GetServiceSectionsQueryHookResult = ReturnType<typeof useGetServiceSectionsQuery>;
+export type GetServiceSectionsLazyQueryHookResult = ReturnType<typeof useGetServiceSectionsLazyQuery>;
+export type GetServiceSectionsSuspenseQueryHookResult = ReturnType<typeof useGetServiceSectionsSuspenseQuery>;
+export type GetServiceSectionsQueryResult = Apollo.QueryResult<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>;
+export const GetServiceSectionsFullDocument = gql`
+    query GetServiceSectionsFull {
+  service_sections {
+    id
+    title
+    service_categories {
+      id
+      title
+      preview
+      service_subcategories {
+        id
+        title
+        price
+        description
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetServiceSectionsFullQuery__
+ *
+ * To run a query within a React component, call `useGetServiceSectionsFullQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetServiceSectionsFullQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetServiceSectionsFullQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetServiceSectionsFullQuery(baseOptions?: Apollo.QueryHookOptions<GetServiceSectionsFullQuery, GetServiceSectionsFullQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetServiceSectionsFullQuery, GetServiceSectionsFullQueryVariables>(GetServiceSectionsFullDocument, options);
+      }
+export function useGetServiceSectionsFullLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServiceSectionsFullQuery, GetServiceSectionsFullQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetServiceSectionsFullQuery, GetServiceSectionsFullQueryVariables>(GetServiceSectionsFullDocument, options);
+        }
+export function useGetServiceSectionsFullSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetServiceSectionsFullQuery, GetServiceSectionsFullQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetServiceSectionsFullQuery, GetServiceSectionsFullQueryVariables>(GetServiceSectionsFullDocument, options);
+        }
+export type GetServiceSectionsFullQueryHookResult = ReturnType<typeof useGetServiceSectionsFullQuery>;
+export type GetServiceSectionsFullLazyQueryHookResult = ReturnType<typeof useGetServiceSectionsFullLazyQuery>;
+export type GetServiceSectionsFullSuspenseQueryHookResult = ReturnType<typeof useGetServiceSectionsFullSuspenseQuery>;
+export type GetServiceSectionsFullQueryResult = Apollo.QueryResult<GetServiceSectionsFullQuery, GetServiceSectionsFullQueryVariables>;
+export const GetServiceSubcategoriesDocument = gql`
+    query GetServiceSubcategories {
+  service_subcategories {
+    id
+    category_id
+    title
+    price
+    description
+  }
+}
+    `;
+
+/**
+ * __useGetServiceSubcategoriesQuery__
+ *
+ * To run a query within a React component, call `useGetServiceSubcategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetServiceSubcategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetServiceSubcategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetServiceSubcategoriesQuery(baseOptions?: Apollo.QueryHookOptions<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>(GetServiceSubcategoriesDocument, options);
+      }
+export function useGetServiceSubcategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>(GetServiceSubcategoriesDocument, options);
+        }
+export function useGetServiceSubcategoriesSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>(GetServiceSubcategoriesDocument, options);
+        }
+export type GetServiceSubcategoriesQueryHookResult = ReturnType<typeof useGetServiceSubcategoriesQuery>;
+export type GetServiceSubcategoriesLazyQueryHookResult = ReturnType<typeof useGetServiceSubcategoriesLazyQuery>;
+export type GetServiceSubcategoriesSuspenseQueryHookResult = ReturnType<typeof useGetServiceSubcategoriesSuspenseQuery>;
+export type GetServiceSubcategoriesQueryResult = Apollo.QueryResult<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>;
 export const GetServicesDocument = gql`
     query GetServices {
   services {

@@ -1,6 +1,6 @@
 import { Services } from "@app/core/types";
 import { FC } from "react";
-import { ServicesItem } from "../services-item/services-item.component";
+import { ServicesItem } from "../services-item/old-services-item.component";
 
 interface ServicesListProps {
   items: Services[];
