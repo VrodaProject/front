@@ -1,4 +1,4 @@
-query GetServiceSectionsFull {
+query GetServiceSectionsFull { 
   service_sections {
     id
     title
@@ -11,6 +11,7 @@ query GetServiceSectionsFull {
         title
         price
         description
+        subtitle
       }
     }
   }
