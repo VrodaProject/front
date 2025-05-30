@@ -14,6 +14,7 @@ interface SubCategory {
   title: string;
   price: string;
   description: string;
+  subtitle?: string | null; // додано поле subtitle
 }
 
 interface Category {
@@ -41,7 +42,7 @@ const wrapFirstLetter = (text: string) => {
   );
 };
 
-const AccordionItem: FC<SubCategory> = ({ title, price, description }) => {
+const AccordionItem: FC<SubCategory> = ({ title, price, description, subtitle }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -55,9 +56,13 @@ const AccordionItem: FC<SubCategory> = ({ title, price, description }) => {
       }}
     >
       <div className="services-accordion__header">
-        <h4 className="services-accordion__title">
+        <div className="services-accordion__title-wrap">
+<h4 className="services-accordion__title">
           {title}
-          <span className={`services-accordion__icon ${open ? "rotated" : ""}`}>
+          {subtitle && <span className="services-accordion__subtitle">{subtitle}</span>}
+      
+        </h4>
+             <span className={`services-accordion__icon ${open ? "rotated" : ""}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
@@ -74,7 +79,8 @@ const AccordionItem: FC<SubCategory> = ({ title, price, description }) => {
               />
             </svg>
           </span>
-        </h4>
+        </div>
+        
         <span className="services-accordion__price">{price}</span>
       </div>
       {open && <p className="services-accordion__description">{description}</p>}
@@ -132,10 +138,10 @@ export const ServicesPage: FC = () => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
   if (loading) return <div>Завантаження...</div>;
-if (error) {
-  console.error(error);
-  return <div className="preview_text">Послуг ще немає</div>;
-}
+  if (error) {
+    console.error(error);
+    return <div className="preview_text">Послуг ще немає</div>;
+  }
 
   const sections: Section[] =
     data?.service_sections.map(
@@ -147,15 +153,15 @@ if (error) {
             id: category.id,
             title: category.title,
             image: (() => {
-            try {
-              const parsed = JSON.parse(category.preview);
-              return parsed.public_id
-                ? `https://res.cloudinary.com/de9w91bzq/image/upload/${parsed.public_id}.jpg`
-                : "";
-            } catch {
-              return "";
-            }
-          })(),
+              try {
+                const parsed = JSON.parse(category.preview);
+                return parsed.public_id
+                  ? `https://res.cloudinary.com/de9w91bzq/image/upload/${parsed.public_id}.jpg`
+                  : "";
+              } catch {
+                return "";
+              }
+            })(),
 
             subCategories: category.service_subcategories.map(
               (sub: typeof category.service_subcategories[number]) => ({
@@ -163,6 +169,7 @@ if (error) {
                 title: sub.title,
                 price: sub.price,
                 description: sub.description,
+                subtitle: sub.subtitle, // передаємо subtitle сюди
               })
             ),
           })

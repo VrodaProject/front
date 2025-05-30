@@ -20,7 +20,7 @@
         font-weight: 500;
         font-size: 20px;
         line-height: 100%;
-        letter-spacing: 0%;
+         
         text-align: center;
         text-transform: uppercase;
         color: #006A60;
@@ -106,7 +106,7 @@
         font-weight: 500;
         font-size: clamp(20px, 2.5vw, 32px);
         line-height: 100%;
-        letter-spacing: 0%;
+         
         text-transform: uppercase;
         color: #006A60;
        
@@ -115,7 +115,7 @@
         font-weight: 400;
         font-size: clamp(48px, 4vw, 96px);
         line-height: 100%;
-        letter-spacing: 0%;
+         
         text-transform: uppercase;
 
         }
@@ -128,7 +128,7 @@
             font-weight: 500;
             font-size: clamp(14px, 1.8vw, 20px);
             line-height: 100%;
-            letter-spacing: 0%;
+             
             text-align: center;
             text-transform: uppercase;
             color: #fff;
@@ -156,7 +156,7 @@
             font-weight: 500;
             font-size: clamp(14px, 1.8vw, 20px);
             line-height: 100%;
-            letter-spacing: 0%;
+             
             text-transform: uppercase;
             color: #006A60;
             padding: 16px 0;
@@ -179,15 +179,27 @@
         font-weight: 400;
         font-size: clamp(18px, 2.5vw, 32px);
         line-height: 100%;
-        letter-spacing: 0%;
         color: #000;
+        display: flex;
+        flex-direction: column;
+        &-wrap {
+          position: relative;
+        }
+    }
+    &__subtitle {
+      font-family: "Geologica";
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+      color: #364A43;
+
     }
     &__price {
         font-family: "Lora";
         font-weight: 400;
         font-size: clamp(16px, 2vw, 24px);
         line-height: 100%;
-        letter-spacing: 0%;
+         
         text-align: right;
         color: #000;
     }
@@ -196,7 +208,7 @@
         font-weight: 400;
         font-size: clamp(10px, 1.5vw, 18px);
         line-height: 100%;
-        letter-spacing: 0%;
+         
         color: #364A43;
         padding: 0 0 20px 20px;
         max-width: 95%;
@@ -208,8 +220,9 @@
 }
 .services-accordion__icon {
   display: inline-block;
-  padding-bottom: 5px;
-padding-left: 20px;
+  position: absolute;
+      top: 10px;
+    right: -30px;
 }
 
 .services-accordion__icon.rotated {

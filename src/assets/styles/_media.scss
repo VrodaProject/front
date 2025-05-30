@@ -186,6 +186,10 @@
 }
 
 @media(max-width:1130px) {
+    .services-accordion__icon {
+    top: 5px;
+    right: -25px;
+}
     .services-category__image-wrapper {
         padding-bottom: 10px;
     }
@@ -545,7 +549,7 @@
         padding: 0 0 10px 0px;
     }
      .services-accordion__header{
-        padding: 0 0 0px 0px;
+        padding: 0 0 10px 0px;
     }
      .services-accordion__icon {
         padding-left: 5px;
@@ -614,6 +618,9 @@
 }
 
 @media(max-width:892px) {
+        .services-accordion__icon {
+        top: 5px;
+    }
     .header {
         &__content {
             gap: 0;

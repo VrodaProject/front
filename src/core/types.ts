@@ -5610,6 +5610,7 @@ export type Service_Subcategories = {
   price: Scalars['String']['output'];
   /** An object relationship */
   service_category: Service_Categories;
+  subtitle?: Maybe<Scalars['String']['output']>;
   title: Scalars['String']['output'];
 };
 
@@ -5659,6 +5660,7 @@ export type Service_Subcategories_Bool_Exp = {
   id?: InputMaybe<Uuid_Comparison_Exp>;
   price?: InputMaybe<String_Comparison_Exp>;
   service_category?: InputMaybe<Service_Categories_Bool_Exp>;
+  subtitle?: InputMaybe<String_Comparison_Exp>;
   title?: InputMaybe<String_Comparison_Exp>;
 };
 
@@ -5675,6 +5677,7 @@ export type Service_Subcategories_Insert_Input = {
   id?: InputMaybe<Scalars['uuid']['input']>;
   price?: InputMaybe<Scalars['String']['input']>;
   service_category?: InputMaybe<Service_Categories_Obj_Rel_Insert_Input>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5685,6 +5688,7 @@ export type Service_Subcategories_Max_Fields = {
   description?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   price?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
 };
 
@@ -5694,6 +5698,7 @@ export type Service_Subcategories_Max_Order_By = {
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   price?: InputMaybe<Order_By>;
+  subtitle?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
 };
 
@@ -5704,6 +5709,7 @@ export type Service_Subcategories_Min_Fields = {
   description?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   price?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
 };
 
@@ -5713,6 +5719,7 @@ export type Service_Subcategories_Min_Order_By = {
   description?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   price?: InputMaybe<Order_By>;
+  subtitle?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
 };
 
@@ -5739,6 +5746,7 @@ export type Service_Subcategories_Order_By = {
   id?: InputMaybe<Order_By>;
   price?: InputMaybe<Order_By>;
   service_category?: InputMaybe<Service_Categories_Order_By>;
+  subtitle?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
 };
 
@@ -5758,6 +5766,8 @@ export enum Service_Subcategories_Select_Column {
   /** column name */
   Price = 'price',
   /** column name */
+  Subtitle = 'subtitle',
+  /** column name */
   Title = 'title'
 }
 
@@ -5767,6 +5777,7 @@ export type Service_Subcategories_Set_Input = {
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   price?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5780,6 +5791,8 @@ export enum Service_Subcategories_Update_Column {
   Id = 'id',
   /** column name */
   Price = 'price',
+  /** column name */
+  Subtitle = 'subtitle',
   /** column name */
   Title = 'title'
 }
@@ -6667,25 +6680,10 @@ export type GetProductsItemsFormCartQueryVariables = Exact<{
 
 export type GetProductsItemsFormCartQuery = { __typename?: 'query_root', products: Array<{ __typename?: 'products', image: string, title: string, price: any, id: any }> };
 
-export type GetServiceCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetServiceCategoriesQuery = { __typename?: 'query_root', service_categories: Array<{ __typename?: 'service_categories', id: any, section_id: any, title: string, preview: string }> };
-
-export type GetServiceSectionsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetServiceSectionsQuery = { __typename?: 'query_root', service_sections: Array<{ __typename?: 'service_sections', id: any, title: string }> };
-
 export type GetServiceSectionsFullQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetServiceSectionsFullQuery = { __typename?: 'query_root', service_sections: Array<{ __typename?: 'service_sections', id: any, title: string, service_categories: Array<{ __typename?: 'service_categories', id: any, title: string, preview: string, service_subcategories: Array<{ __typename?: 'service_subcategories', id: any, title: string, price: string, description: string }> }> }> };
-
-export type GetServiceSubcategoriesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetServiceSubcategoriesQuery = { __typename?: 'query_root', service_subcategories: Array<{ __typename?: 'service_subcategories', id: any, category_id: any, title: string, price: string, description: string }> };
+export type GetServiceSectionsFullQuery = { __typename?: 'query_root', service_sections: Array<{ __typename?: 'service_sections', id: any, title: string, service_categories: Array<{ __typename?: 'service_categories', id: any, title: string, preview: string, service_subcategories: Array<{ __typename?: 'service_subcategories', id: any, title: string, price: string, description: string, subtitle?: string | null }> }> }> };
 
 export type GetServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -7438,88 +7436,6 @@ export type GetProductsItemsFormCartQueryHookResult = ReturnType<typeof useGetPr
 export type GetProductsItemsFormCartLazyQueryHookResult = ReturnType<typeof useGetProductsItemsFormCartLazyQuery>;
 export type GetProductsItemsFormCartSuspenseQueryHookResult = ReturnType<typeof useGetProductsItemsFormCartSuspenseQuery>;
 export type GetProductsItemsFormCartQueryResult = Apollo.QueryResult<GetProductsItemsFormCartQuery, GetProductsItemsFormCartQueryVariables>;
-export const GetServiceCategoriesDocument = gql`
-    query GetServiceCategories {
-  service_categories {
-    id
-    section_id
-    title
-    preview
-  }
-}
-    `;
-
-/**
- * __useGetServiceCategoriesQuery__
- *
- * To run a query within a React component, call `useGetServiceCategoriesQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetServiceCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetServiceCategoriesQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetServiceCategoriesQuery(baseOptions?: Apollo.QueryHookOptions<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>(GetServiceCategoriesDocument, options);
-      }
-export function useGetServiceCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>(GetServiceCategoriesDocument, options);
-        }
-export function useGetServiceCategoriesSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>(GetServiceCategoriesDocument, options);
-        }
-export type GetServiceCategoriesQueryHookResult = ReturnType<typeof useGetServiceCategoriesQuery>;
-export type GetServiceCategoriesLazyQueryHookResult = ReturnType<typeof useGetServiceCategoriesLazyQuery>;
-export type GetServiceCategoriesSuspenseQueryHookResult = ReturnType<typeof useGetServiceCategoriesSuspenseQuery>;
-export type GetServiceCategoriesQueryResult = Apollo.QueryResult<GetServiceCategoriesQuery, GetServiceCategoriesQueryVariables>;
-export const GetServiceSectionsDocument = gql`
-    query GetServiceSections {
-  service_sections {
-    id
-    title
-  }
-}
-    `;
-
-/**
- * __useGetServiceSectionsQuery__
- *
- * To run a query within a React component, call `useGetServiceSectionsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetServiceSectionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetServiceSectionsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetServiceSectionsQuery(baseOptions?: Apollo.QueryHookOptions<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>(GetServiceSectionsDocument, options);
-      }
-export function useGetServiceSectionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>(GetServiceSectionsDocument, options);
-        }
-export function useGetServiceSectionsSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>(GetServiceSectionsDocument, options);
-        }
-export type GetServiceSectionsQueryHookResult = ReturnType<typeof useGetServiceSectionsQuery>;
-export type GetServiceSectionsLazyQueryHookResult = ReturnType<typeof useGetServiceSectionsLazyQuery>;
-export type GetServiceSectionsSuspenseQueryHookResult = ReturnType<typeof useGetServiceSectionsSuspenseQuery>;
-export type GetServiceSectionsQueryResult = Apollo.QueryResult<GetServiceSectionsQuery, GetServiceSectionsQueryVariables>;
 export const GetServiceSectionsFullDocument = gql`
     query GetServiceSectionsFull {
   service_sections {
@@ -7534,6 +7450,7 @@ export const GetServiceSectionsFullDocument = gql`
         title
         price
         description
+        subtitle
       }
     }
   }
@@ -7571,49 +7488,6 @@ export type GetServiceSectionsFullQueryHookResult = ReturnType<typeof useGetServ
 export type GetServiceSectionsFullLazyQueryHookResult = ReturnType<typeof useGetServiceSectionsFullLazyQuery>;
 export type GetServiceSectionsFullSuspenseQueryHookResult = ReturnType<typeof useGetServiceSectionsFullSuspenseQuery>;
 export type GetServiceSectionsFullQueryResult = Apollo.QueryResult<GetServiceSectionsFullQuery, GetServiceSectionsFullQueryVariables>;
-export const GetServiceSubcategoriesDocument = gql`
-    query GetServiceSubcategories {
-  service_subcategories {
-    id
-    category_id
-    title
-    price
-    description
-  }
-}
-    `;
-
-/**
- * __useGetServiceSubcategoriesQuery__
- *
- * To run a query within a React component, call `useGetServiceSubcategoriesQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetServiceSubcategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetServiceSubcategoriesQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetServiceSubcategoriesQuery(baseOptions?: Apollo.QueryHookOptions<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>(GetServiceSubcategoriesDocument, options);
-      }
-export function useGetServiceSubcategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>(GetServiceSubcategoriesDocument, options);
-        }
-export function useGetServiceSubcategoriesSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>(GetServiceSubcategoriesDocument, options);
-        }
-export type GetServiceSubcategoriesQueryHookResult = ReturnType<typeof useGetServiceSubcategoriesQuery>;
-export type GetServiceSubcategoriesLazyQueryHookResult = ReturnType<typeof useGetServiceSubcategoriesLazyQuery>;
-export type GetServiceSubcategoriesSuspenseQueryHookResult = ReturnType<typeof useGetServiceSubcategoriesSuspenseQuery>;
-export type GetServiceSubcategoriesQueryResult = Apollo.QueryResult<GetServiceSubcategoriesQuery, GetServiceSubcategoriesQueryVariables>;
 export const GetServicesDocument = gql`
     query GetServices {
   services {
