@@ -76,8 +76,6 @@
 
       &-wrap {
         position: relative;
-        display: inline-block;
-        max-width: 100%;
         &::after {
           content: "";
           position: absolute;
