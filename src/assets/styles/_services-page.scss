@@ -2,38 +2,60 @@
   &-page {
     padding-top: 150px;
   }
+
   &-tabs {
     padding: 20px 0px 20px 150px;
     border-bottom: 1px solid #006A60;
     margin-bottom: 105px;
-   &__container {
-    flex-wrap: nowrap;
-    display: flex;
-    align-items: center;
-    overflow-x: auto; 
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-}
+
+    &__container {
+      flex-wrap: nowrap;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 5px;
+
+      &::-webkit-scrollbar {
+        height: 2px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 1px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      scrollbar-width: thin; // для Firefox
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    }
+
 
     &__tab {
-        font-family: "Geologica";
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 100%;
-         
-        text-align: center;
-        text-transform: uppercase;
-        color: #006A60;
-        background: transparent;
-        border: none;
-        padding: 18px 30px;
-        white-space: nowrap;
-        cursor: pointer;
-        &.active {
-            border: 1px solid #006A60;
-        }
+      font-family: "Geologica";
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 100%;
+
+      text-align: center;
+      text-transform: uppercase;
+      color: #006A60;
+      background: transparent;
+      border: none;
+      padding: 18px 30px;
+      white-space: nowrap;
+      cursor: pointer;
+
+      &.active {
+        border: 1px solid #006A60;
+      }
     }
   }
+
   &-section {
     padding-bottom: 70px;
 
@@ -48,39 +70,43 @@
       text-align: center;
       margin-bottom: 70px;
       max-width: 560px;
-    margin: 0 auto;
-    background: #fff;
-    z-index: 1;
-       &-wrap {
-       position: relative;
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 50%;
-        height: 1px;
-        background-color: #006a6080;
-        transform: translateY(-50%);
-        right: 0;
-      }
-       &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 50%;
-        height: 1px;
-        background-color: #006a6080;
-        transform: translateY(-50%);
-        left: 0;
-      }
+      margin: 0 auto;
+      background: #fff;
+      z-index: 1;
+
+      &-wrap {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          width: 50%;
+          height: 1px;
+          background-color: #006a6080;
+          transform: translateY(-50%);
+          right: 0;
         }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          width: 50%;
+          height: 1px;
+          background-color: #006a6080;
+          transform: translateY(-50%);
+          left: 0;
+        }
+      }
+
       span {
         font-family: "AnastasiaScript";
         font-weight: 400;
         font-size: clamp(64px, 6vw, 124px);
       }
 
-      
+
 
       &::before {
         left: 0;
@@ -91,101 +117,107 @@
       }
     }
   }
+
   &-category {
     padding: 0 150px;
     margin-bottom: 120px;
+
     &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 30px;
     }
+
     &__title {
-        font-family: "Lora";
-        font-weight: 500;
-        font-size: clamp(20px, 2.5vw, 32px);
-        line-height: 100%;
-         
-        text-transform: uppercase;
-        color: #006A60;
-       
-        span {
+      font-family: "Lora";
+      font-weight: 500;
+      font-size: clamp(20px, 2.5vw, 32px);
+      line-height: 100%;
+      text-transform: uppercase;
+      color: #006A60;
+
+      span {
         font-family: "AnastasiaScript";
         font-weight: 400;
         font-size: clamp(48px, 4vw, 96px);
         line-height: 100%;
-         
         text-transform: uppercase;
+      }
+    }
 
-        }
-    }
     &__button {
-        a {
-            background: #006A60;
-            border: none;
-            font-family: "Geologica";
-            font-weight: 500;
-            font-size: clamp(14px, 1.8vw, 20px);
-            line-height: 100%;
-             
-            text-align: center;
-            text-transform: uppercase;
-            color: #fff;
-            padding: 16px 30px;
-            cursor: pointer;
-        }
+      a {
+        background: #006A60;
+        border: none;
+        font-family: "Geologica";
+        font-weight: 500;
+        font-size: clamp(14px, 1.8vw, 20px);
+        line-height: 100%;
+
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        padding: 16px 30px;
+        cursor: pointer;
+      }
     }
+
     &__content {
-        display: flex;
-        gap: 10px;
+      display: flex;
+      gap: 10px;
     }
+
     &__list {
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-        padding-top: 5px;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      padding-top: 5px;
     }
+
     &__more {
-        margin-top: 20px;
-        button {
-            border: 1px solid #006A60;
-            background: transparent;
-            width: 100%;
-            font-family: "Geologica";
-            font-weight: 500;
-            font-size: clamp(14px, 1.8vw, 20px);
-            line-height: 100%;
-             
-            text-transform: uppercase;
-            color: #006A60;
-            padding: 16px 0;
-            cursor: pointer;
-        }
+      margin-top: 20px;
+
+      button {
+        border: 1px solid #006A60;
+        background: transparent;
+        width: 100%;
+        font-family: "Geologica";
+        font-weight: 500;
+        font-size: clamp(14px, 1.8vw, 20px);
+        line-height: 100%;
+
+        text-transform: uppercase;
+        color: #006A60;
+        padding: 16px 0;
+        cursor: pointer;
+      }
     }
   }
+
   &-accordion {
     margin-bottom: 20px;
     border-bottom: 1px solid #006A6080;
     cursor: pointer;
+
     &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 20px 20px;
     }
+
     &__title {
-        font-family: "Lora";
-        font-weight: 400;
-        font-size: clamp(18px, 2.5vw, 32px);
-        line-height: 100%;
-        color: #000;
-        display: flex;
-        flex-direction: column;
-        &-wrap {
-          position: relative;
-        }
+      font-family: "Lora";
+      font-weight: 400;
+      font-size: clamp(18px, 2.5vw, 32px);
+      line-height: 100%;
+      color: #000;
+      display: flex;
+      flex-direction: column;
     }
+
     &__subtitle {
       font-family: "Geologica";
       font-weight: 400;
@@ -194,43 +226,54 @@
       color: #364A43;
       padding-top: 5px;
     }
+
     &__price {
-        font-family: "Lora";
-        font-weight: 400;
-        font-size: clamp(16px, 2vw, 24px);
-        line-height: 100%;
-         
-        text-align: right;
-        color: #000;
+      font-family: "Lora";
+      font-weight: 400;
+      font-size: clamp(16px, 2vw, 24px);
+      line-height: 100%;
+
+      text-align: right;
+      color: #000;
     }
+
     &__description {
-        font-family: "Geologica";
-        font-weight: 400;
-        font-size: clamp(10px, 1.5vw, 18px);
-        line-height: 100%;
-         
-        color: #364A43;
-        padding: 0 0 20px 20px;
-        max-width: 95%;
+      font-family: "Geologica";
+      font-weight: 400;
+      font-size: clamp(10px, 1.5vw, 18px);
+      line-height: 100%;
+
+      color: #364A43;
+      padding: 0 0 20px 20px;
+      max-width: 95%;
     }
   }
 }
+
+.services-accordion__title-txt {
+  position: relative;
+  max-width: max-content;
+}
+
 .services-category__button-mobile {
   display: none;
 }
+
 .services-accordion__icon {
   display: inline-block;
   position: absolute;
-      top: 10px;
-    right: -30px;
+  top: -5px;
+  right: -30px;
 }
 
 .services-accordion__icon.rotated {
   transform: rotate(180deg);
-    padding-right: 20px;
+  top: 0;
 }
+
 .services-category__image-wrapper {
   width: 30%;
+
   img {
     width: 100%;
   }

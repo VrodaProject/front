@@ -58,11 +58,9 @@ const AccordionItem: FC<SubCategory> = ({ title, price, description, subtitle })
       <div className="services-accordion__header">
         <div className="services-accordion__title-wrap">
 <h4 className="services-accordion__title">
-          {title}
-          {subtitle && <span className="services-accordion__subtitle">{subtitle}</span>}
-      
-        </h4>
-             <span className={`services-accordion__icon ${open ? "rotated" : ""}`}>
+          <span className="services-accordion__title-txt">
+            {title}
+         <span className={`services-accordion__icon ${open ? "rotated" : ""}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
@@ -79,6 +77,10 @@ const AccordionItem: FC<SubCategory> = ({ title, price, description, subtitle })
               />
             </svg>
           </span>
+          </span>
+          {subtitle && <span className="services-accordion__subtitle">{subtitle}</span>}
+        </h4>
+          
         </div>
         
         <span className="services-accordion__price">{price}</span>
@@ -152,16 +154,20 @@ export const ServicesPage: FC = () => {
           (category: typeof section.service_categories[number]) => ({
             id: category.id,
             title: category.title,
-            image: (() => {
+               image: (() => {
               try {
                 const parsed = JSON.parse(category.preview);
-                return parsed.public_id
-                  ? `https://res.cloudinary.com/de9w91bzq/image/upload/${parsed.public_id}.jpg`
-                  : "";
-              } catch {
+                const { public_id } = parsed;
+                if (!public_id) return "";
+
+                // Повертаємо без .jpg, Cloudinary сам віддасть правильний формат
+                return `https://res.cloudinary.com/de9w91bzq/image/upload/${public_id}`;
+              } catch (err) {
+                console.warn("Парсинг preview не вдалий:", category.preview, err);
                 return "";
               }
             })(),
+
 
             subCategories: category.service_subcategories.map(
               (sub: typeof category.service_subcategories[number]) => ({
