@@ -123,6 +123,12 @@ background: #006A60;
 .header-green .header__button:hover {
     border-color: #fff;
 }
+.header-green.header__sticky .header__address p {
+    color: #fff !important;
+}
+.header-green.header__sticky .header__phone span {
+      color: #fff !important;
+}
 @media (max-width: 1440px) {
   .header-green {
         background: #006A60 !important;
