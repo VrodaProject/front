@@ -152,18 +152,16 @@ export const ServicesPage: FC = () => {
           (category: typeof section.service_categories[number]) => ({
             id: category.id,
             title: category.title,
-           image: (() => {
-            try {
-              const parsed = JSON.parse(category.preview);
-              if (parsed.public_id && parsed.format) {
-                return `https://res.cloudinary.com/de9w91bzq/image/upload/${parsed.public_id}.${parsed.format}`;
+            image: (() => {
+              try {
+                const parsed = JSON.parse(category.preview);
+                return parsed.public_id
+                  ? `https://res.cloudinary.com/de9w91bzq/image/upload/${parsed.public_id}.jpg`
+                  : "";
+              } catch {
+                return "";
               }
-              return "";
-            } catch {
-              return "";
-            }
-          })(),
-
+            })(),
 
             subCategories: category.service_subcategories.map(
               (sub: typeof category.service_subcategories[number]) => ({
