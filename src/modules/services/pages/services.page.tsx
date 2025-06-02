@@ -155,8 +155,8 @@ export const ServicesPage: FC = () => {
             image: (() => {
               try {
                 const parsed = JSON.parse(category.preview);
-                return parsed.public_id
-                  ? `https://res.cloudinary.com/de9w91bzq/image/upload/${parsed.public_id}.jpg`
+                return parsed.public_id && parsed.format
+                  ? `https://res.cloudinary.com/de9w91bzq/image/upload/${parsed.public_id}.${parsed.format}`
                   : "";
               } catch {
                 return "";
