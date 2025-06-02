@@ -57,29 +57,25 @@ const AccordionItem: FC<SubCategory> = ({ title, price, description, subtitle })
     >
       <div className="services-accordion__header">
         <div className="services-accordion__title-wrap">
-<h4 className="services-accordion__title">
-          <span className="services-accordion__title-txt">
-            {title}
-         <span className={`services-accordion__icon ${open ? "rotated" : ""}`}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="8"
-              viewBox="0 0 14 8"
-              fill="none"
-            >
-              <path
-                d="M13 1L7 7L1 1"
-                stroke="#006A60"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-          </span>
-          {subtitle && <span className="services-accordion__subtitle">{subtitle}</span>}
-        </h4>
+          <h4 className="services-accordion__title">
+            <div className="services-accordion__title-txt">
+              <span className="services-accordion__text-wrap">
+                <span className="services-accordion__text">
+                  {title}
+                </span>
+                <span className={`services-accordion__icon ${open ? "rotated" : ""}`}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="18" r="18" fill="#006A60" />
+                    <path d="M23.333 18L17.9997 23.3333L12.6663 18" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M23.333 12.6667L17.9997 18L12.6663 12.6667" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </span>
+            </div>
+
+            {subtitle && <span className="services-accordion__subtitle">{subtitle}</span>}
+          </h4>
+
           
         </div>
         

@@ -76,7 +76,8 @@
 
       &-wrap {
         position: relative;
-
+        display: inline-block;
+        max-width: 100%;
         &::after {
           content: "";
           position: absolute;
@@ -250,22 +251,30 @@
   }
 }
 
-.services-accordion__title-txt {
-  position: relative;
-  max-width: max-content;
-}
-
 .services-category__button-mobile {
   display: none;
 }
-
+.services-accordion__text {
+  display: inline;
+}
 .services-accordion__icon {
   display: inline-block;
-  position: absolute;
-  top: -5px;
-  right: -30px;
-}
+  vertical-align: middle;
+  margin-left: 8px;
 
+}
+.services-accordion:hover .services-accordion__icon {
+  svg {
+     border: 1px solid #006A60;
+     border-radius: 50%;
+    circle {
+      fill: transparent !important;
+    }
+    path {
+      stroke: #006A60;
+    }
+  }
+} 
 .services-accordion__icon.rotated {
   transform: rotate(180deg);
   top: 0;
