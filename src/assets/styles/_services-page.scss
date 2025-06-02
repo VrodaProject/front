@@ -6,8 +6,13 @@
   &-tabs {
     padding: 20px 0px 20px 150px;
     border-bottom: 1px solid #006A60;
-    margin-bottom: 105px;
-
+    position: fixed;
+    background: #fff;
+    z-index: 999;
+    top: 130px;
+    &-divider {
+    margin-bottom: 210px;
+    }
     &__container {
       flex-wrap: nowrap;
       display: flex;

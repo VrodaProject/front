@@ -14,7 +14,7 @@ interface SubCategory {
   title: string;
   price: string;
   description: string;
-  subtitle?: string | null; // додано поле subtitle
+  subtitle?: string | null;
 }
 
 interface Category {
@@ -156,7 +156,6 @@ export const ServicesPage: FC = () => {
                 const { public_id } = parsed;
                 if (!public_id) return "";
 
-                // Повертаємо без .jpg, Cloudinary сам віддасть правильний формат
                 return `https://res.cloudinary.com/de9w91bzq/image/upload/${public_id}`;
               } catch (err) {
                 console.warn("Парсинг preview не вдалий:", category.preview, err);
@@ -171,7 +170,7 @@ export const ServicesPage: FC = () => {
                 title: sub.title,
                 price: sub.price,
                 description: sub.description,
-                subtitle: sub.subtitle, // передаємо subtitle сюди
+                subtitle: sub.subtitle, 
               })
             ),
           })
@@ -212,7 +211,7 @@ export const ServicesPage: FC = () => {
           ))}
         </div>
       </div>
-
+       <div className="services-tabs-divider"></div>   
       {sections.map((section) => (
         <div
           key={section.id}

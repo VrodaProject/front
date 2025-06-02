@@ -556,13 +556,6 @@
     .services-page {
         padding-top: 55px;
     }
-
-    .services-tabs {
-        padding-bottom: 10px;
-        padding-top: 15px;
-        margin-bottom: 50px;
-    }
-
     .services-category {
         margin-bottom: 60px;
     }
@@ -598,6 +591,7 @@
 }
 
 @media(max-width:992px) {
+
     .services-accordion__icon {
         svg {
             width: 24px;
@@ -706,7 +700,12 @@
             }
         }
     }
-
+    .services-tabs {
+        top:60px;
+    }
+    .services-tabs-divider {
+        margin-bottom: 130px;
+    }
     .hero {
         height: 100%;
 
