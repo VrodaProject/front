@@ -192,25 +192,30 @@ export const ServicesPage: FC = () => {
         <title>Послуги</title>
       </Helmet>
 
-      <div className="services-tabs">
-        <div className="services-tabs__container">
-          <button
-            className={`services-tabs__tab ${activeTab === null ? "active" : ""}`}
-            onClick={showAllSections}
-          >
-            Усі послуги
-          </button>
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              className={`services-tabs__tab ${activeTab === section.id ? "active" : ""}`}
-              onClick={() => showSection(section.id)}
-            >
-              {section.title}
-            </button>
-          ))}
-        </div>
+  <div className="services-tabs">
+  <div className="services-tabs__container">
+    <div
+      className={`services-tabs__tab ${activeTab === null ? "active" : ""}`}
+      onClick={showAllSections}
+      role="button"
+      tabIndex={0}
+    >
+      Усі послуги
+    </div>
+    {sections.map((section) => (
+      <div
+        key={section.id}
+        className={`services-tabs__tab ${activeTab === section.id ? "active" : ""}`}
+        onClick={() => showSection(section.id)}
+        role="button"
+        tabIndex={0}
+      >
+        {section.title}
       </div>
+    ))}
+  </div>
+</div>
+
        <div className="services-tabs-divider"></div>   
       {sections.map((section) => (
         <div

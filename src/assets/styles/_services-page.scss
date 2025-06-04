@@ -6,46 +6,48 @@
   &-tabs {
     padding: 20px 0px 20px 150px;
     border-bottom: 1px solid #006A60;
-    position: fixed;
+    position: sticky;
     background: #fff;
     z-index: 20;
     top: 130px;
     &-divider {
     margin-bottom: 210px;
     }
-    &__container {
-      flex-wrap: nowrap;
-      display: flex;
-      align-items: center;
-      overflow-x: auto;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 5px;
+&__container {
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 5px;
+  touch-action: pan-x; // добавляем это свойство
 
-      &::-webkit-scrollbar {
-        height: 2px;
-      }
+  &::-webkit-scrollbar {
+    height: 2px;
+  }
 
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 1px;
-      }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 1px;
+  }
 
-      &::-webkit-scrollbar-track {
-        background: transparent;
-      }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-      scrollbar-width: thin; // для Firefox
-      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-    }
+  scrollbar-width: thin; // для Firefox
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
 
 
     &__tab {
+      flex: 0 0 auto; 
       font-family: "Geologica";
       font-weight: 500;
       font-size: 20px;
       line-height: 100%;
-
+  pointer-events: auto;
       text-align: center;
       text-transform: uppercase;
       color: #006A60;
