@@ -31,19 +31,22 @@ export default function Services() {
     const target = e.currentTarget as HTMLAnchorElement;
     const href = target.getAttribute('href');
     
-    if (href && href.startsWith('#')) {
-      e.preventDefault();
-      const targetElement = document.querySelector(href);
-      if (targetElement) {
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
+   if (href && href.startsWith('#')) {
+  e.preventDefault();
+  const targetElement = document.querySelector(href);
+  if (targetElement) {
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+
+    window.history.pushState(null, '', href);
+  }
+}
+
   };
 
   useLayoutEffect(() => {
@@ -199,14 +202,15 @@ export default function Services() {
               </SwiperSlide>,
               index === 1 && (
                 <SwiperSlide key="all-services">
-                  <a 
-                    className="services__slide services__slide-desktop" 
-                    href="#cta" 
-                    aria-label="Перейти до всіх послуг"
-                    onClick={(e) => handleSmoothScroll(e)}
-                  >
-                    <div className="services__slide_link">Усі послуги</div>
-                  </a>
+                <a 
+            className="services__slide services__slide-desktop" 
+            href="/services" 
+            aria-label="Перейти до всіх послуг"
+          >
+            <div className="services__slide_link">Усі послуги</div>
+          </a>
+
+
                 </SwiperSlide>
               )
             ])}
@@ -242,9 +246,9 @@ export default function Services() {
           </div>
           <div className="services__link">
             <a 
-              href="#cta" 
+              href="/services" 
               aria-label="Перейти до всіх послуг"
-              onClick={(e) => handleSmoothScroll(e)}
+        
             >
               Усі послуги
             </a>
