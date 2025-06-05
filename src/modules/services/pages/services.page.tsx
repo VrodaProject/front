@@ -177,14 +177,17 @@ export const ServicesPage: FC = () => {
         ),
       })
     ) || [];
+    
+const showAllSections = () => {
+  setActiveTab(null);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
-  const showAllSections = () => {
-    setActiveTab(null);
-  };
+const showSection = (sectionId: string) => {
+  setActiveTab(sectionId);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
-  const showSection = (sectionId: string) => {
-    setActiveTab(sectionId);
-  };
 
   return (
     <div className="services-page">
