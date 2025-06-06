@@ -43,16 +43,21 @@ const wrapFirstLetter = (text: string) => {
 };
 
 const AccordionItem: FC<SubCategory> = ({ title, price, description, subtitle }) => {
+  const hasDescription = !!description?.trim();
   const [open, setOpen] = useState(false);
+
+  const toggleOpen = () => {
+    if (hasDescription) setOpen(!open);
+  };
 
   return (
     <div
-      className={`services-accordion ${open ? "open" : ""}`}
-      onClick={() => setOpen(!open)}
+      className={`services-accordion ${open ? "open" : ""} ${!hasDescription ? "disabled" : ""}`}
+      onClick={toggleOpen}
       role="button"
-      tabIndex={0}
+      tabIndex={hasDescription ? 0 : -1}
       onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") setOpen(!open);
+        if ((e.key === "Enter" || e.key === " ") && hasDescription) toggleOpen();
       }}
     >
       <div className="services-accordion__header">
@@ -60,31 +65,28 @@ const AccordionItem: FC<SubCategory> = ({ title, price, description, subtitle })
           <h4 className="services-accordion__title">
             <div className="services-accordion__title-txt">
               <span className="services-accordion__text-wrap">
-                <span className="services-accordion__text">
-                  {title}
-                </span>
-                <span className={`services-accordion__icon ${open ? "rotated" : ""}`}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                    <circle cx="18" cy="18" r="18" fill="#006A60" />
-                    <path d="M23.333 18L17.9997 23.3333L12.6663 18" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M23.333 12.6667L17.9997 18L12.6663 12.6667" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </span>
+                <span className="services-accordion__text">{title}</span>
+                {hasDescription && (
+                  <span className={`services-accordion__icon ${open ? "rotated" : ""}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                      <circle cx="18" cy="18" r="18" fill="#006A60" />
+                      <path d="M23.333 18L17.9997 23.3333L12.6663 18" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                      <path d="M23.333 12.6667L17.9997 18L12.6663 12.6667" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                )}
               </span>
             </div>
-
             {subtitle && <span className="services-accordion__subtitle">{subtitle}</span>}
           </h4>
-
-          
         </div>
-        
         <span className="services-accordion__price">{price}</span>
       </div>
       {open && <p className="services-accordion__description">{description}</p>}
     </div>
   );
 };
+
 
 const CategoryBlock: FC<{ category: Category }> = ({ category }) => {
   const [visibleCount, setVisibleCount] = useState(7);
