@@ -6,6 +6,7 @@ import Map from "@app/modules/main/components/map/map.component";
 
 export const Footer = () => {
   const navigate = useNavigate();
+  const currentYear = new Date().getFullYear();
 
   const handleScrollTo = (id: string) => {
     if (window.location.pathname === "/") {
@@ -15,7 +16,7 @@ export const Footer = () => {
       }
     } else {
       navigate(`/#${id}`);
-      
+
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
@@ -36,6 +37,7 @@ export const Footer = () => {
                 <Link className="footer__logo" to="/" aria-label="На головну сторінку">
                   <img src={logoImage} alt="Салон краси Врода логотип" />
                 </Link>
+
                 <ul className="footer__menu">
                   <li className="footer__menu_item">
                     <button
@@ -45,6 +47,7 @@ export const Footer = () => {
                       Послуги
                     </button>
                   </li>
+
                   <li className="footer__menu_item">
                     <button
                       className="footer__menu_link"
@@ -53,6 +56,7 @@ export const Footer = () => {
                       Кейси
                     </button>
                   </li>
+
                   <li className="footer__menu_item">
                     <button
                       className="footer__menu_link"
@@ -61,6 +65,7 @@ export const Footer = () => {
                       Відгуки
                     </button>
                   </li>
+
                   <li className="footer__menu_item">
                     <button
                       className="footer__menu_link"
@@ -71,6 +76,7 @@ export const Footer = () => {
                   </li>
                 </ul>
               </div>
+
               <div className="footer__review">
                 <p>Ваш відгук важливий для нас</p>
                 <a
@@ -83,17 +89,20 @@ export const Footer = () => {
                 </a>
               </div>
             </div>
+
             <div className="footer__content_bottom">
               <div className="footer__column">
                 <div className="footer__link_wrap">
                   <Link className="footer__link" to="/privacy-policy">
                     Політика конфіденційності
                   </Link>
+
                   <Link className="footer__link" to="/data-processing-procedure">
                     Порядок обробки даних
                   </Link>
                 </div>
               </div>
+
               <div className="footer__column">
                 <div className="footer__social">
                   <div className="footer__social_wrap">
@@ -105,6 +114,7 @@ export const Footer = () => {
                     >
                       <img src={instIcon} alt="Врода Instagram" />
                     </a>
+
                     <a
                       href="https://www.facebook.com/vroda.club.estetic"
                       target="_blank"
@@ -114,14 +124,16 @@ export const Footer = () => {
                       <img src={facebookIcon} alt="Врода Facebook" />
                     </a>
                   </div>
+
                   <p className="footer__social_text">
-                  Підписуйтесь, щоб бути в курсі усіх новинок!
+                    Підписуйтесь, щоб бути в курсі усіх новинок!
                   </p>
                 </div>
               </div>
+
               <div className="footer__column">
                 <p className="footer__copyright">
-                  © 2025 VRODA. Всі права захищені.
+                  © {currentYear} VRODA. Всі права захищені.
                 </p>
               </div>
             </div>
